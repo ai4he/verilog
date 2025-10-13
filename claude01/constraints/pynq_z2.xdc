@@ -1,55 +1,41 @@
-####################################################################################
-# Constraints file for PYNQ Z2 Board
-# Multi-Base Arithmetic Router Benchmark
-####################################################################################
+## PYNQ Z2 Board Constraints File
+## Multi-Base Arithmetic Router Project
 
-# System Clock (125 MHz)
+## Clock Signal - 125 MHz
 set_property -dict {PACKAGE_PIN H16 IOSTANDARD LVCMOS33} [get_ports clk]
 create_clock -period 8.000 -name sys_clk_pin -waveform {0.000 4.000} -add [get_ports clk]
 
-# Center Button (BTNC) - Reset
-set_property -dict {PACKAGE_PIN D19 IOSTANDARD LVCMOS33} [get_ports btnc]
+## Buttons
+# BTN0 - Reset (active low)
+set_property -dict {PACKAGE_PIN D19 IOSTANDARD LVCMOS33} [get_ports reset_n]
+# BTN1 - Start Benchmark
+set_property -dict {PACKAGE_PIN D20 IOSTANDARD LVCMOS33} [get_ports start_btn]
 
-# LEDs (LD0 to LD3)
-# LED0: Base-2 (Binary) Winner
+## Standard LEDs (LD0-LD3)
+# LED0 - Base-2 Winner
 set_property -dict {PACKAGE_PIN R14 IOSTANDARD LVCMOS33} [get_ports {led[0]}]
-
-# LED1: Base-10 (Decimal/BCD) Winner
+# LED1 - Base-10 Winner
 set_property -dict {PACKAGE_PIN P14 IOSTANDARD LVCMOS33} [get_ports {led[1]}]
-
-# LED2: Base-12 (Duodecimal) Winner
+# LED2 - Base-12 Winner
 set_property -dict {PACKAGE_PIN N16 IOSTANDARD LVCMOS33} [get_ports {led[2]}]
-
-# LED3: Router (Intelligent Selection) Winner
+# LED3 - Router Winner
 set_property -dict {PACKAGE_PIN M14 IOSTANDARD LVCMOS33} [get_ports {led[3]}]
 
-####################################################################################
-# Timing Constraints
-####################################################################################
+## RGB LEDs
+# RGB LED 4 (LD4)
+set_property -dict {PACKAGE_PIN L15 IOSTANDARD LVCMOS33} [get_ports {rgb_led[0]}]
+set_property -dict {PACKAGE_PIN G17 IOSTANDARD LVCMOS33} [get_ports {rgb_led[1]}]
+set_property -dict {PACKAGE_PIN N15 IOSTANDARD LVCMOS33} [get_ports {rgb_led[2]}]
+# RGB LED 5 (LD5)
+set_property -dict {PACKAGE_PIN G14 IOSTANDARD LVCMOS33} [get_ports {rgb_led[3]}]
 
-# Input delays for button
-set_input_delay -clock [get_clocks sys_clk_pin] -min 0.000 [get_ports btnc]
-set_input_delay -clock [get_clocks sys_clk_pin] -max 2.000 [get_ports btnc]
-
-# Output delays for LEDs
-set_output_delay -clock [get_clocks sys_clk_pin] -min -1.000 [get_ports {led[*]}]
-set_output_delay -clock [get_clocks sys_clk_pin] -max 2.000 [get_ports {led[*]}]
-
-# False paths for asynchronous inputs
-set_false_path -from [get_ports btnc] -to [all_registers]
-
-# False paths for LED outputs (they're just indicators)
-set_false_path -from [all_registers] -to [get_ports {led[*]}]
-
-####################################################################################
-# Configuration Settings
-####################################################################################
-
-# Configuration bank voltage
-set_property CFGBVS VCCO [current_design]
+## Configuration
 set_property CONFIG_VOLTAGE 3.3 [current_design]
+set_property CFGBVS VCCO [current_design]
 
-# Bitstream settings
-set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
-set_property BITSTREAM.CONFIG.CONFIGRATE 50 [current_design]
-set_property CONFIG_MODE SPIx4 [current_design]
+## Timing Constraints
+# False paths for asynchronous inputs
+set_false_path -from [get_ports reset_n]
+set_false_path -from [get_ports start_btn]
+set_false_path -to [get_ports {led[*]}]
+set_false_path -to [get_ports {rgb_led[*]}]
