@@ -13,8 +13,8 @@ module bench_engine #(
   output wire [31:0] t_cond0, t_cond1, t_cond2, t_cond3 // cycle counts (optional, for debug)
 );
 
-  // 9 ops in the exact order we'll run
-  reg [3:0] ops [0:8];
+  // 9 ops in the exact order we’ll run
+  reg [3:0]  ops [0:8];
   // Operand pairs (16-bit is fine for demo)
   reg [15:0] opa [0:8];
   reg [15:0] opb [0:8];
@@ -41,11 +41,11 @@ module bench_engine #(
   end
 
   // router instance
-  reg        r_start;
-  reg [1:0]  r_cond;
-  reg [3:0]  r_opcode;
-  reg [15:0] r_a, r_b;
-  wire       r_busy, r_done;
+  reg         r_start;
+  reg  [1:0]  r_cond;
+  reg  [3:0]  r_opcode;
+  reg  [15:0] r_a, r_b;
+  wire        r_busy, r_done;
   wire [31:0] r_result;
 
   router #(
@@ -83,15 +83,19 @@ module bench_engine #(
                       (best_cond==2'd2) ? 4'b0100 :
                                            4'b1000; // cond3 (router)
 
-  // min-of-4
-  always @* begin
-    reg [1:0] idx; reg [31:0] minv;
-    idx = 2'd0; minv = c0;
+  // ---------- FIX: name the comb block so local declarations are legal ----------
+  always @* begin : MINSEL
+    reg [1:0]  idx;
+    reg [31:0] minv;
+
+    idx  = 2'd0;
+    minv = c0;
     if (c1 < minv) begin minv = c1; idx = 2'd1; end
     if (c2 < minv) begin minv = c2; idx = 2'd2; end
     if (c3 < minv) begin minv = c3; idx = 2'd3; end
     best_cond = idx;
   end
+  // ------------------------------------------------------------------------------
 
   always @(posedge clk) begin
     if (rst) begin
