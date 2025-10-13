@@ -1,125 +1,119 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Module: base2_alu
-// Description: Base-2 (Binary) Arithmetic Logic Unit
-//              Optimized for binary operations
-//////////////////////////////////////////////////////////////////////////////////
+// Base-2 ALU (Standard Binary Arithmetic)
+// Optimized for binary operations
 
 module base2_alu (
     input wire clk,
     input wire reset,
     input wire enable,
-    input wire [15:0] operand_a,
-    input wire [15:0] operand_b,
     input wire [3:0] operation,
-    output reg [15:0] result,
-    output reg valid
+    input wire [31:0] operand_a,
+    input wire [31:0] operand_b,
+    output reg [31:0] result,
+    output reg done
 );
 
     // Operation codes
-    localparam OP_ADD = 4'b0000;
-    localparam OP_SUB = 4'b0001;
-    localparam OP_MUL = 4'b0010;
-    localparam OP_DIV = 4'b0011;
-    localparam OP_AND = 4'b0100;
-    localparam OP_OR  = 4'b0101;
-    localparam OP_XOR = 4'b0110;
-    localparam OP_SHL = 4'b0111;
-    localparam OP_SHR = 4'b1000;
-
-    // State machine for multi-cycle operations
-    localparam IDLE = 2'b00;
-    localparam COMPUTE = 2'b01;
-    localparam DONE = 2'b10;
-
-    reg [1:0] state;
+    localparam OP_ADD = 4'd0;
+    localparam OP_SUB = 4'd1;
+    localparam OP_MUL = 4'd2;
+    localparam OP_DIV = 4'd3;
+    localparam OP_AND = 4'd4;
+    localparam OP_OR  = 4'd5;
+    localparam OP_XOR = 4'd6;
+    localparam OP_SHL = 4'd7;
+    localparam OP_SHR = 4'd8;
+    
     reg [31:0] temp_result;
-    reg [4:0] cycle_count;
-
-    always @(posedge clk) begin
+    reg [2:0] cycle_count;
+    
+    always @(posedge clk or posedge reset) begin
         if (reset) begin
-            state <= IDLE;
-            result <= 0;
-            valid <= 0;
-            temp_result <= 0;
-            cycle_count <= 0;
-        end else begin
-            case (state)
-                IDLE: begin
-                    valid <= 0;
-                    if (enable) begin
-                        state <= COMPUTE;
-                        cycle_count <= 0;
+            result <= 32'd0;
+            done <= 1'b0;
+            cycle_count <= 3'd0;
+            temp_result <= 32'd0;
+        end else if (enable) begin
+            case (operation)
+                OP_ADD: begin
+                    result <= operand_a + operand_b;
+                    done <= 1'b1;
+                    cycle_count <= 3'd0;
+                end
+                
+                OP_SUB: begin
+                    result <= operand_a - operand_b;
+                    done <= 1'b1;
+                    cycle_count <= 3'd0;
+                end
+                
+                OP_MUL: begin
+                    if (cycle_count == 0) begin
+                        temp_result <= operand_a * operand_b;
+                        cycle_count <= cycle_count + 1;
+                        done <= 1'b0;
+                    end else begin
+                        result <= temp_result;
+                        done <= 1'b1;
+                        cycle_count <= 3'd0;
                     end
                 end
-
-                COMPUTE: begin
-                    case (operation)
-                        OP_ADD: begin
-                            temp_result <= operand_a + operand_b;
-                            state <= DONE;
-                        end
-
-                        OP_SUB: begin
-                            temp_result <= operand_a - operand_b;
-                            state <= DONE;
-                        end
-
-                        OP_MUL: begin
-                            // Binary multiplication - native operation
-                            temp_result <= operand_a * operand_b;
-                            state <= DONE;
-                        end
-
-                        OP_DIV: begin
-                            // Binary division - native operation
+                
+                OP_DIV: begin
+                    if (cycle_count < 3) begin
+                        if (cycle_count == 0) begin
                             if (operand_b != 0)
                                 temp_result <= operand_a / operand_b;
                             else
-                                temp_result <= 0;
-                            state <= DONE;
+                                temp_result <= 32'hFFFFFFFF;
                         end
-
-                        OP_AND: begin
-                            temp_result <= operand_a & operand_b;
-                            state <= DONE;
-                        end
-
-                        OP_OR: begin
-                            temp_result <= operand_a | operand_b;
-                            state <= DONE;
-                        end
-
-                        OP_XOR: begin
-                            temp_result <= operand_a ^ operand_b;
-                            state <= DONE;
-                        end
-
-                        OP_SHL: begin
-                            temp_result <= operand_a << operand_b[3:0];
-                            state <= DONE;
-                        end
-
-                        OP_SHR: begin
-                            temp_result <= operand_a >> operand_b[3:0];
-                            state <= DONE;
-                        end
-
-                        default: begin
-                            temp_result <= 0;
-                            state <= DONE;
-                        end
-                    endcase
+                        cycle_count <= cycle_count + 1;
+                        done <= 1'b0;
+                    end else begin
+                        result <= temp_result;
+                        done <= 1'b1;
+                        cycle_count <= 3'd0;
+                    end
                 end
-
-                DONE: begin
-                    result <= temp_result[15:0];
-                    valid <= 1;
-                    state <= IDLE;
+                
+                OP_AND: begin
+                    result <= operand_a & operand_b;
+                    done <= 1'b1;
+                    cycle_count <= 3'd0;
                 end
-
-                default: state <= IDLE;
+                
+                OP_OR: begin
+                    result <= operand_a | operand_b;
+                    done <= 1'b1;
+                    cycle_count <= 3'd0;
+                end
+                
+                OP_XOR: begin
+                    result <= operand_a ^ operand_b;
+                    done <= 1'b1;
+                    cycle_count <= 3'd0;
+                end
+                
+                OP_SHL: begin
+                    result <= operand_a << operand_b[4:0];
+                    done <= 1'b1;
+                    cycle_count <= 3'd0;
+                end
+                
+                OP_SHR: begin
+                    result <= operand_a >> operand_b[4:0];
+                    done <= 1'b1;
+                    cycle_count <= 3'd0;
+                end
+                
+                default: begin
+                    result <= 32'd0;
+                    done <= 1'b1;
+                    cycle_count <= 3'd0;
+                end
             endcase
+        end else begin
+            done <= 1'b0;
+            cycle_count <= 3'd0;
         end
     end
 
