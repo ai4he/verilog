@@ -1,5 +1,5 @@
-// Benchmark Controller
-// Executes 9 operations under 4 different conditions
+// Benchmark Controller - REVISED
+// Executes 9 operations under 4 different conditions with proper cycle counting
 
 module benchmark_controller (
     input wire clk,
@@ -14,16 +14,23 @@ module benchmark_controller (
 );
 
     // State machine
-    localparam IDLE = 3'd0;
-    localparam COND1 = 3'd1;
-    localparam COND2 = 3'd2;
-    localparam COND3 = 3'd3;
-    localparam COND4 = 3'd4;
-    localparam COMPARE = 3'd5;
+    localparam IDLE = 4'd0;
+    localparam INIT_COND1 = 4'd1;
+    localparam RUN_COND1 = 4'd2;
+    localparam INIT_COND2 = 4'd3;
+    localparam RUN_COND2 = 4'd4;
+    localparam INIT_COND3 = 4'd5;
+    localparam RUN_COND3 = 4'd6;
+    localparam INIT_COND4 = 4'd7;
+    localparam RUN_COND4 = 4'd8;
+    localparam COMPARE = 4'd9;
+    localparam DONE_STATE = 4'd10;
     
-    reg [2:0] state, next_state;
+    reg [3:0] state;
     reg [3:0] op_counter;
     reg [31:0] timer;
+    reg op_active;
+    reg [7:0] wait_counter;
     
     // ALU control signals
     reg [31:0] operand_a, operand_b;
@@ -31,7 +38,6 @@ module benchmark_controller (
     reg [1:0] base_select;
     wire [31:0] alu_result;
     wire alu_done;
-    reg alu_enable;
     
     // Test data
     reg [31:0] test_a [0:8];
@@ -75,17 +81,10 @@ module benchmark_controller (
         .done(alu_done)
     );
     
-    // State register
-    always @(posedge clk or posedge reset) begin
-        if (reset)
-            state <= IDLE;
-        else
-            state <= next_state;
-    end
-    
-    // Next state logic and operations
+    // Main state machine with proper cycle counting
     always @(posedge clk or posedge reset) begin
         if (reset) begin
+            state <= IDLE;
             op_counter <= 4'd0;
             timer <= 32'd0;
             cycle_count_cond1 <= 32'd0;
@@ -98,125 +97,192 @@ module benchmark_controller (
             operand_b <= 32'd0;
             alu_op <= 4'd0;
             base_select <= 2'd0;
-            next_state <= IDLE;
+            op_active <= 1'b0;
+            wait_counter <= 8'd0;
         end else begin
             case (state)
                 IDLE: begin
                     done <= 1'b0;
+                    op_counter <= 4'd0;
+                    timer <= 32'd0;
+                    op_active <= 1'b0;
+                    
                     if (start) begin
-                        next_state <= COND1;
-                        op_counter <= 4'd0;
-                        timer <= 32'd0;
-                    end else begin
-                        next_state <= IDLE;
+                        state <= INIT_COND1;
                     end
                 end
                 
-                COND1: begin // All operations on base-2
+                // ==================== CONDITION 1: All Base-2 ====================
+                INIT_COND1: begin
+                    op_counter <= 4'd0;
+                    timer <= 32'd0;
+                    op_active <= 1'b0;
+                    state <= RUN_COND1;
+                end
+                
+                RUN_COND1: begin
                     if (op_counter < 9) begin
-                        operand_a <= test_a[op_counter];
-                        operand_b <= test_b[op_counter];
-                        alu_op <= op_counter;
-                        base_select <= 2'd0; // Base-2
-                        timer <= timer + 1;
-                        
-                        if (alu_done)
-                            op_counter <= op_counter + 1;
-                        
-                        next_state <= COND1;
+                        if (!op_active) begin
+                            // Start new operation
+                            operand_a <= test_a[op_counter];
+                            operand_b <= test_b[op_counter];
+                            alu_op <= op_counter;
+                            base_select <= 2'd0; // Base-2
+                            op_active <= 1'b1;
+                            wait_counter <= 8'd0;
+                        end else begin
+                            // Count cycles while operation runs
+                            timer <= timer + 1;
+                            wait_counter <= wait_counter + 1;
+                            
+                            // Wait for operation to complete or timeout
+                            if (alu_done || wait_counter > 50) begin
+                                op_active <= 1'b0;
+                                op_counter <= op_counter + 1;
+                            end
+                        end
                     end else begin
                         cycle_count_cond1 <= timer;
-                        next_state <= COND2;
-                        op_counter <= 4'd0;
-                        timer <= 32'd0;
+                        state <= INIT_COND2;
                     end
                 end
                 
-                COND2: begin // All operations on base-10
+                // ==================== CONDITION 2: All Base-10 ====================
+                INIT_COND2: begin
+                    op_counter <= 4'd0;
+                    timer <= 32'd0;
+                    op_active <= 1'b0;
+                    state <= RUN_COND2;
+                end
+                
+                RUN_COND2: begin
                     if (op_counter < 9) begin
-                        operand_a <= test_a[op_counter];
-                        operand_b <= test_b[op_counter];
-                        alu_op <= op_counter;
-                        base_select <= 2'd1; // Base-10
-                        timer <= timer + 1;
-                        
-                        if (alu_done)
-                            op_counter <= op_counter + 1;
-                        
-                        next_state <= COND2;
+                        if (!op_active) begin
+                            operand_a <= test_a[op_counter];
+                            operand_b <= test_b[op_counter];
+                            alu_op <= op_counter;
+                            base_select <= 2'd1; // Base-10
+                            op_active <= 1'b1;
+                            wait_counter <= 8'd0;
+                        end else begin
+                            timer <= timer + 1;
+                            wait_counter <= wait_counter + 1;
+                            
+                            if (alu_done || wait_counter > 50) begin
+                                op_active <= 1'b0;
+                                op_counter <= op_counter + 1;
+                            end
+                        end
                     end else begin
                         cycle_count_cond2 <= timer;
-                        next_state <= COND3;
-                        op_counter <= 4'd0;
-                        timer <= 32'd0;
+                        state <= INIT_COND3;
                     end
                 end
                 
-                COND3: begin // All operations on base-12
+                // ==================== CONDITION 3: All Base-12 ====================
+                INIT_COND3: begin
+                    op_counter <= 4'd0;
+                    timer <= 32'd0;
+                    op_active <= 1'b0;
+                    state <= RUN_COND3;
+                end
+                
+                RUN_COND3: begin
                     if (op_counter < 9) begin
-                        operand_a <= test_a[op_counter];
-                        operand_b <= test_b[op_counter];
-                        alu_op <= op_counter;
-                        base_select <= 2'd2; // Base-12
-                        timer <= timer + 1;
-                        
-                        if (alu_done)
-                            op_counter <= op_counter + 1;
-                        
-                        next_state <= COND3;
+                        if (!op_active) begin
+                            operand_a <= test_a[op_counter];
+                            operand_b <= test_b[op_counter];
+                            alu_op <= op_counter;
+                            base_select <= 2'd2; // Base-12
+                            op_active <= 1'b1;
+                            wait_counter <= 8'd0;
+                        end else begin
+                            timer <= timer + 1;
+                            wait_counter <= wait_counter + 1;
+                            
+                            if (alu_done || wait_counter > 50) begin
+                                op_active <= 1'b0;
+                                op_counter <= op_counter + 1;
+                            end
+                        end
                     end else begin
                         cycle_count_cond3 <= timer;
-                        next_state <= COND4;
-                        op_counter <= 4'd0;
-                        timer <= 32'd0;
+                        state <= INIT_COND4;
                     end
                 end
                 
-                COND4: begin // Router: optimal base per operation
+                // ==================== CONDITION 4: Router (Optimal) ====================
+                INIT_COND4: begin
+                    op_counter <= 4'd0;
+                    timer <= 32'd0;
+                    op_active <= 1'b0;
+                    state <= RUN_COND4;
+                end
+                
+                RUN_COND4: begin
                     if (op_counter < 9) begin
-                        operand_a <= test_a[op_counter];
-                        operand_b <= test_b[op_counter];
-                        alu_op <= op_counter;
-                        
-                        // Route to optimal base
-                        if (op_counter < 3)
-                            base_select <= 2'd0; // base-2
-                        else if (op_counter < 6)
-                            base_select <= 2'd1; // base-10
-                        else
-                            base_select <= 2'd2; // base-12
-                        
-                        timer <= timer + 1;
-                        
-                        if (alu_done)
-                            op_counter <= op_counter + 1;
-                        
-                        next_state <= COND4;
+                        if (!op_active) begin
+                            operand_a <= test_a[op_counter];
+                            operand_b <= test_b[op_counter];
+                            alu_op <= op_counter;
+                            
+                            // Route to optimal base
+                            if (op_counter < 3)
+                                base_select <= 2'd0; // base-2 for ops 0-2
+                            else if (op_counter < 6)
+                                base_select <= 2'd1; // base-10 for ops 3-5
+                            else
+                                base_select <= 2'd2; // base-12 for ops 6-8
+                            
+                            op_active <= 1'b1;
+                            wait_counter <= 8'd0;
+                        end else begin
+                            timer <= timer + 1;
+                            wait_counter <= wait_counter + 1;
+                            
+                            if (alu_done || wait_counter > 50) begin
+                                op_active <= 1'b0;
+                                op_counter <= op_counter + 1;
+                            end
+                        end
                     end else begin
                         cycle_count_cond4 <= timer;
-                        next_state <= COMPARE;
+                        state <= COMPARE;
                     end
                 end
                 
+                // ==================== COMPARE & DETERMINE WINNER ====================
                 COMPARE: begin
-                    // Find winner (lowest cycle count)
-                    if (cycle_count_cond1 <= cycle_count_cond2 && 
-                        cycle_count_cond1 <= cycle_count_cond3 && 
-                        cycle_count_cond1 <= cycle_count_cond4)
-                        winner <= 2'b00;
-                    else if (cycle_count_cond2 <= cycle_count_cond3 && 
-                             cycle_count_cond2 <= cycle_count_cond4)
-                        winner <= 2'b01;
-                    else if (cycle_count_cond3 <= cycle_count_cond4)
-                        winner <= 2'b10;
-                    else
-                        winner <= 2'b11;
+                    // Find winner with proper comparison (handle ties by priority)
+                    if ((cycle_count_cond1 <= cycle_count_cond2) && 
+                        (cycle_count_cond1 <= cycle_count_cond3) && 
+                        (cycle_count_cond1 <= cycle_count_cond4)) begin
+                        winner <= 2'b00; // Base-2 wins
+                    end
+                    else if ((cycle_count_cond2 <= cycle_count_cond3) && 
+                             (cycle_count_cond2 <= cycle_count_cond4)) begin
+                        winner <= 2'b01; // Base-10 wins
+                    end
+                    else if (cycle_count_cond3 <= cycle_count_cond4) begin
+                        winner <= 2'b10; // Base-12 wins
+                    end
+                    else begin
+                        winner <= 2'b11; // Router wins
+                    end
                     
-                    done <= 1'b1;
-                    next_state <= IDLE;
+                    state <= DONE_STATE;
                 end
                 
-                default: next_state <= IDLE;
+                // ==================== DONE STATE ====================
+                DONE_STATE: begin
+                    done <= 1'b1;
+                    // Stay in this state until reset or new start
+                    if (!start) begin
+                        state <= IDLE;
+                    end
+                end
+                
+                default: state <= IDLE;
             endcase
         end
     end
