@@ -74,31 +74,48 @@ module bench_engine #(
   // cycle accumulator per condition
   reg [31:0] cond_cycle_acc;
 
-  // LED compute: pick minimum time among 4 conditions
+  // ---------- winner compute ----------
   reg [1:0] best_cond;
   wire [31:0] c0=time_cond[0], c1=time_cond[1], c2=time_cond[2], c3=time_cond[3];
 
-  wire [3:0] winner_onehot = (best_cond==2'd0) ? 4'b0001 :
-                             (best_cond==2'd1) ? 4'b0010 :
-                             (best_cond==2'd2) ? 4'b0100 :
-                                                  4'b1000; // cond3 (router)
-
-  // Only show LEDs when the whole benchmark is done; otherwise show nothing
-  assign led_onehot = (st==S_DONE) ? winner_onehot : 4'b0000;
-
-  // ---------- FIX: name the comb block so local declarations are legal ----------
+  // Tie-breaker (if totals are equal): prefer Router > Base12 > Base10 > Base2
+  // This avoids "always LED0" if values tie (<= resolves ties forward).
   always @* begin : MINSEL
     reg [1:0]  idx;
     reg [31:0] minv;
-
-    idx  = 2'd0;
-    minv = c0;
-    if (c1 < minv) begin minv = c1; idx = 2'd1; end
-    if (c2 < minv) begin minv = c2; idx = 2'd2; end
-    if (c3 < minv) begin minv = c3; idx = 2'd3; end
+    idx  = 2'd3;  // start preferring Router
+    minv = c3;
+    if (c2 <= minv) begin minv = c2; idx = 2'd2; end
+    if (c1 <= minv) begin minv = c1; idx = 2'd1; end
+    if (c0 <= minv) begin minv = c0; idx = 2'd0; end
     best_cond = idx;
   end
-  // ------------------------------------------------------------------------------
+
+  wire [3:0] winner_onehot_now = (best_cond==2'd0) ? 4'b0001 :  // cond0 = Base2
+                                 (best_cond==2'd1) ? 4'b0010 :  // cond1 = Base10
+                                 (best_cond==2'd2) ? 4'b0100 :  // cond2 = Base12
+                                                      4'b1000;  // cond3 = Router
+
+  // Latch exactly once when we reach S_DONE
+  reg        winner_valid;
+  reg [3:0]  winner_onehot_latched;
+
+  always @(posedge clk) begin
+    if (rst) begin
+      winner_valid           <= 1'b0;
+      winner_onehot_latched  <= 4'b0000;
+    end else begin
+      if (st==S_DONE && !winner_valid) begin
+        winner_onehot_latched <= winner_onehot_now;
+        winner_valid          <= 1'b1;
+      end
+    end
+  end
+
+  // LEDs off until DONE; then show the latched winner
+  wire [3:0] led_onehot_internal = (winner_valid) ? winner_onehot_latched : 4'b0000;
+
+  assign led_onehot = led_onehot_internal;
 
   always @(posedge clk) begin
     if (rst) begin
