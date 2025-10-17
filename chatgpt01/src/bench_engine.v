@@ -78,10 +78,13 @@ module bench_engine #(
   reg [1:0] best_cond;
   wire [31:0] c0=time_cond[0], c1=time_cond[1], c2=time_cond[2], c3=time_cond[3];
 
-  assign led_onehot = (best_cond==2'd0) ? 4'b0001 :
-                      (best_cond==2'd1) ? 4'b0010 :
-                      (best_cond==2'd2) ? 4'b0100 :
-                                           4'b1000; // cond3 (router)
+  wire [3:0] winner_onehot = (best_cond==2'd0) ? 4'b0001 :
+                             (best_cond==2'd1) ? 4'b0010 :
+                             (best_cond==2'd2) ? 4'b0100 :
+                                                  4'b1000; // cond3 (router)
+
+  // Only show LEDs when the whole benchmark is done; otherwise show nothing
+  assign led_onehot = (st==S_DONE) ? winner_onehot : 4'b0000;
 
   // ---------- FIX: name the comb block so local declarations are legal ----------
   always @* begin : MINSEL
