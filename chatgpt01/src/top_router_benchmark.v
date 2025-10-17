@@ -22,6 +22,7 @@ module top_router_benchmark(
     .t_cond0(t0), .t_cond1(t1), .t_cond2(t2), .t_cond3(t3)
   );
 
-  assign led = led_onehot; // LD0 = cond0 (all base2), LD1 = cond1 (all base10), LD2 = cond2 (all base12), LD3 = cond3 (router)
+  // Swap LED0 and LED1: LED0 -> base-10, LED1 -> base-2
+  assign led = { led_onehot[3], led_onehot[2], led_onehot[0], led_onehot[1] };
 
 endmodule
