@@ -1,0 +1,104 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Fri Oct 17 17:46:03 2025
+# Process ID         : 4516
+# Current directory  : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts
+# Command line       : vivado.exe -mode batch -source program_fpga_only.tcl
+# Log file           : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado.log
+# Journal file       : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts\vivado.jou
+# Running On         : DESKTOP-E4COIK2
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Celeron(R) N4120 CPU @ 1.10GHz
+# CPU Frequency      : 1094 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 4
+# Host memory        : 8402 MB
+# Swap memory        : 6174 MB
+# Total Virtual      : 14576 MB
+# Available Virtual  : 7035 MB
+#-----------------------------------------------------------
+source program_fpga_only.tcl
+# set PROJ_NAME pynq_router_bench
+# set PROJ_DIR [file normalize ./vivado_${PROJ_NAME}]
+# set bitstream_path ${PROJ_DIR}/${PROJ_NAME}.runs/impl_1/top_router_benchmark.bit
+# if {![file exists $bitstream_path]} {
+#     puts "ERROR: Bitstream not found at: $bitstream_path"
+#     exit 1
+# }
+# puts "Using bitstream: $bitstream_path"
+Using bitstream: C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/impl_1/top_router_benchmark.bit
+# puts "\n=== Programming FPGA ==="
+
+=== Programming FPGA ===
+# open_hw_manager
+open_hw_manager: Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 486.770 ; gain = 214.246
+# connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2025.1
+  **** Build date : May  6 2025 at 09:15:36
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2025.1.0
+  ****** Build date   : May 13 2025-15:15:27
+    **** Build number : 2025.1.1747163727
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:19 . Memory (MB): peak = 491.699 ; gain = 4.930
+# set hw_targets [get_hw_targets]
+# if {[llength $hw_targets] == 0} {
+#     puts "ERROR: No hardware targets found. Please check FPGA connection."
+#     close_hw_manager
+#     exit 1
+# }
+# puts "Available targets: $hw_targets"
+Available targets: localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+# open_hw_target [lindex $hw_targets 0]
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+open_hw_target: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 493.953 ; gain = 2.254
+# set hw_devices [get_hw_devices]
+# puts "All detected devices: $hw_devices"
+All detected devices: arm_dap_0 xc7z020_1
+# set fpga_device ""
+# foreach dev $hw_devices {
+#     if {[string match "*xc7z020*" $dev]} {
+#         set fpga_device $dev
+#         break
+#     }
+# }
+# if {$fpga_device == ""} {
+#     puts "ERROR: Could not find FPGA device (xc7z020). Available devices: $hw_devices"
+#     close_hw_target
+#     close_hw_manager
+#     exit 1
+# }
+# puts "Programming FPGA device: $fpga_device"
+Programming FPGA device: xc7z020_1
+# current_hw_device $fpga_device
+# refresh_hw_device $fpga_device
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+# set_property PROGRAM.FILE $bitstream_path $fpga_device
+# program_hw_devices $fpga_device
+INFO: [Labtools 27-3164] End of startup status: HIGH
+# puts "\n=== FPGA Programming Complete! ==="
+
+=== FPGA Programming Complete! ===
+# close_hw_target
+INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+# close_hw_manager
+INFO: [Common 17-206] Exiting Vivado at Fri Oct 17 17:47:08 2025...

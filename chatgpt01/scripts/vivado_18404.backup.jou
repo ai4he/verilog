@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Fri Oct 17 17:26:00 2025
+# Process ID         : 18404
+# Current directory  : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts
+# Command line       : vivado.exe -mode batch -source program_fpga.tcl
+# Log file           : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado.log
+# Journal file       : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts\vivado.jou
+# Running On         : DESKTOP-E4COIK2
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Celeron(R) N4120 CPU @ 1.10GHz
+# CPU Frequency      : 1094 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 4
+# Host memory        : 8402 MB
+# Swap memory        : 6174 MB
+# Total Virtual      : 14576 MB
+# Available Virtual  : 6932 MB
+#-----------------------------------------------------------
+source program_fpga.tcl
