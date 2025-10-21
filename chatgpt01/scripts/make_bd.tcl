@@ -19,16 +19,18 @@ create_bd_design "router_bd"
 create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 ps7
 apply_bd_automation -rule xilinx.com:bd_rule:processing_system7 -config {apply_board_preset "1"} [get_bd_cells ps7]
 
+# Enable FCLK0 @ 100MHz and M_AXI_GP0 (master port from PS to PL)
+set_property -dict [list \
+    CONFIG.PCW_FPGA_FCLK0_ENABLE {1} \
+    CONFIG.PCW_USE_M_AXI_GP0 {1} \
+] [get_bd_cells ps7]
+
 # AXI Interconnect (GP0 -> our module)
 create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_ic
 set_property -dict [list CONFIG.NUM_MI {1}] [get_bd_cells axi_ic]
 
 # Module reference for our AXI slave
 create_bd_cell -type module -reference router_bench_axi bench_axi_0
-
-# Clocking & resets: use FCLK0
-# Enable FCLK0 @ 100MHz
-set_property -dict [list CONFIG.PCW_USE_S_AXI_GP0 {1} CONFIG.PCW_FPGA_FCLK0_ENABLE {1}] [get_bd_cells ps7]
 
 # Connections
 connect_bd_intf_net [get_bd_intf_pins ps7/M_AXI_GP0] [get_bd_intf_pins axi_ic/S00_AXI]
@@ -39,6 +41,7 @@ connect_bd_net [get_bd_pins ps7/FCLK_CLK0]    [get_bd_pins axi_ic/ACLK]
 connect_bd_net [get_bd_pins ps7/FCLK_CLK0]    [get_bd_pins axi_ic/S00_ACLK]
 connect_bd_net [get_bd_pins ps7/FCLK_CLK0]    [get_bd_pins axi_ic/M00_ACLK]
 connect_bd_net [get_bd_pins ps7/FCLK_CLK0]    [get_bd_pins bench_axi_0/s_axi_aclk]
+connect_bd_net [get_bd_pins ps7/FCLK_CLK0]    [get_bd_pins ps7/M_AXI_GP0_ACLK]
 
 # Reset: use FCLK_RESET0_N
 connect_bd_net [get_bd_pins ps7/FCLK_RESET0_N] [get_bd_pins bench_axi_0/s_axi_aresetn]
@@ -53,7 +56,13 @@ set_property name led [get_bd_ports led_0]
 # Address map
 assign_bd_address
 # Force a friendly base address
-set_property offset 0x43C00000 [get_bd_addr_segs {ps7/Data/SEG_bench_axi_0_Reg}]
+set addr_seg [get_bd_addr_segs -of_objects [get_bd_addr_spaces ps7/Data] -filter {NAME =~ "*bench_axi_0*"}]
+if {[llength $addr_seg] > 0} {
+    set_property offset 0x43C00000 $addr_seg
+    puts "Set base address to 0x43C00000 for segment: $addr_seg"
+} else {
+    puts "WARNING: Could not find bench_axi_0 address segment"
+}
 validate_bd_design
 save_bd_design
 
