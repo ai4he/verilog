@@ -44,18 +44,22 @@ module router_bench_axi #(
 
   // ----------------- Auto-start pulse generation -----------------
   // Generate a start pulse automatically after reset deassertion
-  reg [7:0] pwrup_cnt;
-  reg       started_once;
+  // Use longer counter to ensure PS has stabilized
+  reg [15:0] pwrup_cnt;
+  reg        started_once;
   always @(posedge clk) begin
     if (rst) begin
-      pwrup_cnt    <= 8'd0;
+      pwrup_cnt    <= 16'd0;
       started_once <= 1'b0;
     end else if (!started_once) begin
-      pwrup_cnt    <= pwrup_cnt + 8'd1;
-      if (pwrup_cnt == 8'hFF) started_once <= 1'b1; // ~2.5 us @100MHz
+      if (pwrup_cnt == 16'hFFFF) begin
+        started_once <= 1'b1;  // ~655 us @100MHz - wait for PS to stabilize
+      end else begin
+        pwrup_cnt    <= pwrup_cnt + 16'd1;
+      end
     end
   end
-  wire autostart_pulse = (!started_once && pwrup_cnt==8'hFF);
+  wire autostart_pulse = (!started_once && pwrup_cnt==16'hFFFF);
   wire running = (bench_st_running);
   reg  bench_done_latched;
 
