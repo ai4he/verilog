@@ -41,6 +41,21 @@ module router_bench_axi #(
   // 0x18 WIN_ONEHOT (R): internal cond0..3 mapping (1-hot)
   reg start_pulse;
   reg soft_clear;
+
+  // ----------------- Auto-start pulse generation -----------------
+  // Generate a start pulse automatically after reset deassertion
+  reg [7:0] pwrup_cnt;
+  reg       started_once;
+  always @(posedge clk) begin
+    if (rst) begin
+      pwrup_cnt    <= 8'd0;
+      started_once <= 1'b0;
+    end else if (!started_once) begin
+      pwrup_cnt    <= pwrup_cnt + 8'd1;
+      if (pwrup_cnt == 8'hFF) started_once <= 1'b1; // ~2.5 us @100MHz
+    end
+  end
+  wire autostart_pulse = (!started_once && pwrup_cnt==8'hFF);
   wire running = (bench_st_running);
   reg  bench_done_latched;
 
@@ -108,11 +123,14 @@ module router_bench_axi #(
   wire [3:0]  led_onehot_int;   // cond0..3
   wire [1:0]  winner_code;
 
+  // Combine auto-start and AXI start pulses
+  wire start = autostart_pulse | start_pulse;
+
   // Running indicator (simple)
   reg bench_st_running;
   always @(posedge clk) begin
     if (rst) bench_st_running <= 1'b0;
-    else if (start_pulse) bench_st_running <= 1'b1;
+    else if (start) bench_st_running <= 1'b1;
     else if (bench_done)  bench_st_running <= 1'b0;
   end
 
@@ -123,7 +141,7 @@ module router_bench_axi #(
   ) u_bench (
     .clk(clk),
     .rst(rst),
-    .start(start_pulse),
+    .start(start),
     .led_onehot(led_onehot_int),
     .t_cond0(t0), .t_cond1(t1), .t_cond2(t2), .t_cond3(t3),
     .done(bench_done),
