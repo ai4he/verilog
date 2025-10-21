@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Tue Oct 21 13:00:51 2025
+# Process ID         : 11820
+# Current directory  : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_standalone/pynq_router_standalone.runs/synth_1
+# Command line       : vivado.exe -log top_router_benchmark.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_router_benchmark.tcl
+# Log file           : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_standalone/pynq_router_standalone.runs/synth_1/top_router_benchmark.vds
+# Journal file       : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_standalone/pynq_router_standalone.runs/synth_1\vivado.jou
+# Running On         : DESKTOP-E4COIK2
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Celeron(R) N4120 CPU @ 1.10GHz
+# CPU Frequency      : 1094 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 4
+# Host memory        : 8402 MB
+# Swap memory        : 10894 MB
+# Total Virtual      : 19296 MB
+# Available Virtual  : 3184 MB
+#-----------------------------------------------------------
+source top_router_benchmark.tcl -notrace

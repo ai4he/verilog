@@ -41,4 +41,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log top_router_benchmark.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_router_benchmark.tcl
+EAStep vivado -log router_bd_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source router_bd_wrapper.tcl

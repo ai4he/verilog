@@ -43,6 +43,6 @@ EAStep()
 
 # pre-commands:
 /bin/touch .init_design.begin.rst
-EAStep vivado -log top_router_benchmark.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source top_router_benchmark.tcl -notrace
+EAStep vivado -log router_bd_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source router_bd_wrapper.tcl -notrace
 
 

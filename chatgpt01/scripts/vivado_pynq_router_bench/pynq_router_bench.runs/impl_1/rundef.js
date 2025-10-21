@@ -26,7 +26,7 @@ eval( EAInclude(ISEJScriptLib) );
 // pre-commands:
 ISETouchFile( "init_design", "begin" );
 ISEStep( "vivado",
-         "-log top_router_benchmark.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source top_router_benchmark.tcl -notrace" );
+         "-log router_bd_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source router_bd_wrapper.tcl -notrace" );
 
 
 

@@ -3,10 +3,10 @@
 # SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Fri Oct 17 17:46:03 2025
-# Process ID         : 4516
+# Start of session at: Tue Oct 21 13:25:01 2025
+# Process ID         : 20996
 # Current directory  : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts
-# Command line       : vivado.exe -mode batch -source program_fpga_only.tcl
+# Command line       : vivado.exe -mode batch -source program_standalone_only.tcl
 # Log file           : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado.log
 # Journal file       : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts\vivado.jou
 # Running On         : DESKTOP-E4COIK2
@@ -17,12 +17,12 @@
 # CPU Physical cores : 4
 # CPU Logical cores  : 4
 # Host memory        : 8402 MB
-# Swap memory        : 6174 MB
-# Total Virtual      : 14576 MB
-# Available Virtual  : 7035 MB
+# Swap memory        : 10894 MB
+# Total Virtual      : 19296 MB
+# Available Virtual  : 3709 MB
 #-----------------------------------------------------------
-source program_fpga_only.tcl
-# set PROJ_NAME pynq_router_bench
+source program_standalone_only.tcl
+# set PROJ_NAME pynq_router_standalone
 # set PROJ_DIR [file normalize ./vivado_${PROJ_NAME}]
 # set bitstream_path ${PROJ_DIR}/${PROJ_NAME}.runs/impl_1/top_router_benchmark.bit
 # if {![file exists $bitstream_path]} {
@@ -30,22 +30,14 @@ source program_fpga_only.tcl
 #     exit 1
 # }
 # puts "Using bitstream: $bitstream_path"
-Using bitstream: C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/impl_1/top_router_benchmark.bit
+Using bitstream: C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_standalone/pynq_router_standalone.runs/impl_1/top_router_benchmark.bit
 # puts "\n=== Programming FPGA ==="
 
 === Programming FPGA ===
 # open_hw_manager
-open_hw_manager: Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 486.770 ; gain = 214.246
+open_hw_manager: Time (s): cpu = 00:00:29 ; elapsed = 00:00:25 . Memory (MB): peak = 487.691 ; gain = 216.727
 # connect_hw_server
 INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
-INFO: [Labtools 27-2222] Launching hw_server...
-INFO: [Labtools 27-2221] Launch Output:
-
-****** Xilinx hw_server v2025.1
-  **** Build date : May  6 2025 at 09:15:36
-    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-
-
 INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
 INFO: [Labtools 27-3417] Launching cs_server...
 INFO: [Labtools 27-2221] Launch Output:
@@ -59,7 +51,7 @@ INFO: [Labtools 27-2221] Launch Output:
 
 
 
-connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:19 . Memory (MB): peak = 491.699 ; gain = 4.930
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:15 . Memory (MB): peak = 491.664 ; gain = 3.973
 # set hw_targets [get_hw_targets]
 # if {[llength $hw_targets] == 0} {
 #     puts "ERROR: No hardware targets found. Please check FPGA connection."
@@ -70,7 +62,7 @@ connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:19 . Memory (MB): 
 Available targets: localhost:3121/xilinx_tcf/Xilinx/1234-tulA
 # open_hw_target [lindex $hw_targets 0]
 INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
-open_hw_target: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 493.953 ; gain = 2.254
+open_hw_target: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 492.891 ; gain = 1.227
 # set hw_devices [get_hw_devices]
 # puts "All detected devices: $hw_devices"
 All detected devices: arm_dap_0 xc7z020_1
@@ -101,4 +93,4 @@ INFO: [Labtools 27-3164] End of startup status: HIGH
 # close_hw_target
 INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
 # close_hw_manager
-INFO: [Common 17-206] Exiting Vivado at Fri Oct 17 17:47:08 2025...
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 21 13:26:21 2025...

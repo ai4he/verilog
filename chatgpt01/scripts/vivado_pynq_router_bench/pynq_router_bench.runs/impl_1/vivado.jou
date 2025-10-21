@@ -3,11 +3,11 @@
 # SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Fri Oct 17 17:28:58 2025
-# Process ID         : 15496
+# Start of session at: Tue Oct 21 12:49:54 2025
+# Process ID         : 14932
 # Current directory  : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/impl_1
-# Command line       : vivado.exe -log top_router_benchmark.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top_router_benchmark.tcl -notrace
-# Log file           : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/impl_1/top_router_benchmark.vdi
+# Command line       : vivado.exe -log router_bd_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source router_bd_wrapper.tcl -notrace
+# Log file           : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/impl_1/router_bd_wrapper.vdi
 # Journal file       : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/impl_1\vivado.jou
 # Running On         : DESKTOP-E4COIK2
 # Platform           : Windows Server 2016 or Windows 10
@@ -17,8 +17,8 @@
 # CPU Physical cores : 4
 # CPU Logical cores  : 4
 # Host memory        : 8402 MB
-# Swap memory        : 6174 MB
-# Total Virtual      : 14576 MB
-# Available Virtual  : 6523 MB
+# Swap memory        : 10894 MB
+# Total Virtual      : 19296 MB
+# Available Virtual  : 3158 MB
 #-----------------------------------------------------------
-source top_router_benchmark.tcl -notrace
+source router_bd_wrapper.tcl -notrace
