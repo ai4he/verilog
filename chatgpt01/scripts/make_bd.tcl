@@ -75,6 +75,6 @@ launch_runs impl_1 -to_step write_bitstream
 wait_on_run impl_1
 
 # Export .hwh
-file copy -force ./vivado_pynq_router_bench/pynq_router_bench.srcs/sources_1/bd/router_bd/hw_handoff/router_bd.hwh ./router_bench.hwh
+file copy -force ./vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/hw_handoff/router_bd.hwh ./router_bench.hwh
 file copy -force ./vivado_pynq_router_bench/pynq_router_bench.runs/impl_1/router_bd_wrapper.bit ./router_bench.bit
 puts "Artifacts ready: router_bench.bit / router_bench.hwh"

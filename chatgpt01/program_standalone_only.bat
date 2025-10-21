@@ -21,7 +21,7 @@ if not exist "%VIVADO_BIN%\vivado.bat" (
 )
 
 REM Check if bitstream exists
-set BITSTREAM_PATH=scripts\vivado_pynq_router_bench\pynq_router_bench.runs\impl_1\top_router_benchmark.bit
+set BITSTREAM_PATH=scripts\vivado_pynq_router_standalone\pynq_router_standalone.runs\impl_1\top_router_benchmark.bit
 if not exist "%~dp0%BITSTREAM_PATH%" (
     echo ERROR: Bitstream not found: %BITSTREAM_PATH%
     echo Please run build_and_program_standalone.bat first to generate the bitstream.
@@ -38,7 +38,7 @@ echo.
 
 REM Change to scripts directory and run programming script
 cd /d "%~dp0scripts"
-vivado -mode batch -source program_fpga_only.tcl
+vivado -mode batch -source program_standalone_only.tcl
 
 if %ERRORLEVEL% NEQ 0 (
     echo.

@@ -28,9 +28,9 @@ echo Starting standalone build process...
 echo This will build the PL-only design with sysclk, buttons, and LEDs.
 echo.
 
-REM Change to scripts directory and run program_fpga.tcl
+REM Change to scripts directory and run build_standalone.tcl
 cd /d "%~dp0scripts"
-vivado -mode batch -source program_fpga.tcl
+vivado -mode batch -source build_standalone.tcl
 
 if %ERRORLEVEL% NEQ 0 (
     echo.
