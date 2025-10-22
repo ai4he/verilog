@@ -3,8 +3,8 @@
 # SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Tue Oct 21 15:19:40 2025
-# Process ID         : 15000
+# Start of session at: Tue Oct 21 13:45:29 2025
+# Process ID         : 20120
 # Current directory  : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts
 # Command line       : vivado.exe -mode batch -source program_axi_bitstream.tcl
 # Log file           : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado.log
@@ -17,9 +17,9 @@
 # CPU Physical cores : 4
 # CPU Logical cores  : 4
 # Host memory        : 8402 MB
-# Swap memory        : 11200 MB
-# Total Virtual      : 19602 MB
-# Available Virtual  : 3995 MB
+# Swap memory        : 10894 MB
+# Total Virtual      : 19296 MB
+# Available Virtual  : 3808 MB
 #-----------------------------------------------------------
 source program_axi_bitstream.tcl
 # set bitstream_path [file normalize ../router_bench.bit]
@@ -34,7 +34,7 @@ Using AXI overlay bitstream: C:/Users/Carlos/Documents/projects/verilog/chatgpt0
 
 === Programming FPGA with AXI Overlay ===
 # open_hw_manager
-open_hw_manager: Time (s): cpu = 00:00:29 ; elapsed = 00:00:19 . Memory (MB): peak = 484.941 ; gain = 214.016
+open_hw_manager: Time (s): cpu = 00:00:27 ; elapsed = 00:00:18 . Memory (MB): peak = 486.695 ; gain = 214.875
 # connect_hw_server
 INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
 INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
@@ -50,7 +50,7 @@ INFO: [Labtools 27-2221] Launch Output:
 
 
 
-connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 487.898 ; gain = 2.957
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 490.703 ; gain = 4.008
 # set hw_targets [get_hw_targets]
 # if {[llength $hw_targets] == 0} {
 #     puts "ERROR: No hardware targets found. Please check FPGA connection."
@@ -61,7 +61,7 @@ connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): 
 Available targets: localhost:3121/xilinx_tcf/Xilinx/1234-tulA
 # open_hw_target [lindex $hw_targets 0]
 INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
-open_hw_target: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 490.129 ; gain = 2.230
+open_hw_target: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 491.906 ; gain = 1.203
 # set hw_devices [get_hw_devices]
 # puts "All detected devices: $hw_devices"
 All detected devices: arm_dap_0 xc7z020_1
@@ -96,4 +96,4 @@ Use the PYNQ Jupyter notebook to access it via AXI.
 # close_hw_target
 INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
 # close_hw_manager
-INFO: [Common 17-206] Exiting Vivado at Tue Oct 21 15:20:26 2025...
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 21 13:46:14 2025...

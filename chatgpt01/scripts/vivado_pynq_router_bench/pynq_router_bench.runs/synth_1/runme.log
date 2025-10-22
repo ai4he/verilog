@@ -8,47 +8,41 @@
   **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
   **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
   **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-  **** Start of session at: Tue Oct 21 12:45:47 2025
+  **** Start of session at: Tue Oct 21 15:00:44 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source router_bd_wrapper.tcl -notrace
-create_project: Time (s): cpu = 00:00:39 ; elapsed = 00:00:26 . Memory (MB): peak = 489.258 ; gain = 215.566
+create_project: Time (s): cpu = 00:00:31 ; elapsed = 00:00:21 . Memory (MB): peak = 483.570 ; gain = 213.199
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/Xilinx/2025.1/Vivado/data/ip'.
-add_files: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 503.125 ; gain = 13.867
-Command: read_checkpoint -auto_incremental -incremental C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.srcs/utils_1/imports/synth_1/router_bd_wrapper.dcp
-INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.srcs/utils_1/imports/synth_1/router_bd_wrapper.dcp for incremental synthesis
-INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top router_bd_wrapper -part xc7z020clg400-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Device 21-403] Loading part xc7z020clg400-1
-INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
-INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
-INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 2392
+INFO: [Synth 8-7075] Helper process launched with PID 15704
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:23 ; elapsed = 00:00:29 . Memory (MB): peak = 1231.582 ; gain = 493.293
+Starting RTL Elaboration : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1224.996 ; gain = 492.516
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'router_bd_wrapper' [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/hdl/router_bd_wrapper.v:13]
 INFO: [Synth 8-6157] synthesizing module 'router_bd' [c:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/synth/router_bd.v:13]
 INFO: [Synth 8-6157] synthesizing module 'router_bd_axi_ic_0' [c:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/synth/router_bd.v:288]
 INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_EUTW5H' [c:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/synth/router_bd.v:534]
-INFO: [Synth 8-6157] synthesizing module 'router_bd_axi_ic_imp_auto_pc_0' [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/synth_1/.Xil/Vivado-20208-DESKTOP-E4COIK2/realtime/router_bd_axi_ic_imp_auto_pc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'router_bd_axi_ic_imp_auto_pc_0' (0#1) [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/synth_1/.Xil/Vivado-20208-DESKTOP-E4COIK2/realtime/router_bd_axi_ic_imp_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'router_bd_axi_ic_imp_auto_pc_0' [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/synth_1/.Xil/Vivado-16140-DESKTOP-E4COIK2/realtime/router_bd_axi_ic_imp_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'router_bd_axi_ic_imp_auto_pc_0' (0#1) [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/synth_1/.Xil/Vivado-16140-DESKTOP-E4COIK2/realtime/router_bd_axi_ic_imp_auto_pc_0_stub.v:6]
 WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'router_bd_axi_ic_imp_auto_pc_0' is unconnected for instance 'auto_pc' [c:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/synth/router_bd.v:712]
 WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'router_bd_axi_ic_imp_auto_pc_0' is unconnected for instance 'auto_pc' [c:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/synth/router_bd.v:712]
 WARNING: [Synth 8-7023] instance 'auto_pc' of module 'router_bd_axi_ic_imp_auto_pc_0' has 59 connections declared, but only 57 given [c:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/synth/router_bd.v:712]
 INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_EUTW5H' (0#1) [c:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/synth/router_bd.v:534]
 INFO: [Synth 8-6155] done synthesizing module 'router_bd_axi_ic_0' (0#1) [c:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/synth/router_bd.v:288]
-INFO: [Synth 8-6157] synthesizing module 'router_bd_bench_axi_0_0' [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/synth_1/.Xil/Vivado-20208-DESKTOP-E4COIK2/realtime/router_bd_bench_axi_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'router_bd_bench_axi_0_0' (0#1) [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/synth_1/.Xil/Vivado-20208-DESKTOP-E4COIK2/realtime/router_bd_bench_axi_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'router_bd_ps7_0' [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/synth_1/.Xil/Vivado-20208-DESKTOP-E4COIK2/realtime/router_bd_ps7_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'router_bd_ps7_0' (0#1) [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/synth_1/.Xil/Vivado-20208-DESKTOP-E4COIK2/realtime/router_bd_ps7_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'router_bd_bench_axi_0_0' [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/synth_1/.Xil/Vivado-16140-DESKTOP-E4COIK2/realtime/router_bd_bench_axi_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'router_bd_bench_axi_0_0' (0#1) [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/synth_1/.Xil/Vivado-16140-DESKTOP-E4COIK2/realtime/router_bd_bench_axi_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'router_bd_ps7_0' [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/synth_1/.Xil/Vivado-16140-DESKTOP-E4COIK2/realtime/router_bd_ps7_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'router_bd_ps7_0' (0#1) [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/synth_1/.Xil/Vivado-16140-DESKTOP-E4COIK2/realtime/router_bd_ps7_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'router_bd' (0#1) [c:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/synth/router_bd.v:13]
 INFO: [Synth 8-6155] done synthesizing module 'router_bd_wrapper' (0#1) [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/hdl/router_bd_wrapper.v:13]
 WARNING: [Synth 8-7129] Port M_ACLK in module s00_couplers_imp_EUTW5H is either unconnected or has no load
@@ -56,18 +50,18 @@ WARNING: [Synth 8-7129] Port M_ARESETN in module s00_couplers_imp_EUTW5H is eith
 WARNING: [Synth 8-7129] Port ACLK in module router_bd_axi_ic_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ARESETN in module router_bd_axi_ic_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:30 ; elapsed = 00:00:37 . Memory (MB): peak = 1342.492 ; gain = 604.203
+Finished RTL Elaboration : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1337.945 ; gain = 605.465
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:37 . Memory (MB): peak = 1342.492 ; gain = 604.203
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1337.945 ; gain = 605.465
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:31 ; elapsed = 00:00:37 . Memory (MB): peak = 1342.492 ; gain = 604.203
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1337.945 ; gain = 605.465
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 1342.492 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 1337.945 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -86,31 +80,29 @@ Parsing XDC File [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/v
 Finished Parsing XDC File [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1359.305 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1337.945 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 1359.305 ; gain = 0.000
-INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
-INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1337.945 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:05 ; elapsed = 00:01:17 . Memory (MB): peak = 1359.305 ; gain = 621.016
+Finished Constraint Validation : Time (s): cpu = 00:00:48 ; elapsed = 00:00:53 . Memory (MB): peak = 1337.945 ; gain = 605.465
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:05 ; elapsed = 00:01:17 . Memory (MB): peak = 1359.305 ; gain = 621.016
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:48 ; elapsed = 00:00:53 . Memory (MB): peak = 1337.945 ; gain = 605.465
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:06 ; elapsed = 00:01:18 . Memory (MB): peak = 1359.305 ; gain = 621.016
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:49 ; elapsed = 00:00:54 . Memory (MB): peak = 1337.945 ; gain = 605.465
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:06 ; elapsed = 00:01:19 . Memory (MB): peak = 1359.305 ; gain = 621.016
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:49 ; elapsed = 00:00:54 . Memory (MB): peak = 1337.945 ; gain = 605.465
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -137,25 +129,25 @@ WARNING: [Synth 8-7129] Port ARESETN in module router_bd_axi_ic_0 is either unco
 WARNING: [Synth 8-7129] Port M00_ACLK in module router_bd_axi_ic_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port M00_ARESETN in module router_bd_axi_ic_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:16 ; elapsed = 00:01:30 . Memory (MB): peak = 1359.305 ; gain = 621.016
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:56 ; elapsed = 00:01:02 . Memory (MB): peak = 1353.863 ; gain = 621.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:44 ; elapsed = 00:02:03 . Memory (MB): peak = 1534.336 ; gain = 796.047
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:19 ; elapsed = 00:01:28 . Memory (MB): peak = 1526.953 ; gain = 794.473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:44 ; elapsed = 00:02:03 . Memory (MB): peak = 1535.023 ; gain = 796.734
+Finished Timing Optimization : Time (s): cpu = 00:01:20 ; elapsed = 00:01:28 . Memory (MB): peak = 1527.453 ; gain = 794.973
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:44 ; elapsed = 00:02:03 . Memory (MB): peak = 1544.773 ; gain = 806.484
+Finished Technology Mapping : Time (s): cpu = 00:01:20 ; elapsed = 00:01:28 . Memory (MB): peak = 1537.352 ; gain = 804.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -173,37 +165,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:07 ; elapsed = 00:02:29 . Memory (MB): peak = 1779.766 ; gain = 1041.477
+Finished IO Insertion : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 1771.535 ; gain = 1039.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:07 ; elapsed = 00:02:30 . Memory (MB): peak = 1779.766 ; gain = 1041.477
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 1771.535 ; gain = 1039.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:07 ; elapsed = 00:02:30 . Memory (MB): peak = 1779.766 ; gain = 1041.477
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 1771.535 ; gain = 1039.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:07 ; elapsed = 00:02:30 . Memory (MB): peak = 1779.766 ; gain = 1041.477
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 1771.535 ; gain = 1039.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:07 ; elapsed = 00:02:30 . Memory (MB): peak = 1779.766 ; gain = 1041.477
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 1771.535 ; gain = 1039.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:07 ; elapsed = 00:02:30 . Memory (MB): peak = 1779.766 ; gain = 1041.477
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 1771.535 ; gain = 1039.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -228,25 +220,25 @@ Report Cell Usage:
 |4     |OBUF                         |     4|
 +------+-----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:07 ; elapsed = 00:02:30 . Memory (MB): peak = 1779.766 ; gain = 1041.477
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 1771.535 ; gain = 1039.055
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:28 ; elapsed = 00:02:19 . Memory (MB): peak = 1779.766 ; gain = 1024.664
-Synthesis Optimization Complete : Time (s): cpu = 00:02:08 ; elapsed = 00:02:30 . Memory (MB): peak = 1779.766 ; gain = 1041.477
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:08 ; elapsed = 00:01:40 . Memory (MB): peak = 1771.535 ; gain = 1039.055
+Synthesis Optimization Complete : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 1771.535 ; gain = 1039.055
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.044 . Memory (MB): peak = 1788.871 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 1778.074 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1792.547 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1781.582 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 Synth Design complete | Checksum: 36fe769e
 INFO: [Common 17-83] Releasing license: Synthesis
-36 Infos, 12 Warnings, 0 Critical Warnings and 0 Errors encountered.
+30 Infos, 12 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:23 ; elapsed = 00:02:57 . Memory (MB): peak = 1792.547 ; gain = 1282.773
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1792.547 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:50 ; elapsed = 00:02:07 . Memory (MB): peak = 1781.582 ; gain = 1284.746
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1781.582 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/synth_1/router_bd_wrapper.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file router_bd_wrapper_utilization_synth.rpt -pb router_bd_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Oct 21 12:49:29 2025...
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 21 15:03:23 2025...

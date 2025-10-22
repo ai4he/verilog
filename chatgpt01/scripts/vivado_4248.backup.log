@@ -3,12 +3,12 @@
 # SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Tue Oct 21 15:03:34 2025
-# Process ID         : 1448
-# Current directory  : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/impl_1
-# Command line       : vivado.exe -log router_bd_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source router_bd_wrapper.tcl -notrace
-# Log file           : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/impl_1/router_bd_wrapper.vdi
-# Journal file       : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/impl_1\vivado.jou
+# Start of session at: Tue Oct 21 14:49:16 2025
+# Process ID         : 4248
+# Current directory  : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts
+# Command line       : vivado.exe -mode batch -source make_bd.tcl
+# Log file           : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado.log
+# Journal file       : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts\vivado.jou
 # Running On         : DESKTOP-E4COIK2
 # Platform           : Windows Server 2016 or Windows 10
 # Operating System   : 26200
@@ -19,8 +19,123 @@
 # Host memory        : 8402 MB
 # Swap memory        : 10894 MB
 # Total Virtual      : 19296 MB
-# Available Virtual  : 3005 MB
+# Available Virtual  : 3656 MB
 #-----------------------------------------------------------
+source make_bd.tcl
+# set part xc7z020clg400-1
+# create_project pynq_router_bench ./vivado_pynq_router_bench -part $part -force
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench'
+create_project: Time (s): cpu = 00:00:29 ; elapsed = 00:00:20 . Memory (MB): peak = 485.242 ; gain = 214.109
+# add_files -fileset sources_1 [list \
+#   ../src/common_opcodes.vh \
+#   ../src/base2_alu.v \
+#   ../src/base10_alu.v \
+#   ../src/base12_alu.v \
+#   ../src/router.v \
+#   ../src/bench_engine.v \
+#   ../src/router_bench_axi.v \
+# ]
+# add_files -fileset constrs_1 ../constraints/pynqz2_leds.xdc
+# update_compile_order -fileset sources_1
+# create_bd_design router_bd
+Wrote  : <C:\Users\Carlos\Documents\projects\verilog\chatgpt01\scripts\vivado_pynq_router_bench\pynq_router_bench.srcs\sources_1\bd\router_bd\router_bd.bd> 
+# create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 ps7
+# apply_bd_automation -rule xilinx.com:bd_rule:processing_system7 -config {apply_board_preset "1"} [get_bd_cells ps7]
+WARNING: [Boardtcl 53-1] No current board_part set.
+# set_property -dict [list \
+#     CONFIG.PCW_FPGA_FCLK0_ENABLE {1} \
+#     CONFIG.PCW_USE_M_AXI_GP0 {1} \
+# ] [get_bd_cells ps7]
+# create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_ic
+# set_property -dict [list CONFIG.NUM_MI {1}] [get_bd_cells axi_ic]
+# create_bd_cell -type module -reference router_bench_axi bench_axi_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axi' of definition 'xilinx.com:interface:aximm:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axi_aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axi_aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 's_axi_aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 's_axi_aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 's_axi'.
+INFO: [IP_Flow 19-4728] Bus Interface 's_axi_aclk': Added interface parameter 'ASSOCIATED_RESET' with value 's_axi_aresetn'.
+WARNING: [IP_Flow 19-11770] Clock interface 's_axi_aclk' has no FREQ_HZ parameter.
+# connect_bd_intf_net [get_bd_intf_pins ps7/M_AXI_GP0] [get_bd_intf_pins axi_ic/S00_AXI]
+# connect_bd_intf_net [get_bd_intf_pins bench_axi_0/S_AXI] [get_bd_intf_pins axi_ic/M00_AXI]
+# connect_bd_net [get_bd_pins ps7/FCLK_CLK0]    [get_bd_pins axi_ic/ACLK]
+# connect_bd_net [get_bd_pins ps7/FCLK_CLK0]    [get_bd_pins axi_ic/S00_ACLK]
+# connect_bd_net [get_bd_pins ps7/FCLK_CLK0]    [get_bd_pins axi_ic/M00_ACLK]
+# connect_bd_net [get_bd_pins ps7/FCLK_CLK0]    [get_bd_pins bench_axi_0/s_axi_aclk]
+# connect_bd_net [get_bd_pins ps7/FCLK_CLK0]    [get_bd_pins ps7/M_AXI_GP0_ACLK]
+# connect_bd_net [get_bd_pins ps7/FCLK_RESET0_N] [get_bd_pins bench_axi_0/s_axi_aresetn]
+# connect_bd_net [get_bd_pins ps7/FCLK_RESET0_N] [get_bd_pins axi_ic/ARESETN]
+# connect_bd_net [get_bd_pins ps7/FCLK_RESET0_N] [get_bd_pins axi_ic/S00_ARESETN]
+# connect_bd_net [get_bd_pins ps7/FCLK_RESET0_N] [get_bd_pins axi_ic/M00_ARESETN]
+# make_bd_pins_external  [get_bd_pins bench_axi_0/led]
+# set_property name led [get_bd_ports led_0]
+# assign_bd_address
+INFO: [BD 41-3093] Triggering Legacy Auto Assign Algorithm
+Slave segment '/bench_axi_0/s_axi/reg0' is being assigned into address space '/ps7/Data' at <0x4000_0000 [ 4K ]>.
+# set addr_seg [get_bd_addr_segs -of_objects [get_bd_addr_spaces ps7/Data] -filter {NAME =~ "*bench_axi_0*"}]
+# if {[llength $addr_seg] > 0} {
+#     set_property offset 0x43C00000 $addr_seg
+#     puts "Set base address to 0x43C00000 for segment: $addr_seg"
+# } else {
+#     puts "WARNING: Could not find bench_axi_0 address segment"
+# }
+Set base address to 0x43C00000 for segment: /ps7/Data/SEG_bench_axi_0_reg0
+# validate_bd_design
+CRITICAL WARNING: [BD 41-1348] Reset pin /axi_ic/ARESETN (associated clock /axi_ic/ACLK) is connected to asynchronous reset source /ps7/FCLK_RESET0_N.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /ps7/FCLK_CLK0.
+CRITICAL WARNING: [BD 41-1348] Reset pin /axi_ic/S00_ARESETN (associated clock /axi_ic/S00_ACLK) is connected to asynchronous reset source /ps7/FCLK_RESET0_N.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /ps7/FCLK_CLK0.
+CRITICAL WARNING: [BD 41-1348] Reset pin /axi_ic/M00_ARESETN (associated clock /axi_ic/M00_ACLK) is connected to asynchronous reset source /ps7/FCLK_RESET0_N.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /ps7/FCLK_CLK0.
+CRITICAL WARNING: [BD 41-1348] Reset pin /bench_axi_0/s_axi_aresetn (associated clock /bench_axi_0/s_axi_aclk) is connected to asynchronous reset source /ps7/FCLK_RESET0_N.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /ps7/FCLK_CLK0.
+# save_bd_design
+Wrote  : <C:\Users\Carlos\Documents\projects\verilog\chatgpt01\scripts\vivado_pynq_router_bench\pynq_router_bench.srcs\sources_1\bd\router_bd\router_bd.bd> 
+# make_wrapper -files [get_files ./vivado_pynq_router_bench/pynq_router_bench.srcs/sources_1/bd/router_bd/router_bd.bd] -top
+INFO: [BD 41-1662] The design 'router_bd.bd' is already validated. Therefore parameter propagation will not be re-run.
+Verilog Output written to : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/synth/router_bd.v
+Verilog Output written to : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/sim/router_bd.v
+Verilog Output written to : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/hdl/router_bd_wrapper.v
+# add_files -norecurse ./vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/hdl/router_bd_wrapper.v
+# set_property top router_bd_wrapper [current_fileset]
+# launch_runs impl_1 -to_step write_bitstream
+INFO: [BD 41-1662] The design 'router_bd.bd' is already validated. Therefore parameter propagation will not be re-run.
+Verilog Output written to : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/synth/router_bd.v
+Verilog Output written to : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/sim/router_bd.v
+Verilog Output written to : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/hdl/router_bd_wrapper.v
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI_GP0'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'c:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/ip/router_bd_axi_ic_imp_auto_pc_0/router_bd_axi_ic_imp_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_ic/s00_couplers/auto_pc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block bench_axi_0 .
+Exporting to file C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/hw_handoff/router_bd.hwh
+Generated Hardware Definition File C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/synth/router_bd.hwdef
+[Tue Oct 21 14:51:11 2025] Launched router_bd_axi_ic_imp_auto_pc_0_synth_1, router_bd_ps7_0_synth_1, router_bd_bench_axi_0_0_synth_1, synth_1...
+Run output will be captured here:
+router_bd_axi_ic_imp_auto_pc_0_synth_1: C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/router_bd_axi_ic_imp_auto_pc_0_synth_1/runme.log
+router_bd_ps7_0_synth_1: C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/router_bd_ps7_0_synth_1/runme.log
+router_bd_bench_axi_0_0_synth_1: C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/router_bd_bench_axi_0_0_synth_1/runme.log
+synth_1: C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/synth_1/runme.log
+[Tue Oct 21 14:51:11 2025] Launched impl_1...
+Run output will be captured here: C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:47 ; elapsed = 00:01:04 . Memory (MB): peak = 646.031 ; gain = 23.344
+# wait_on_run impl_1
+[Tue Oct 21 14:51:11 2025] Waiting for impl_1 to finish...
+
+*** Running vivado
+    with args -log router_bd_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source router_bd_wrapper.tcl -notrace
+
+
+
+****** Vivado v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Tue Oct 21 15:03:34 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
 source router_bd_wrapper.tcl -notrace
 create_project: Time (s): cpu = 00:00:31 ; elapsed = 00:00:20 . Memory (MB): peak = 483.238 ; gain = 210.691
 INFO: [IP_Flow 19-234] Refreshing IP repositories
@@ -762,3 +877,10 @@ INFO: [Common 17-83] Releasing license: Implementation
 write_bitstream completed successfully
 write_bitstream: Time (s): cpu = 00:00:58 ; elapsed = 00:00:46 . Memory (MB): peak = 2637.141 ; gain = 499.410
 INFO: [Common 17-206] Exiting Vivado at Tue Oct 21 15:08:53 2025...
+[Tue Oct 21 15:08:57 2025] impl_1 finished
+wait_on_runs: Time (s): cpu = 00:00:07 ; elapsed = 00:17:45 . Memory (MB): peak = 646.031 ; gain = 0.000
+# file copy -force ./vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/hw_handoff/router_bd.hwh ./router_bench.hwh
+# file copy -force ./vivado_pynq_router_bench/pynq_router_bench.runs/impl_1/router_bd_wrapper.bit ./router_bench.bit
+# puts "Artifacts ready: router_bench.bit / router_bench.hwh"
+Artifacts ready: router_bench.bit / router_bench.hwh
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 21 15:08:57 2025...

@@ -3,8 +3,8 @@
 # SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Tue Oct 21 11:14:32 2025
-# Process ID         : 19436
+# Start of session at: Tue Oct 21 14:51:20 2025
+# Process ID         : 15632
 # Current directory  : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/router_bd_axi_ic_imp_auto_pc_0_synth_1
 # Command line       : vivado.exe -log router_bd_axi_ic_imp_auto_pc_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source router_bd_axi_ic_imp_auto_pc_0.tcl
 # Log file           : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/router_bd_axi_ic_imp_auto_pc_0_synth_1/router_bd_axi_ic_imp_auto_pc_0.vds
@@ -17,8 +17,8 @@
 # CPU Physical cores : 4
 # CPU Logical cores  : 4
 # Host memory        : 8402 MB
-# Swap memory        : 10499 MB
-# Total Virtual      : 18901 MB
-# Available Virtual  : 2199 MB
+# Swap memory        : 10894 MB
+# Total Virtual      : 19296 MB
+# Available Virtual  : 2973 MB
 #-----------------------------------------------------------
 source router_bd_axi_ic_imp_auto_pc_0.tcl -notrace
