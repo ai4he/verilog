@@ -42,24 +42,45 @@ module router_bench_axi #(
   reg start_pulse;
   reg soft_clear;
 
-  // ----------------- Auto-start pulse generation -----------------
-  // Generate a start pulse automatically after reset deassertion
-  // Use longer counter to ensure PS has stabilized
-  reg [15:0] pwrup_cnt;
-  reg        started_once;
+  // ----------------- Power-On Reset Generator -----------------
+  // Generate a clean internal reset to ensure proper initialization
+  // This ensures registers start from a known state even if PS reset isn't clean
+  reg [3:0] por_shift;
   always @(posedge clk) begin
     if (rst) begin
-      pwrup_cnt    <= 16'd0;
-      started_once <= 1'b0;
-    end else if (!started_once) begin
-      if (pwrup_cnt == 16'hFFFF) begin
-        started_once <= 1'b1;  // ~655 us @100MHz - wait for PS to stabilize
-      end else begin
-        pwrup_cnt    <= pwrup_cnt + 16'd1;
-      end
+      por_shift <= 4'b0000;
+    end else begin
+      por_shift <= {por_shift[2:0], 1'b1};
     end
   end
-  wire autostart_pulse = (!started_once && pwrup_cnt==16'hFFFF);
+  wire por_done = &por_shift; // All bits high = POR complete
+  wire rst_internal = rst | ~por_done;
+
+  // ----------------- Auto-start pulse generation -----------------
+  // Generate a start pulse automatically after reset deassertion
+  // Use longer counter to ensure PS has stabilized (10ms @ 100MHz = 1,000,000 cycles)
+  reg [19:0] pwrup_cnt;
+  reg        started_once;
+  reg [2:0]  autostart_stretch; // Multi-cycle pulse for reliability
+
+  always @(posedge clk) begin
+    if (rst_internal) begin
+      pwrup_cnt    <= 20'd0;
+      started_once <= 1'b0;
+      autostart_stretch <= 3'd0;
+    end else if (!started_once) begin
+      if (pwrup_cnt == 20'd999999) begin  // 10ms @ 100MHz
+        started_once <= 1'b1;
+        autostart_stretch <= 3'd7; // Start 3-cycle pulse
+      end else begin
+        pwrup_cnt <= pwrup_cnt + 20'd1;
+      end
+    end else if (autostart_stretch != 3'd0) begin
+      autostart_stretch <= autostart_stretch - 3'd1;
+    end
+  end
+
+  wire autostart_pulse = (autostart_stretch != 3'd0);
   wire running = (bench_st_running);
   reg  bench_done_latched;
 
@@ -70,7 +91,7 @@ module router_bench_axi #(
 
   // simple ready/valids
   always @(posedge clk) begin
-    if (rst) begin
+    if (rst_internal) begin
       s_axi_awready <= 1'b0; s_axi_wready <= 1'b0; s_axi_bvalid <= 1'b0; s_axi_bresp <= 2'b00;
       s_axi_arready <= 1'b0; s_axi_rvalid <= 1'b0; s_axi_rresp <= 2'b00; s_axi_rdata <= 32'd0;
       start_pulse <= 1'b0; soft_clear <= 1'b0; bench_done_latched <= 1'b0;
@@ -103,7 +124,7 @@ module router_bench_axi #(
       end
 
       // latch done flag until soft_clear or new start
-      if (soft_clear || start_pulse || rst) bench_done_latched <= 1'b0;
+      if (soft_clear || start || rst_internal) bench_done_latched <= 1'b0;
       else if (bench_done) bench_done_latched <= 1'b1;
 
       // decode read
@@ -133,7 +154,7 @@ module router_bench_axi #(
   // Running indicator (simple)
   reg bench_st_running;
   always @(posedge clk) begin
-    if (rst) bench_st_running <= 1'b0;
+    if (rst_internal) bench_st_running <= 1'b0;
     else if (start) bench_st_running <= 1'b1;
     else if (bench_done)  bench_st_running <= 1'b0;
   end
@@ -144,7 +165,7 @@ module router_bench_axi #(
     .B12_LAT_DUO(B12_LAT_DUO), .B12_LAT_BIN(B12_LAT_BIN), .B12_LAT_DEC(B12_LAT_DEC)
   ) u_bench (
     .clk(clk),
-    .rst(rst),
+    .rst(rst_internal),
     .start(start),
     .led_onehot(led_onehot_int),
     .t_cond0(t0), .t_cond1(t1), .t_cond2(t2), .t_cond3(t3),
