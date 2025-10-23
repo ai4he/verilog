@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg400-1" LaunchTime="1761072670">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg400-1" LaunchTime="1761243190">
   <File Type="ROUTE-BLACKBOX-DCP" Name="router_bd_wrapper_routed_bb.dcp"/>
   <File Type="OPT-UTIL" Name="router_bd_wrapper_utilization_opted.rpt"/>
   <File Type="ROUTE-PWR" Name="router_bd_wrapper_power_routed.rpt"/>
@@ -183,7 +183,7 @@
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
     <Filter Type="Constrs"/>
-    <File Path="$PPRDIR/../../constraints/pynqz2_leds.xdc">
+    <File Path="$PPRDIR/../../constraints/pynqz2_plclk_leds.xdc">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -213,7 +213,7 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="router_bd_axi_ic_imp_auto_pc_0"/>
   <BlockFileSet Type="BlockSrcs" Name="router_bd_bench_axi_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="router_bd_ps7_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="router_bd_axi_ic_imp_auto_pc_0"/>
 </GenRun>

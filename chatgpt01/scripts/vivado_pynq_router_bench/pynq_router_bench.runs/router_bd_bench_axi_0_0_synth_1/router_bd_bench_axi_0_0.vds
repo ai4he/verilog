@@ -3,8 +3,8 @@
 # SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Tue Oct 21 14:57:58 2025
-# Process ID         : 16352
+# Start of session at: Thu Oct 23 14:18:35 2025
+# Process ID         : 8396
 # Current directory  : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/router_bd_bench_axi_0_0_synth_1
 # Command line       : vivado.exe -log router_bd_bench_axi_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source router_bd_bench_axi_0_0.tcl
 # Log file           : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/router_bd_bench_axi_0_0_synth_1/router_bd_bench_axi_0_0.vds
@@ -17,12 +17,12 @@
 # CPU Physical cores : 4
 # CPU Logical cores  : 4
 # Host memory        : 8402 MB
-# Swap memory        : 10894 MB
-# Total Virtual      : 19296 MB
-# Available Virtual  : 2979 MB
+# Swap memory        : 6710 MB
+# Total Virtual      : 15112 MB
+# Available Virtual  : 6061 MB
 #-----------------------------------------------------------
 source router_bd_bench_axi_0_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:31 ; elapsed = 00:00:21 . Memory (MB): peak = 482.605 ; gain = 210.598
+create_project: Time (s): cpu = 00:00:27 ; elapsed = 00:00:17 . Memory (MB): peak = 484.070 ; gain = 213.836
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/Xilinx/2025.1/Vivado/data/ip'.
@@ -35,18 +35,18 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 15560
+INFO: [Synth 8-7075] Helper process launched with PID 6416
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1217.777 ; gain = 493.367
+Starting RTL Elaboration : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1217.723 ; gain = 492.594
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6901] identifier 'bench_st_running' is used before its declaration [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi.v:63]
-WARNING: [Synth 8-6901] identifier 'bench_done' is used before its declaration [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi.v:107]
-WARNING: [Synth 8-6901] identifier 'winner_code' is used before its declaration [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi.v:112]
-WARNING: [Synth 8-6901] identifier 't0' is used before its declaration [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi.v:113]
-WARNING: [Synth 8-6901] identifier 't1' is used before its declaration [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi.v:114]
-WARNING: [Synth 8-6901] identifier 't2' is used before its declaration [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi.v:115]
-WARNING: [Synth 8-6901] identifier 't3' is used before its declaration [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi.v:116]
-WARNING: [Synth 8-6901] identifier 'led_onehot_int' is used before its declaration [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi.v:117]
+WARNING: [Synth 8-6901] identifier 'bench_st_running' is used before its declaration [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi.v:74]
+WARNING: [Synth 8-6901] identifier 'bench_done' is used before its declaration [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi.v:118]
+WARNING: [Synth 8-6901] identifier 'winner_code' is used before its declaration [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi.v:123]
+WARNING: [Synth 8-6901] identifier 't0' is used before its declaration [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi.v:124]
+WARNING: [Synth 8-6901] identifier 't1' is used before its declaration [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi.v:125]
+WARNING: [Synth 8-6901] identifier 't2' is used before its declaration [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi.v:126]
+WARNING: [Synth 8-6901] identifier 't3' is used before its declaration [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi.v:127]
+WARNING: [Synth 8-6901] identifier 'led_onehot_int' is used before its declaration [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi.v:128]
 INFO: [Synth 8-6157] synthesizing module 'router_bd_bench_axi_0_0' [c:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/ip/router_bd_bench_axi_0_0/synth/router_bd_bench_axi_0_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'router_bench_axi' [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi.v:4]
 	Parameter B2_LAT_BIN bound to: 1 - type: integer 
@@ -136,45 +136,45 @@ WARNING: [Synth 8-7129] Port s_axi_wstrb[0] in module router_bench_axi is either
 WARNING: [Synth 8-7129] Port s_axi_araddr[1] in module router_bench_axi is either unconnected or has no load
 WARNING: [Synth 8-7129] Port s_axi_araddr[0] in module router_bench_axi is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1336.109 ; gain = 611.699
+Finished RTL Elaboration : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1335.785 ; gain = 610.656
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1336.109 ; gain = 611.699
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1335.785 ; gain = 610.656
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1336.109 ; gain = 611.699
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1335.785 ; gain = 610.656
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.051 . Memory (MB): peak = 1336.109 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 1335.785 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1407.230 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1407.023 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.129 . Memory (MB): peak = 1409.426 ; gain = 2.195
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.092 . Memory (MB): peak = 1408.379 ; gain = 1.355
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:48 ; elapsed = 00:00:53 . Memory (MB): peak = 1409.426 ; gain = 685.016
+Finished Constraint Validation : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1408.379 ; gain = 683.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:48 ; elapsed = 00:00:53 . Memory (MB): peak = 1409.426 ; gain = 685.016
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1408.379 ; gain = 683.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:48 ; elapsed = 00:00:53 . Memory (MB): peak = 1409.426 ; gain = 685.016
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1408.379 ; gain = 683.250
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'st_reg' in module 'router'
 INFO: [Synth 8-802] inferred FSM for state register 'st_reg' in module 'bench_engine'
@@ -198,7 +198,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'st_reg' using encoding 'se
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'st_reg' using encoding 'sequential' in module 'bench_engine'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:50 ; elapsed = 00:00:55 . Memory (MB): peak = 1409.426 ; gain = 685.016
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 1408.379 ; gain = 683.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -208,16 +208,16 @@ Detailed RTL Component Info :
 	   3 Input   32 Bit       Adders := 3     
 	   2 Input   32 Bit       Adders := 1     
 	   2 Input   17 Bit       Adders := 3     
-	   2 Input    8 Bit       Adders := 3     
+	   2 Input    8 Bit       Adders := 4     
 	   2 Input    4 Bit       Adders := 1     
 	   2 Input    2 Bit       Adders := 1     
 +---Registers : 
 	               32 Bit    Registers := 10    
 	               16 Bit    Registers := 16    
-	                8 Bit    Registers := 3     
+	                8 Bit    Registers := 4     
 	                4 Bit    Registers := 12    
 	                2 Bit    Registers := 5     
-	                1 Bit    Registers := 23    
+	                1 Bit    Registers := 24    
 +---Muxes : 
 	   2 Input   32 Bit        Muxes := 24    
 	   8 Input   32 Bit        Muxes := 3     
@@ -293,7 +293,7 @@ WARNING: [Synth 8-7129] Port s_axi_wstrb[0] in module router_bd_bench_axi_0_0 is
 WARNING: [Synth 8-7129] Port s_axi_araddr[1] in module router_bd_bench_axi_0_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port s_axi_araddr[0] in module router_bd_bench_axi_0_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:04 ; elapsed = 00:01:10 . Memory (MB): peak = 1409.426 ; gain = 685.016
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:55 ; elapsed = 00:00:58 . Memory (MB): peak = 1408.379 ; gain = 683.250
 ---------------------------------------------------------------------------------
  Sort Area is  u_b2/res_bin2_0 : 0 0 : 1946 1946 : Used 1 time 0
 ---------------------------------------------------------------------------------
@@ -315,19 +315,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:23 ; elapsed = 00:01:30 . Memory (MB): peak = 1538.602 ; gain = 814.191
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:11 ; elapsed = 00:01:14 . Memory (MB): peak = 1542.551 ; gain = 817.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:23 ; elapsed = 00:01:30 . Memory (MB): peak = 1539.613 ; gain = 815.203
+Finished Timing Optimization : Time (s): cpu = 00:01:11 ; elapsed = 00:01:15 . Memory (MB): peak = 1543.559 ; gain = 818.430
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:23 ; elapsed = 00:01:31 . Memory (MB): peak = 1558.672 ; gain = 834.262
+Finished Technology Mapping : Time (s): cpu = 00:01:12 ; elapsed = 00:01:15 . Memory (MB): peak = 1562.648 ; gain = 837.520
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -345,37 +345,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:41 ; elapsed = 00:01:50 . Memory (MB): peak = 1783.207 ; gain = 1058.797
+Finished IO Insertion : Time (s): cpu = 00:01:27 ; elapsed = 00:01:31 . Memory (MB): peak = 1787.098 ; gain = 1061.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:41 ; elapsed = 00:01:50 . Memory (MB): peak = 1783.207 ; gain = 1058.797
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:27 ; elapsed = 00:01:31 . Memory (MB): peak = 1787.098 ; gain = 1061.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:41 ; elapsed = 00:01:50 . Memory (MB): peak = 1783.207 ; gain = 1058.797
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:27 ; elapsed = 00:01:31 . Memory (MB): peak = 1787.098 ; gain = 1061.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:41 ; elapsed = 00:01:50 . Memory (MB): peak = 1783.207 ; gain = 1058.797
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:27 ; elapsed = 00:01:31 . Memory (MB): peak = 1787.098 ; gain = 1061.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:41 ; elapsed = 00:01:50 . Memory (MB): peak = 1783.207 ; gain = 1058.797
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:27 ; elapsed = 00:01:32 . Memory (MB): peak = 1787.098 ; gain = 1061.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:41 ; elapsed = 00:01:50 . Memory (MB): peak = 1783.207 ; gain = 1058.797
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:27 ; elapsed = 00:01:32 . Memory (MB): peak = 1787.098 ; gain = 1061.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -393,36 +393,36 @@ Report Cell Usage:
 +------+-------+------+
 |1     |CARRY4 |    28|
 |2     |LUT1   |     3|
-|3     |LUT2   |    22|
-|4     |LUT3   |    74|
-|5     |LUT4   |   150|
-|6     |LUT5   |    42|
-|7     |LUT6   |   121|
-|8     |FDRE   |   276|
+|3     |LUT2   |    24|
+|4     |LUT3   |    75|
+|5     |LUT4   |   153|
+|6     |LUT5   |    44|
+|7     |LUT6   |   123|
+|8     |FDRE   |   285|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:41 ; elapsed = 00:01:50 . Memory (MB): peak = 1783.207 ; gain = 1058.797
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:27 ; elapsed = 00:01:32 . Memory (MB): peak = 1787.098 ; gain = 1061.969
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 39 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:12 ; elapsed = 00:01:44 . Memory (MB): peak = 1783.207 ; gain = 985.480
-Synthesis Optimization Complete : Time (s): cpu = 00:01:42 ; elapsed = 00:01:50 . Memory (MB): peak = 1783.207 ; gain = 1058.797
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:02 ; elapsed = 00:01:26 . Memory (MB): peak = 1787.098 ; gain = 989.375
+Synthesis Optimization Complete : Time (s): cpu = 00:01:28 ; elapsed = 00:01:32 . Memory (MB): peak = 1787.098 ; gain = 1061.969
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 1783.207 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1787.098 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 28 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1783.207 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1787.098 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 6a39a738
+Synth Design complete | Checksum: 98285ee5
 INFO: [Common 17-83] Releasing license: Synthesis
 36 Infos, 86 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:53 ; elapsed = 00:02:08 . Memory (MB): peak = 1783.207 ; gain = 1281.129
+synth_design: Time (s): cpu = 00:01:38 ; elapsed = 00:01:49 . Memory (MB): peak = 1787.098 ; gain = 1286.707
 INFO: [Coretcl 2-1174] Renamed 6 cell refs.
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1783.207 ; gain = 0.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1787.098 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.runs/router_bd_bench_axi_0_0_synth_1/router_bd_bench_axi_0_0.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file router_bd_bench_axi_0_0_utilization_synth.rpt -pb router_bd_bench_axi_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Oct 21 15:00:38 2025...
+INFO: [Common 17-206] Exiting Vivado at Thu Oct 23 14:20:50 2025...

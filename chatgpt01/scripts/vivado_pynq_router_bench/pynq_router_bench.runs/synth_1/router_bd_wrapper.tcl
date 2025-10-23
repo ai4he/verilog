@@ -89,8 +89,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/Carlos/Documents/projects/verilog/chatgpt01/constraints/pynqz2_leds.xdc
-set_property used_in_implementation false [get_files C:/Users/Carlos/Documents/projects/verilog/chatgpt01/constraints/pynqz2_leds.xdc]
+read_xdc C:/Users/Carlos/Documents/projects/verilog/chatgpt01/constraints/pynqz2_plclk_leds.xdc
+set_property used_in_implementation false [get_files C:/Users/Carlos/Documents/projects/verilog/chatgpt01/constraints/pynqz2_plclk_leds.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]

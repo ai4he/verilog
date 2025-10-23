@@ -2,7 +2,7 @@
 -- Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
--- Date        : Tue Oct 21 15:00:38 2025
+-- Date        : Thu Oct 23 14:20:49 2025
 -- Host        : DESKTOP-E4COIK2 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/ip/router_bd_bench_axi_0_0/router_bd_bench_axi_0_0_sim_netlist.vhdl
@@ -18,9 +18,8 @@ use UNISIM.VCOMPONENTS.ALL;
 entity router_bd_bench_axi_0_0_base10_alu is
   port (
     done_b10 : out STD_LOGIC;
-    SR : in STD_LOGIC_VECTOR ( 0 to 0 );
+    busy_reg_0 : in STD_LOGIC;
     s_axi_aclk : in STD_LOGIC;
-    s_axi_aresetn : in STD_LOGIC;
     \countdown_reg[0]_0\ : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 3 downto 0 );
     \countdown_reg[1]_0\ : in STD_LOGIC;
@@ -66,7 +65,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => '1',
       D => \countdown[7]_i_2__1_n_0\,
       Q => busy_reg_n_0,
-      R => SR(0)
+      R => busy_reg_0
     );
 \countdown[0]_i_1__0\: unisim.vcomponents.LUT6
     generic map(
@@ -167,12 +166,12 @@ busy_reg: unisim.vcomponents.FDRE
     );
 \countdown[7]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"4F"
+      INIT => X"BA"
     )
         port map (
-      I0 => busy_reg_n_0,
-      I1 => \countdown_reg[0]_0\,
-      I2 => s_axi_aresetn,
+      I0 => busy_reg_0,
+      I1 => busy_reg_n_0,
+      I2 => \countdown_reg[0]_0\,
       O => \countdown[7]_i_1_n_0\
     );
 \countdown[7]_i_2__1\: unisim.vcomponents.LUT6
@@ -230,7 +229,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_2__1_n_0\,
       D => \countdown[0]_i_1__0_n_0\,
       Q => \countdown_reg_n_0_[0]\,
-      R => SR(0)
+      R => busy_reg_0
     );
 \countdown_reg[1]\: unisim.vcomponents.FDRE
      port map (
@@ -238,7 +237,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_2__1_n_0\,
       D => \countdown[1]_i_1__0_n_0\,
       Q => \countdown_reg_n_0_[1]\,
-      R => SR(0)
+      R => busy_reg_0
     );
 \countdown_reg[2]\: unisim.vcomponents.FDRE
      port map (
@@ -246,7 +245,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_2__1_n_0\,
       D => \countdown[2]_i_1__0_n_0\,
       Q => \countdown_reg_n_0_[2]\,
-      R => SR(0)
+      R => busy_reg_0
     );
 \countdown_reg[3]\: unisim.vcomponents.FDRE
      port map (
@@ -254,7 +253,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_2__1_n_0\,
       D => \countdown[3]_i_1__0_n_0\,
       Q => \countdown_reg_n_0_[3]\,
-      R => SR(0)
+      R => busy_reg_0
     );
 \countdown_reg[4]\: unisim.vcomponents.FDRE
      port map (
@@ -290,15 +289,15 @@ busy_reg: unisim.vcomponents.FDRE
     );
 \done_i_1__1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0001000000000000"
+      INIT => X"0000000100000000"
     )
         port map (
       I0 => \countdown_reg_n_0_[7]\,
       I1 => \countdown_reg_n_0_[6]\,
       I2 => \countdown_reg_n_0_[5]\,
       I3 => \countdown[7]_i_4__0_n_0\,
-      I4 => busy_reg_n_0,
-      I5 => s_axi_aresetn,
+      I4 => busy_reg_0,
+      I5 => busy_reg_n_0,
       O => \done_i_1__1_n_0\
     );
 done_reg: unisim.vcomponents.FDRE
@@ -316,20 +315,20 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity router_bd_bench_axi_0_0_base12_alu is
   port (
-    SR : out STD_LOGIC_VECTOR ( 0 to 0 );
+    por_active_reg : out STD_LOGIC;
     done_b12 : out STD_LOGIC;
     s_axi_aclk : in STD_LOGIC;
-    s_axi_aresetn : in STD_LOGIC;
     \countdown_reg[3]_0\ : in STD_LOGIC;
     \countdown_reg[0]_0\ : in STD_LOGIC;
-    Q : in STD_LOGIC_VECTOR ( 3 downto 0 )
+    Q : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    E : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_aresetn : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of router_bd_bench_axi_0_0_base12_alu : entity is "base12_alu";
 end router_bd_bench_axi_0_0_base12_alu;
 
 architecture STRUCTURE of router_bd_bench_axi_0_0_base12_alu is
-  signal \^sr\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal busy0 : STD_LOGIC;
   signal busy_reg_n_0 : STD_LOGIC;
   signal \countdown[0]_i_1__1_n_0\ : STD_LOGIC;
@@ -355,20 +354,21 @@ architecture STRUCTURE of router_bd_bench_axi_0_0_base12_alu is
   signal \countdown_reg_n_0_[6]\ : STD_LOGIC;
   signal \countdown_reg_n_0_[7]\ : STD_LOGIC;
   signal \done_i_1__2_n_0\ : STD_LOGIC;
+  signal \^por_active_reg\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of \countdown[5]_i_1__1\ : label is "soft_lutpair2";
   attribute SOFT_HLUTNM of \countdown[6]_i_1__1\ : label is "soft_lutpair2";
   attribute SOFT_HLUTNM of \countdown[7]_i_3__1\ : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of \countdown[7]_i_4__1\ : label is "soft_lutpair3";
 begin
-  SR(0) <= \^sr\(0);
+  por_active_reg <= \^por_active_reg\;
 busy_reg: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
       CE => '1',
       D => \countdown[7]_i_1__1_n_0\,
       Q => busy_reg_n_0,
-      R => \^sr\(0)
+      R => \^por_active_reg\
     );
 \countdown[0]_i_1__1\: unisim.vcomponents.LUT6
     generic map(
@@ -555,7 +555,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_1__1_n_0\,
       D => \countdown[0]_i_1__1_n_0\,
       Q => \countdown_reg_n_0_[0]\,
-      R => \^sr\(0)
+      R => \^por_active_reg\
     );
 \countdown_reg[1]\: unisim.vcomponents.FDRE
      port map (
@@ -563,7 +563,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_1__1_n_0\,
       D => \countdown[1]_i_1__1_n_0\,
       Q => \countdown_reg_n_0_[1]\,
-      R => \^sr\(0)
+      R => \^por_active_reg\
     );
 \countdown_reg[2]\: unisim.vcomponents.FDRE
      port map (
@@ -571,7 +571,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_1__1_n_0\,
       D => \countdown[2]_i_1__1_n_0\,
       Q => \countdown_reg_n_0_[2]\,
-      R => \^sr\(0)
+      R => \^por_active_reg\
     );
 \countdown_reg[3]\: unisim.vcomponents.FDRE
      port map (
@@ -579,7 +579,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_1__1_n_0\,
       D => \countdown[3]_i_1__1_n_0\,
       Q => \countdown_reg_n_0_[3]\,
-      R => \^sr\(0)
+      R => \^por_active_reg\
     );
 \countdown_reg[4]\: unisim.vcomponents.FDRE
      port map (
@@ -587,7 +587,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_1__1_n_0\,
       D => \countdown[4]_i_1__1_n_0\,
       Q => \countdown_reg_n_0_[4]\,
-      R => \^sr\(0)
+      R => \^por_active_reg\
     );
 \countdown_reg[5]\: unisim.vcomponents.FDRE
      port map (
@@ -595,7 +595,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_1__1_n_0\,
       D => \countdown[5]_i_1__1_n_0\,
       Q => \countdown_reg_n_0_[5]\,
-      R => \^sr\(0)
+      R => \^por_active_reg\
     );
 \countdown_reg[6]\: unisim.vcomponents.FDRE
      port map (
@@ -603,7 +603,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_1__1_n_0\,
       D => \countdown[6]_i_1__1_n_0\,
       Q => \countdown_reg_n_0_[6]\,
-      R => \^sr\(0)
+      R => \^por_active_reg\
     );
 \countdown_reg[7]\: unisim.vcomponents.FDRE
      port map (
@@ -611,19 +611,19 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_1__1_n_0\,
       D => \countdown[7]_i_2__0_n_0\,
       Q => \countdown_reg_n_0_[7]\,
-      R => \^sr\(0)
+      R => \^por_active_reg\
     );
 \done_i_1__2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0001000000000000"
+      INIT => X"0000000100000000"
     )
         port map (
       I0 => \countdown_reg_n_0_[7]\,
       I1 => \countdown_reg_n_0_[6]\,
       I2 => \countdown_reg_n_0_[5]\,
       I3 => \countdown[7]_i_3__1_n_0\,
-      I4 => busy_reg_n_0,
-      I5 => s_axi_aresetn,
+      I4 => \^por_active_reg\,
+      I5 => busy_reg_n_0,
       O => \done_i_1__2_n_0\
     );
 done_reg: unisim.vcomponents.FDRE
@@ -634,13 +634,14 @@ done_reg: unisim.vcomponents.FDRE
       Q => done_b12,
       R => '0'
     );
-s_axi_awready_i_1: unisim.vcomponents.LUT1
+s_axi_awready_i_1: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"1"
+      INIT => X"B"
     )
         port map (
-      I0 => s_axi_aresetn,
-      O => \^sr\(0)
+      I0 => E(0),
+      I1 => s_axi_aresetn,
+      O => \^por_active_reg\
     );
 end STRUCTURE;
 library IEEE;
@@ -653,9 +654,8 @@ entity router_bd_bench_axi_0_0_base2_alu is
     \r_opcode_reg[1]\ : out STD_LOGIC;
     done_reg_0 : out STD_LOGIC;
     r_start_reg : out STD_LOGIC;
-    SR : in STD_LOGIC_VECTOR ( 0 to 0 );
+    \countdown_reg[7]_0\ : in STD_LOGIC;
     s_axi_aclk : in STD_LOGIC;
-    s_axi_aresetn : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 3 downto 0 );
     \countdown_reg[0]_0\ : in STD_LOGIC;
     routed : in STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -709,7 +709,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => '1',
       D => \countdown[7]_i_1__0_n_0\,
       Q => busy_reg_n_0,
-      R => SR(0)
+      R => \countdown_reg[7]_0\
     );
 \countdown[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -893,7 +893,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_1__0_n_0\,
       D => p_1_in(0),
       Q => countdown(0),
-      R => SR(0)
+      R => \countdown_reg[7]_0\
     );
 \countdown_reg[1]\: unisim.vcomponents.FDRE
      port map (
@@ -901,7 +901,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_1__0_n_0\,
       D => p_1_in(1),
       Q => countdown(1),
-      R => SR(0)
+      R => \countdown_reg[7]_0\
     );
 \countdown_reg[2]\: unisim.vcomponents.FDRE
      port map (
@@ -909,7 +909,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_1__0_n_0\,
       D => p_1_in(2),
       Q => countdown(2),
-      R => SR(0)
+      R => \countdown_reg[7]_0\
     );
 \countdown_reg[3]\: unisim.vcomponents.FDRE
      port map (
@@ -917,7 +917,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_1__0_n_0\,
       D => p_1_in(3),
       Q => countdown(3),
-      R => SR(0)
+      R => \countdown_reg[7]_0\
     );
 \countdown_reg[4]\: unisim.vcomponents.FDRE
      port map (
@@ -925,7 +925,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_1__0_n_0\,
       D => p_1_in(4),
       Q => countdown(4),
-      R => SR(0)
+      R => \countdown_reg[7]_0\
     );
 \countdown_reg[5]\: unisim.vcomponents.FDRE
      port map (
@@ -933,7 +933,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_1__0_n_0\,
       D => p_1_in(5),
       Q => countdown(5),
-      R => SR(0)
+      R => \countdown_reg[7]_0\
     );
 \countdown_reg[6]\: unisim.vcomponents.FDRE
      port map (
@@ -941,7 +941,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_1__0_n_0\,
       D => p_1_in(6),
       Q => countdown(6),
-      R => SR(0)
+      R => \countdown_reg[7]_0\
     );
 \countdown_reg[7]\: unisim.vcomponents.FDRE
      port map (
@@ -949,7 +949,7 @@ busy_reg: unisim.vcomponents.FDRE
       CE => \countdown[7]_i_1__0_n_0\,
       D => p_1_in(7),
       Q => countdown(7),
-      R => SR(0)
+      R => \countdown_reg[7]_0\
     );
 done_i_1: unisim.vcomponents.LUT6
     generic map(
@@ -966,15 +966,15 @@ done_i_1: unisim.vcomponents.LUT6
     );
 \done_i_1__0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0001000000000000"
+      INIT => X"0000000100000000"
     )
         port map (
       I0 => countdown(7),
       I1 => countdown(6),
       I2 => countdown(5),
       I3 => \countdown[7]_i_3_n_0\,
-      I4 => busy_reg_n_0,
-      I5 => s_axi_aresetn,
+      I4 => \countdown_reg[7]_0\,
+      I5 => busy_reg_n_0,
       O => \done_i_1__0_n_0\
     );
 done_reg: unisim.vcomponents.FDRE
@@ -992,15 +992,16 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity router_bd_bench_axi_0_0_router is
   port (
-    s_axi_aresetn_0 : out STD_LOGIC;
+    por_active_reg : out STD_LOGIC;
     \FSM_sequential_st_reg[2]\ : out STD_LOGIC;
     \FSM_sequential_st_reg[2]_0\ : out STD_LOGIC;
     \FSM_sequential_st_reg[2]_1\ : out STD_LOGIC;
     s_axi_aclk : in STD_LOGIC;
-    s_axi_aresetn : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 3 downto 0 );
     FSM_sequential_st_reg_0 : in STD_LOGIC;
     start_b12_reg_0 : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    E : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_aresetn : in STD_LOGIC;
     \st__0\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     st : in STD_LOGIC_VECTOR ( 2 downto 0 );
     start : in STD_LOGIC;
@@ -1013,9 +1014,9 @@ end router_bd_bench_axi_0_0_router;
 architecture STRUCTURE of router_bd_bench_axi_0_0_router is
   signal done_b10 : STD_LOGIC;
   signal done_b12 : STD_LOGIC;
+  signal \^por_active_reg\ : STD_LOGIC;
   signal r_done : STD_LOGIC;
   signal routed : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal \^s_axi_aresetn_0\ : STD_LOGIC;
   signal st_0 : STD_LOGIC;
   signal start_b10 : STD_LOGIC;
   signal start_b10_reg_n_0 : STD_LOGIC;
@@ -1030,7 +1031,7 @@ architecture STRUCTURE of router_bd_bench_axi_0_0_router is
   attribute FSM_ENCODED_STATES : string;
   attribute FSM_ENCODED_STATES of FSM_sequential_st_reg : label is "S_IDLE:0,S_WAIT:1,";
 begin
-  s_axi_aresetn_0 <= \^s_axi_aresetn_0\;
+  por_active_reg <= \^por_active_reg\;
 \FSM_sequential_st[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"CFCFFF338888FFCC"
@@ -1076,7 +1077,7 @@ FSM_sequential_st_reg: unisim.vcomponents.FDRE
       CE => '1',
       D => u_b2_n_3,
       Q => st_0,
-      R => \^s_axi_aresetn_0\
+      R => \^por_active_reg\
     );
 done_i_2: unisim.vcomponents.LUT5
     generic map(
@@ -1109,7 +1110,7 @@ done_reg: unisim.vcomponents.FDRE
       CE => '1',
       D => u_b2_n_2,
       Q => r_done,
-      R => \^s_axi_aresetn_0\
+      R => \^por_active_reg\
     );
 start_b10_i_1: unisim.vcomponents.LUT6
     generic map(
@@ -1130,7 +1131,7 @@ start_b10_reg: unisim.vcomponents.FDRE
       CE => '1',
       D => start_b10,
       Q => start_b10_reg_n_0,
-      R => \^s_axi_aresetn_0\
+      R => \^por_active_reg\
     );
 start_b12_i_1: unisim.vcomponents.LUT6
     generic map(
@@ -1151,7 +1152,7 @@ start_b12_reg: unisim.vcomponents.FDRE
       CE => '1',
       D => start_b12,
       Q => start_b12_reg_n_0,
-      R => \^s_axi_aresetn_0\
+      R => \^por_active_reg\
     );
 start_b2_i_1: unisim.vcomponents.LUT5
     generic map(
@@ -1171,26 +1172,26 @@ start_b2_reg: unisim.vcomponents.FDRE
       CE => '1',
       D => start_b2,
       Q => start_b2_reg_n_0,
-      R => \^s_axi_aresetn_0\
+      R => \^por_active_reg\
     );
 u_b10: entity work.router_bd_bench_axi_0_0_base10_alu
      port map (
       Q(3 downto 0) => Q(3 downto 0),
-      SR(0) => \^s_axi_aresetn_0\,
+      busy_reg_0 => \^por_active_reg\,
       \countdown_reg[0]_0\ => start_b10_reg_n_0,
       \countdown_reg[1]_0\ => u_b2_n_0,
       \countdown_reg[1]_1\ => u_b2_n_1,
       done_b10 => done_b10,
-      s_axi_aclk => s_axi_aclk,
-      s_axi_aresetn => s_axi_aresetn
+      s_axi_aclk => s_axi_aclk
     );
 u_b12: entity work.router_bd_bench_axi_0_0_base12_alu
      port map (
+      E(0) => E(0),
       Q(3 downto 0) => Q(3 downto 0),
-      SR(0) => \^s_axi_aresetn_0\,
       \countdown_reg[0]_0\ => start_b12_reg_n_0,
       \countdown_reg[3]_0\ => u_b2_n_0,
       done_b12 => done_b12,
+      por_active_reg => \^por_active_reg\,
       s_axi_aclk => s_axi_aclk,
       s_axi_aresetn => s_axi_aresetn
     );
@@ -1198,8 +1199,8 @@ u_b2: entity work.router_bd_bench_axi_0_0_base2_alu
      port map (
       FSM_sequential_st_reg => FSM_sequential_st_reg_0,
       Q(3 downto 0) => Q(3 downto 0),
-      SR(0) => \^s_axi_aresetn_0\,
       \countdown_reg[0]_0\ => start_b2_reg_n_0,
+      \countdown_reg[7]_0\ => \^por_active_reg\,
       done_b10 => done_b10,
       done_b12 => done_b12,
       done_reg_0 => u_b2_n_2,
@@ -1208,7 +1209,6 @@ u_b2: entity work.router_bd_bench_axi_0_0_base2_alu
       r_start_reg => u_b2_n_3,
       routed(1 downto 0) => routed(1 downto 0),
       s_axi_aclk => s_axi_aclk,
-      s_axi_aresetn => s_axi_aresetn,
       st_0 => st_0
     );
 end STRUCTURE;
@@ -1221,17 +1221,18 @@ entity router_bd_bench_axi_0_0_bench_engine is
     rst : out STD_LOGIC;
     pwrup_cnt_reg_14_sp_1 : out STD_LOGIC;
     pwrup_cnt_reg_3_sp_1 : out STD_LOGIC;
-    s_axi_aresetn_0 : out STD_LOGIC;
+    winner_valid_reg_0 : out STD_LOGIC;
     led : out STD_LOGIC_VECTOR ( 3 downto 0 );
     D : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    winner_valid_reg_0 : out STD_LOGIC;
+    winner_valid_reg_1 : out STD_LOGIC;
     s_axi_aclk : in STD_LOGIC;
-    s_axi_aresetn : in STD_LOGIC;
     \FSM_sequential_st_reg[2]_0\ : in STD_LOGIC;
     bench_done_latched_reg : in STD_LOGIC;
-    pwrup_cnt_reg : in STD_LOGIC_VECTOR ( 15 downto 0 );
     data0 : in STD_LOGIC_VECTOR ( 1 downto 0 );
     bench_done_latched_reg_0 : in STD_LOGIC;
+    E : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_aresetn : in STD_LOGIC;
+    pwrup_cnt_reg : in STD_LOGIC_VECTOR ( 15 downto 0 );
     \s_axi_rdata_reg[0]\ : in STD_LOGIC;
     s_axi_araddr : in STD_LOGIC_VECTOR ( 3 downto 0 );
     \s_axi_rdata_reg[4]\ : in STD_LOGIC;
@@ -3101,15 +3102,15 @@ begin
     );
 bench_done_latched_i_1: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"000000A8"
+      INIT => X"0000000E"
     )
         port map (
-      I0 => s_axi_aresetn,
-      I1 => bench_done,
-      I2 => data0(1),
+      I0 => bench_done,
+      I1 => data0(1),
+      I2 => bench_done_latched_reg_0,
       I3 => bench_done_latched_reg,
-      I4 => bench_done_latched_reg_0,
-      O => s_axi_aresetn_0
+      I4 => \^rst\,
+      O => winner_valid_reg_0
     );
 bench_st_running_i_1: unisim.vcomponents.LUT3
     generic map(
@@ -3119,7 +3120,7 @@ bench_st_running_i_1: unisim.vcomponents.LUT3
       I0 => start,
       I1 => bench_done,
       I2 => data0(0),
-      O => winner_valid_reg_0
+      O => winner_valid_reg_1
     );
 cond_cycle_acc0_carry: unisim.vcomponents.CARRY4
      port map (
@@ -7279,15 +7280,16 @@ r_start_reg: unisim.vcomponents.FDRE
     );
 u_router: entity work.router_bd_bench_axi_0_0_router
      port map (
+      E(0) => E(0),
       \FSM_sequential_st_reg[1]\ => \FSM_sequential_st[1]_i_2_n_0\,
       \FSM_sequential_st_reg[2]\ => u_router_n_1,
       \FSM_sequential_st_reg[2]_0\ => u_router_n_2,
       \FSM_sequential_st_reg[2]_1\ => u_router_n_3,
       FSM_sequential_st_reg_0 => r_start_reg_n_0,
       Q(3 downto 0) => r_opcode(3 downto 0),
+      por_active_reg => \^rst\,
       s_axi_aclk => s_axi_aclk,
       s_axi_aresetn => s_axi_aresetn,
-      s_axi_aresetn_0 => \^rst\,
       st(2 downto 0) => st(2 downto 0),
       \st__0\(0) => \st__0\(2),
       start => start,
@@ -7449,11 +7451,11 @@ entity router_bd_bench_axi_0_0_router_bench_axi is
     s_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     led : out STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_rvalid : out STD_LOGIC;
-    s_axi_aresetn : in STD_LOGIC;
     s_axi_aclk : in STD_LOGIC;
     s_axi_bready : in STD_LOGIC;
     s_axi_wvalid : in STD_LOGIC;
     s_axi_awvalid : in STD_LOGIC;
+    s_axi_aresetn : in STD_LOGIC;
     s_axi_araddr : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_wdata : in STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -7467,6 +7469,11 @@ end router_bd_bench_axi_0_0_router_bench_axi;
 architecture STRUCTURE of router_bd_bench_axi_0_0_router_bench_axi is
   signal data0 : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal p_0_in : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal \p_0_in__0\ : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal por_active : STD_LOGIC;
+  signal por_active_i_1_n_0 : STD_LOGIC;
+  signal \por_cnt[7]_i_2_n_0\ : STD_LOGIC;
+  signal por_cnt_reg : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \pwrup_cnt[0]_i_1_n_0\ : STD_LOGIC;
   signal \pwrup_cnt[0]_i_3_n_0\ : STD_LOGIC;
   signal \pwrup_cnt[0]_i_4_n_0\ : STD_LOGIC;
@@ -7531,20 +7538,28 @@ architecture STRUCTURE of router_bd_bench_axi_0_0_router_bench_axi is
   signal u_bench_n_40 : STD_LOGIC;
   signal wr_hs : STD_LOGIC;
   signal \NLW_pwrup_cnt_reg[12]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
+  attribute SOFT_HLUTNM : string;
+  attribute SOFT_HLUTNM of \por_cnt[0]_i_1\ : label is "soft_lutpair56";
+  attribute SOFT_HLUTNM of \por_cnt[1]_i_1\ : label is "soft_lutpair56";
+  attribute SOFT_HLUTNM of \por_cnt[2]_i_1\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \por_cnt[3]_i_1\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \por_cnt[4]_i_1\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \por_cnt[6]_i_1\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \por_cnt[7]_i_1\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \por_cnt[7]_i_2\ : label is "soft_lutpair51";
   attribute ADDER_THRESHOLD : integer;
   attribute ADDER_THRESHOLD of \pwrup_cnt_reg[0]_i_2\ : label is 11;
   attribute ADDER_THRESHOLD of \pwrup_cnt_reg[12]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \pwrup_cnt_reg[4]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \pwrup_cnt_reg[8]_i_1\ : label is 11;
-  attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of s_axi_arready_i_1 : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of \s_axi_rdata[30]_i_2\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \s_axi_rdata[31]_i_3\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \s_axi_rdata[31]_i_4\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \s_axi_rdata[3]_i_3\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of s_axi_rvalid_i_1 : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of s_axi_wready_i_1 : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of start_pulse_i_2 : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of s_axi_arready_i_1 : label is "soft_lutpair55";
+  attribute SOFT_HLUTNM of \s_axi_rdata[30]_i_2\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \s_axi_rdata[31]_i_3\ : label is "soft_lutpair53";
+  attribute SOFT_HLUTNM of \s_axi_rdata[31]_i_4\ : label is "soft_lutpair53";
+  attribute SOFT_HLUTNM of \s_axi_rdata[3]_i_3\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of s_axi_rvalid_i_1 : label is "soft_lutpair55";
+  attribute SOFT_HLUTNM of s_axi_wready_i_1 : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of start_pulse_i_2 : label is "soft_lutpair54";
 begin
   s_axi_arready <= \^s_axi_arready\;
   s_axi_awready <= \^s_axi_awready\;
@@ -7566,6 +7581,215 @@ bench_st_running_reg: unisim.vcomponents.FDRE
       D => u_bench_n_40,
       Q => data0(0),
       R => rst
+    );
+por_active_i_1: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"BFFF0000FFFF0000"
+    )
+        port map (
+      I0 => \por_cnt[7]_i_2_n_0\,
+      I1 => por_cnt_reg(4),
+      I2 => por_cnt_reg(5),
+      I3 => por_cnt_reg(6),
+      I4 => por_active,
+      I5 => por_cnt_reg(7),
+      O => por_active_i_1_n_0
+    );
+por_active_reg: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '1'
+    )
+        port map (
+      C => s_axi_aclk,
+      CE => '1',
+      D => por_active_i_1_n_0,
+      Q => por_active,
+      R => '0'
+    );
+\por_cnt[0]_i_1\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => por_cnt_reg(0),
+      O => \p_0_in__0\(0)
+    );
+\por_cnt[1]_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => por_cnt_reg(0),
+      I1 => por_cnt_reg(1),
+      O => \p_0_in__0\(1)
+    );
+\por_cnt[2]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"78"
+    )
+        port map (
+      I0 => por_cnt_reg(1),
+      I1 => por_cnt_reg(0),
+      I2 => por_cnt_reg(2),
+      O => \p_0_in__0\(2)
+    );
+\por_cnt[3]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"7F80"
+    )
+        port map (
+      I0 => por_cnt_reg(2),
+      I1 => por_cnt_reg(0),
+      I2 => por_cnt_reg(1),
+      I3 => por_cnt_reg(3),
+      O => \p_0_in__0\(3)
+    );
+\por_cnt[4]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"7FFF8000"
+    )
+        port map (
+      I0 => por_cnt_reg(3),
+      I1 => por_cnt_reg(1),
+      I2 => por_cnt_reg(0),
+      I3 => por_cnt_reg(2),
+      I4 => por_cnt_reg(4),
+      O => \p_0_in__0\(4)
+    );
+\por_cnt[5]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"7FFFFFFF80000000"
+    )
+        port map (
+      I0 => por_cnt_reg(2),
+      I1 => por_cnt_reg(0),
+      I2 => por_cnt_reg(1),
+      I3 => por_cnt_reg(3),
+      I4 => por_cnt_reg(4),
+      I5 => por_cnt_reg(5),
+      O => \p_0_in__0\(5)
+    );
+\por_cnt[6]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"F708"
+    )
+        port map (
+      I0 => por_cnt_reg(5),
+      I1 => por_cnt_reg(4),
+      I2 => \por_cnt[7]_i_2_n_0\,
+      I3 => por_cnt_reg(6),
+      O => \p_0_in__0\(6)
+    );
+\por_cnt[7]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"DFFF2000"
+    )
+        port map (
+      I0 => por_cnt_reg(6),
+      I1 => \por_cnt[7]_i_2_n_0\,
+      I2 => por_cnt_reg(4),
+      I3 => por_cnt_reg(5),
+      I4 => por_cnt_reg(7),
+      O => \p_0_in__0\(7)
+    );
+\por_cnt[7]_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"7FFF"
+    )
+        port map (
+      I0 => por_cnt_reg(2),
+      I1 => por_cnt_reg(0),
+      I2 => por_cnt_reg(1),
+      I3 => por_cnt_reg(3),
+      O => \por_cnt[7]_i_2_n_0\
+    );
+\por_cnt_reg[0]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_axi_aclk,
+      CE => por_active,
+      D => \p_0_in__0\(0),
+      Q => por_cnt_reg(0),
+      R => '0'
+    );
+\por_cnt_reg[1]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_axi_aclk,
+      CE => por_active,
+      D => \p_0_in__0\(1),
+      Q => por_cnt_reg(1),
+      R => '0'
+    );
+\por_cnt_reg[2]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_axi_aclk,
+      CE => por_active,
+      D => \p_0_in__0\(2),
+      Q => por_cnt_reg(2),
+      R => '0'
+    );
+\por_cnt_reg[3]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_axi_aclk,
+      CE => por_active,
+      D => \p_0_in__0\(3),
+      Q => por_cnt_reg(3),
+      R => '0'
+    );
+\por_cnt_reg[4]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_axi_aclk,
+      CE => por_active,
+      D => \p_0_in__0\(4),
+      Q => por_cnt_reg(4),
+      R => '0'
+    );
+\por_cnt_reg[5]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_axi_aclk,
+      CE => por_active,
+      D => \p_0_in__0\(5),
+      Q => por_cnt_reg(5),
+      R => '0'
+    );
+\por_cnt_reg[6]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_axi_aclk,
+      CE => por_active,
+      D => \p_0_in__0\(6),
+      Q => por_cnt_reg(6),
+      R => '0'
+    );
+\por_cnt_reg[7]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_axi_aclk,
+      CE => por_active,
+      D => \p_0_in__0\(7),
+      Q => por_cnt_reg(7),
+      R => '0'
     );
 \pwrup_cnt[0]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -8271,6 +8495,7 @@ started_once_reg: unisim.vcomponents.FDRE
 u_bench: entity work.router_bd_bench_axi_0_0_bench_engine
      port map (
       D(31 downto 0) => p_0_in(31 downto 0),
+      E(0) => por_active,
       \FSM_sequential_st_reg[2]_0\ => started_once_reg_n_0,
       bench_done_latched_reg => start_pulse_reg_n_0,
       bench_done_latched_reg_0 => soft_clear_reg_n_0,
@@ -8283,12 +8508,12 @@ u_bench: entity work.router_bd_bench_axi_0_0_bench_engine
       s_axi_aclk => s_axi_aclk,
       s_axi_araddr(3 downto 0) => s_axi_araddr(3 downto 0),
       s_axi_aresetn => s_axi_aresetn,
-      s_axi_aresetn_0 => u_bench_n_3,
       \s_axi_rdata_reg[0]\ => \s_axi_rdata[3]_i_3_n_0\,
       \s_axi_rdata_reg[31]\ => \s_axi_rdata[31]_i_3_n_0\,
       \s_axi_rdata_reg[4]\ => \s_axi_rdata[30]_i_2_n_0\,
       \s_axi_rdata_reg[4]_0\ => \s_axi_rdata[31]_i_4_n_0\,
-      winner_valid_reg_0 => u_bench_n_40
+      winner_valid_reg_0 => u_bench_n_3,
+      winner_valid_reg_1 => u_bench_n_40
     );
 end STRUCTURE;
 library IEEE;
@@ -8337,7 +8562,7 @@ architecture STRUCTURE of router_bd_bench_axi_0_0 is
   attribute X_INTERFACE_MODE : string;
   attribute X_INTERFACE_MODE of s_axi_aclk : signal is "slave";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of s_axi_aclk : signal is "XIL_INTERFACENAME s_axi_aclk, ASSOCIATED_BUSIF s_axi, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN router_bd_ps7_0_FCLK_CLK0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of s_axi_aclk : signal is "XIL_INTERFACENAME s_axi_aclk, ASSOCIATED_BUSIF s_axi, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN router_bd_sysclk, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of s_axi_aresetn : signal is "xilinx.com:signal:reset:1.0 s_axi_aresetn RST";
   attribute X_INTERFACE_MODE of s_axi_aresetn : signal is "slave";
   attribute X_INTERFACE_PARAMETER of s_axi_aresetn : signal is "XIL_INTERFACENAME s_axi_aresetn, POLARITY ACTIVE_LOW, INSERT_VIP 0";
@@ -8354,7 +8579,7 @@ architecture STRUCTURE of router_bd_bench_axi_0_0 is
   attribute X_INTERFACE_INFO of s_axi_araddr : signal is "xilinx.com:interface:aximm:1.0 s_axi ARADDR";
   attribute X_INTERFACE_INFO of s_axi_awaddr : signal is "xilinx.com:interface:aximm:1.0 s_axi AWADDR";
   attribute X_INTERFACE_MODE of s_axi_awaddr : signal is "slave";
-  attribute X_INTERFACE_PARAMETER of s_axi_awaddr : signal is "XIL_INTERFACENAME s_axi, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 50000000, ID_WIDTH 0, ADDR_WIDTH 6, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN router_bd_ps7_0_FCLK_CLK0, NUM_READ_THREADS 4, NUM_WRITE_THREADS 4, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of s_axi_awaddr : signal is "XIL_INTERFACENAME s_axi, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 125000000, ID_WIDTH 0, ADDR_WIDTH 6, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN router_bd_sysclk, NUM_READ_THREADS 4, NUM_WRITE_THREADS 4, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of s_axi_bresp : signal is "xilinx.com:interface:aximm:1.0 s_axi BRESP";
   attribute X_INTERFACE_INFO of s_axi_rdata : signal is "xilinx.com:interface:aximm:1.0 s_axi RDATA";
   attribute X_INTERFACE_INFO of s_axi_rresp : signal is "xilinx.com:interface:aximm:1.0 s_axi RRESP";

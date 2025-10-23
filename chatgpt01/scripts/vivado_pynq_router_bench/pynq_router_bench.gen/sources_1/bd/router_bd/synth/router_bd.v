@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-//Date        : Tue Oct 21 14:50:11 2025
+//Date        : Thu Oct 23 14:12:16 2025
 //Host        : DESKTOP-E4COIK2 running 64-bit major release  (build 9200)
 //Command     : generate_target router_bd.bd
 //Design      : router_bd
@@ -10,7 +10,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "router_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=router_bd,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=5,numReposBlks=3,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_ps7_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "router_bd.hwdef" *) 
+(* CORE_GENERATION_INFO = "router_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=router_bd,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=6,numReposBlks=4,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_ps7_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "router_bd.hwdef" *) 
 module router_bd
    (DDR_addr,
     DDR_ba,
@@ -33,7 +33,8 @@ module router_bd
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
-    led);
+    led,
+    sysclk);
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR ADDR" *) (* X_INTERFACE_MODE = "Master" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DDR, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250" *) inout [14:0]DDR_addr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR BA" *) inout [2:0]DDR_ba;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR CAS_N" *) inout DDR_cas_n;
@@ -56,6 +57,7 @@ module router_bd
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_PORB" *) inout FIXED_IO_ps_porb;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_SRSTB" *) inout FIXED_IO_ps_srstb;
   output [3:0]led;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.SYSCLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.SYSCLK, CLK_DOMAIN router_bd_sysclk, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input sysclk;
 
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
@@ -96,8 +98,6 @@ module router_bd
   wire [3:0]axi_ic_M00_AXI_WSTRB;
   wire axi_ic_M00_AXI_WVALID;
   wire [3:0]led;
-  wire ps7_FCLK_CLK0;
-  wire ps7_FCLK_RESET0_N;
   wire [31:0]ps7_M_AXI_GP0_ARADDR;
   wire [1:0]ps7_M_AXI_GP0_ARBURST;
   wire [3:0]ps7_M_AXI_GP0_ARCACHE;
@@ -136,12 +136,14 @@ module router_bd
   wire ps7_M_AXI_GP0_WREADY;
   wire [3:0]ps7_M_AXI_GP0_WSTRB;
   wire ps7_M_AXI_GP0_WVALID;
+  wire sysclk;
+  wire [0:0]xlconst_one_dout;
 
   router_bd_axi_ic_0 axi_ic
-       (.ACLK(ps7_FCLK_CLK0),
-        .ARESETN(ps7_FCLK_RESET0_N),
-        .M00_ACLK(ps7_FCLK_CLK0),
-        .M00_ARESETN(ps7_FCLK_RESET0_N),
+       (.ACLK(sysclk),
+        .ARESETN(xlconst_one_dout),
+        .M00_ACLK(sysclk),
+        .M00_ARESETN(xlconst_one_dout),
         .M00_AXI_araddr(axi_ic_M00_AXI_ARADDR),
         .M00_AXI_arready(axi_ic_M00_AXI_ARREADY),
         .M00_AXI_arvalid(axi_ic_M00_AXI_ARVALID),
@@ -159,8 +161,8 @@ module router_bd
         .M00_AXI_wready(axi_ic_M00_AXI_WREADY),
         .M00_AXI_wstrb(axi_ic_M00_AXI_WSTRB),
         .M00_AXI_wvalid(axi_ic_M00_AXI_WVALID),
-        .S00_ACLK(ps7_FCLK_CLK0),
-        .S00_ARESETN(ps7_FCLK_RESET0_N),
+        .S00_ACLK(sysclk),
+        .S00_ARESETN(xlconst_one_dout),
         .S00_AXI_araddr(ps7_M_AXI_GP0_ARADDR),
         .S00_AXI_arburst(ps7_M_AXI_GP0_ARBURST),
         .S00_AXI_arcache(ps7_M_AXI_GP0_ARCACHE),
@@ -201,9 +203,9 @@ module router_bd
         .S00_AXI_wvalid(ps7_M_AXI_GP0_WVALID));
   router_bd_bench_axi_0_0 bench_axi_0
        (.led(led),
-        .s_axi_aclk(ps7_FCLK_CLK0),
+        .s_axi_aclk(sysclk),
         .s_axi_araddr(axi_ic_M00_AXI_ARADDR[5:0]),
-        .s_axi_aresetn(ps7_FCLK_RESET0_N),
+        .s_axi_aresetn(xlconst_one_dout),
         .s_axi_arready(axi_ic_M00_AXI_ARREADY),
         .s_axi_arvalid(axi_ic_M00_AXI_ARVALID),
         .s_axi_awaddr(axi_ic_M00_AXI_AWADDR[5:0]),
@@ -238,10 +240,8 @@ module router_bd
         .DDR_VRN(FIXED_IO_ddr_vrn),
         .DDR_VRP(FIXED_IO_ddr_vrp),
         .DDR_WEB(DDR_we_n),
-        .FCLK_CLK0(ps7_FCLK_CLK0),
-        .FCLK_RESET0_N(ps7_FCLK_RESET0_N),
         .MIO(FIXED_IO_mio),
-        .M_AXI_GP0_ACLK(ps7_FCLK_CLK0),
+        .M_AXI_GP0_ACLK(sysclk),
         .M_AXI_GP0_ARADDR(ps7_M_AXI_GP0_ARADDR),
         .M_AXI_GP0_ARBURST(ps7_M_AXI_GP0_ARBURST),
         .M_AXI_GP0_ARCACHE(ps7_M_AXI_GP0_ARCACHE),
@@ -283,6 +283,8 @@ module router_bd
         .PS_CLK(FIXED_IO_ps_clk),
         .PS_PORB(FIXED_IO_ps_porb),
         .PS_SRSTB(FIXED_IO_ps_srstb));
+  router_bd_xlconst_one_0 xlconst_one
+       (.dout(xlconst_one_dout));
 endmodule
 
 module router_bd_axi_ic_0

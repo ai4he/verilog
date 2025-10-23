@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-//Date        : Tue Oct 21 14:50:11 2025
+//Date        : Thu Oct 23 14:12:16 2025
 //Host        : DESKTOP-E4COIK2 running 64-bit major release  (build 9200)
 //Command     : generate_target router_bd_wrapper.bd
 //Design      : router_bd_wrapper
@@ -32,7 +32,8 @@ module router_bd_wrapper
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
-    led);
+    led,
+    sysclk);
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -55,6 +56,7 @@ module router_bd_wrapper
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
   output [3:0]led;
+  input sysclk;
 
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
@@ -78,6 +80,7 @@ module router_bd_wrapper
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
   wire [3:0]led;
+  wire sysclk;
 
   router_bd router_bd_i
        (.DDR_addr(DDR_addr),
@@ -101,5 +104,6 @@ module router_bd_wrapper
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
-        .led(led));
+        .led(led),
+        .sysclk(sysclk));
 endmodule

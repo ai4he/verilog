@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-| Date         : Tue Oct 21 14:55:07 2025
+| Date         : Thu Oct 23 14:18:30 2025
 | Host         : DESKTOP-E4COIK2 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file router_bd_axi_ic_imp_auto_pc_0_utilization_synth.rpt -pb router_bd_axi_ic_imp_auto_pc_0_utilization_synth.pb
 | Design       : router_bd_axi_ic_imp_auto_pc_0

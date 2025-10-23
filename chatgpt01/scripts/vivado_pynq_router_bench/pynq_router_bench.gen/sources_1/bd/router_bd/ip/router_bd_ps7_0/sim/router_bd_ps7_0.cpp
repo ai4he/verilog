@@ -115,7 +115,7 @@ void router_bd_ps7_0::before_end_of_elaboration()
     M_AXI_GP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("DATA_WIDTH", "32");
-    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "50000000");
+    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "125000000");
     M_AXI_GP0_transactor_param_props.addLong("ID_WIDTH", "12");
     M_AXI_GP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
     M_AXI_GP0_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -142,7 +142,7 @@ void router_bd_ps7_0::before_end_of_elaboration()
     M_AXI_GP0_transactor_param_props.addFloat("PHASE", "0.0");
     M_AXI_GP0_transactor_param_props.addString("PROTOCOL", "AXI3");
     M_AXI_GP0_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
-    M_AXI_GP0_transactor_param_props.addString("CLK_DOMAIN", "router_bd_ps7_0_FCLK_CLK0");
+    M_AXI_GP0_transactor_param_props.addString("CLK_DOMAIN", "router_bd_sysclk");
 
     mp_M_AXI_GP0_transactor = new xtlm::xaximm_xtlm2pin_t<32,32,12,1,1,1,1,1>("M_AXI_GP0_transactor", M_AXI_GP0_transactor_param_props);
 
@@ -272,7 +272,7 @@ void router_bd_ps7_0::before_end_of_elaboration()
     M_AXI_GP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("DATA_WIDTH", "32");
-    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "50000000");
+    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "125000000");
     M_AXI_GP0_transactor_param_props.addLong("ID_WIDTH", "12");
     M_AXI_GP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
     M_AXI_GP0_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -299,7 +299,7 @@ void router_bd_ps7_0::before_end_of_elaboration()
     M_AXI_GP0_transactor_param_props.addFloat("PHASE", "0.0");
     M_AXI_GP0_transactor_param_props.addString("PROTOCOL", "AXI3");
     M_AXI_GP0_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
-    M_AXI_GP0_transactor_param_props.addString("CLK_DOMAIN", "router_bd_ps7_0_FCLK_CLK0");
+    M_AXI_GP0_transactor_param_props.addString("CLK_DOMAIN", "router_bd_sysclk");
 
     mp_M_AXI_GP0_transactor = new xtlm::xaximm_xtlm2pin_t<32,32,12,1,1,1,1,1>("M_AXI_GP0_transactor", M_AXI_GP0_transactor_param_props);
 
@@ -429,7 +429,7 @@ void router_bd_ps7_0::before_end_of_elaboration()
     M_AXI_GP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("DATA_WIDTH", "32");
-    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "50000000");
+    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "125000000");
     M_AXI_GP0_transactor_param_props.addLong("ID_WIDTH", "12");
     M_AXI_GP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
     M_AXI_GP0_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -456,7 +456,7 @@ void router_bd_ps7_0::before_end_of_elaboration()
     M_AXI_GP0_transactor_param_props.addFloat("PHASE", "0.0");
     M_AXI_GP0_transactor_param_props.addString("PROTOCOL", "AXI3");
     M_AXI_GP0_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
-    M_AXI_GP0_transactor_param_props.addString("CLK_DOMAIN", "router_bd_ps7_0_FCLK_CLK0");
+    M_AXI_GP0_transactor_param_props.addString("CLK_DOMAIN", "router_bd_sysclk");
 
     mp_M_AXI_GP0_transactor = new xtlm::xaximm_xtlm2pin_t<32,32,12,1,1,1,1,1>("M_AXI_GP0_transactor", M_AXI_GP0_transactor_param_props);
 
@@ -575,7 +575,7 @@ router_bd_ps7_0::router_bd_ps7_0(const sc_core::sc_module_name& nm) : router_bd_
     M_AXI_GP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("DATA_WIDTH", "32");
-    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "50000000");
+    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "125000000");
     M_AXI_GP0_transactor_param_props.addLong("ID_WIDTH", "12");
     M_AXI_GP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
     M_AXI_GP0_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -602,7 +602,7 @@ router_bd_ps7_0::router_bd_ps7_0(const sc_core::sc_module_name& nm) : router_bd_
     M_AXI_GP0_transactor_param_props.addFloat("PHASE", "0.0");
     M_AXI_GP0_transactor_param_props.addString("PROTOCOL", "AXI3");
     M_AXI_GP0_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
-    M_AXI_GP0_transactor_param_props.addString("CLK_DOMAIN", "router_bd_ps7_0_FCLK_CLK0");
+    M_AXI_GP0_transactor_param_props.addString("CLK_DOMAIN", "router_bd_sysclk");
 
     mp_M_AXI_GP0_transactor = new xtlm::xaximm_xtlm2pin_t<32,32,12,1,1,1,1,1>("M_AXI_GP0_transactor", M_AXI_GP0_transactor_param_props);
   mp_M_AXI_GP0_transactor->ARVALID(M_AXI_GP0_ARVALID);
@@ -733,7 +733,7 @@ router_bd_ps7_0::router_bd_ps7_0(const sc_core::sc_module_name& nm) : router_bd_
     M_AXI_GP0_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     M_AXI_GP0_transactor_param_props.addLong("DATA_WIDTH", "32");
-    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "50000000");
+    M_AXI_GP0_transactor_param_props.addLong("FREQ_HZ", "125000000");
     M_AXI_GP0_transactor_param_props.addLong("ID_WIDTH", "12");
     M_AXI_GP0_transactor_param_props.addLong("ADDR_WIDTH", "32");
     M_AXI_GP0_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -760,7 +760,7 @@ router_bd_ps7_0::router_bd_ps7_0(const sc_core::sc_module_name& nm) : router_bd_
     M_AXI_GP0_transactor_param_props.addFloat("PHASE", "0.0");
     M_AXI_GP0_transactor_param_props.addString("PROTOCOL", "AXI3");
     M_AXI_GP0_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
-    M_AXI_GP0_transactor_param_props.addString("CLK_DOMAIN", "router_bd_ps7_0_FCLK_CLK0");
+    M_AXI_GP0_transactor_param_props.addString("CLK_DOMAIN", "router_bd_sysclk");
 
     mp_M_AXI_GP0_transactor = new xtlm::xaximm_xtlm2pin_t<32,32,12,1,1,1,1,1>("M_AXI_GP0_transactor", M_AXI_GP0_transactor_param_props);
   mp_M_AXI_GP0_transactor->ARVALID(M_AXI_GP0_ARVALID);

@@ -7,7 +7,7 @@
 <Project Product="Vivado" Version="7" Minor="70" Path="C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="8616b69778784a6cb975569ddf2897e9"/>
+    <Option Name="Id" Val="0e993ef08e944369aa38106ea61b14f6"/>
     <Option Name="Part" Val="xc7z020clg400-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -168,7 +168,7 @@
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
       <Filter Type="Constrs"/>
-      <File Path="$PPRDIR/../../constraints/pynqz2_leds.xdc">
+      <File Path="$PPRDIR/../../constraints/pynqz2_plclk_leds.xdc">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -202,15 +202,15 @@
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
-    <FileSet Name="router_bd_axi_ic_imp_auto_pc_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/router_bd_axi_ic_imp_auto_pc_0" RelGenDir="$PGENDIR/router_bd_axi_ic_imp_auto_pc_0">
-      <Config>
-        <Option Name="TopModule" Val="router_bd_axi_ic_imp_auto_pc_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
     <FileSet Name="router_bd_ps7_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/router_bd_ps7_0" RelGenDir="$PGENDIR/router_bd_ps7_0">
       <Config>
         <Option Name="TopModule" Val="router_bd_ps7_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="router_bd_axi_ic_imp_auto_pc_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/router_bd_axi_ic_imp_auto_pc_0" RelGenDir="$PGENDIR/router_bd_axi_ic_imp_auto_pc_0">
+      <Config>
+        <Option Name="TopModule" Val="router_bd_axi_ic_imp_auto_pc_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -252,7 +252,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="router_bd_axi_ic_imp_auto_pc_0_synth_1" Type="Ft3:Synth" SrcSet="router_bd_axi_ic_imp_auto_pc_0" Part="xc7z020clg400-1" ConstrsSet="router_bd_axi_ic_imp_auto_pc_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/router_bd_axi_ic_imp_auto_pc_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/router_bd_axi_ic_imp_auto_pc_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/router_bd_axi_ic_imp_auto_pc_0_synth_1" ParallelReportGen="true">
+    <Run Id="router_bd_ps7_0_synth_1" Type="Ft3:Synth" SrcSet="router_bd_ps7_0" Part="xc7z020clg400-1" ConstrsSet="router_bd_ps7_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/router_bd_ps7_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/router_bd_ps7_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/router_bd_ps7_0_synth_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2025">
           <Desc>Vivado Synthesis Defaults</Desc>
@@ -264,7 +264,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="router_bd_ps7_0_synth_1" Type="Ft3:Synth" SrcSet="router_bd_ps7_0" Part="xc7z020clg400-1" ConstrsSet="router_bd_ps7_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/router_bd_ps7_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/router_bd_ps7_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/router_bd_ps7_0_synth_1" ParallelReportGen="true">
+    <Run Id="router_bd_axi_ic_imp_auto_pc_0_synth_1" Type="Ft3:Synth" SrcSet="router_bd_axi_ic_imp_auto_pc_0" Part="xc7z020clg400-1" ConstrsSet="router_bd_axi_ic_imp_auto_pc_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/router_bd_axi_ic_imp_auto_pc_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/router_bd_axi_ic_imp_auto_pc_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/router_bd_axi_ic_imp_auto_pc_0_synth_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2025">
           <Desc>Vivado Synthesis Defaults</Desc>
@@ -308,7 +308,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="router_bd_axi_ic_imp_auto_pc_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="router_bd_axi_ic_imp_auto_pc_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="router_bd_axi_ic_imp_auto_pc_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/router_bd_axi_ic_imp_auto_pc_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/router_bd_axi_ic_imp_auto_pc_0_impl_1" ParallelReportGen="true">
+    <Run Id="router_bd_ps7_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="router_bd_ps7_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="router_bd_ps7_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/router_bd_ps7_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/router_bd_ps7_0_impl_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2025">
           <Desc>Default settings for Implementation.</Desc>
@@ -327,7 +327,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="router_bd_ps7_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="router_bd_ps7_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="router_bd_ps7_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/router_bd_ps7_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/router_bd_ps7_0_impl_1" ParallelReportGen="true">
+    <Run Id="router_bd_axi_ic_imp_auto_pc_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="router_bd_axi_ic_imp_auto_pc_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="router_bd_axi_ic_imp_auto_pc_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/router_bd_axi_ic_imp_auto_pc_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/router_bd_axi_ic_imp_auto_pc_0_impl_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2025">
           <Desc>Default settings for Implementation.</Desc>

@@ -127,7 +127,7 @@ OPTRACE "add files" START { }
   add_files C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.srcs/sources_1/bd/router_bd/router_bd.bd
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
-  read_xdc C:/Users/Carlos/Documents/projects/verilog/chatgpt01/constraints/pynqz2_leds.xdc
+  read_xdc C:/Users/Carlos/Documents/projects/verilog/chatgpt01/constraints/pynqz2_plclk_leds.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "read constraints: implementation_pre" START { }
 OPTRACE "read constraints: implementation_pre" END { }

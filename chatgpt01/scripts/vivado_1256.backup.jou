@@ -3,10 +3,10 @@
 # SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Tue Oct 21 14:33:54 2025
-# Process ID         : 9056
+# Start of session at: Thu Oct 23 14:10:24 2025
+# Process ID         : 1256
 # Current directory  : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts
-# Command line       : vivado.exe -mode batch -source program_axi_bitstream.tcl
+# Command line       : vivado.exe -mode batch -source make_bd.tcl
 # Log file           : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado.log
 # Journal file       : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts\vivado.jou
 # Running On         : DESKTOP-E4COIK2
@@ -17,8 +17,8 @@
 # CPU Physical cores : 4
 # CPU Logical cores  : 4
 # Host memory        : 8402 MB
-# Swap memory        : 10894 MB
-# Total Virtual      : 19296 MB
-# Available Virtual  : 3733 MB
+# Swap memory        : 6710 MB
+# Total Virtual      : 15112 MB
+# Available Virtual  : 6872 MB
 #-----------------------------------------------------------
-source program_axi_bitstream.tcl
+source make_bd.tcl

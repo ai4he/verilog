@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-| Date         : Tue Oct 21 15:07:59 2025
+| Date         : Thu Oct 23 14:26:53 2025
 | Host         : DESKTOP-E4COIK2 running 64-bit major release  (build 9200)
 | Command      : report_methodology -file router_bd_wrapper_methodology_drc_routed.rpt -pb router_bd_wrapper_methodology_drc_routed.pb -rpx router_bd_wrapper_methodology_drc_routed.rpx
 | Design       : router_bd_wrapper
@@ -34,22 +34,22 @@ Table of Contents
 -----------------
 TIMING-18#1 Warning
 Missing input or output delay  
-An output delay is missing on led[0] relative to the rising and/or falling clock edge(s) of clk_fpga_0.
+An output delay is missing on led[0] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
 Related violations: <none>
 
 TIMING-18#2 Warning
 Missing input or output delay  
-An output delay is missing on led[1] relative to the rising and/or falling clock edge(s) of clk_fpga_0.
+An output delay is missing on led[1] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
 Related violations: <none>
 
 TIMING-18#3 Warning
 Missing input or output delay  
-An output delay is missing on led[2] relative to the rising and/or falling clock edge(s) of clk_fpga_0.
+An output delay is missing on led[2] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
 Related violations: <none>
 
 TIMING-18#4 Warning
 Missing input or output delay  
-An output delay is missing on led[3] relative to the rising and/or falling clock edge(s) of clk_fpga_0.
+An output delay is missing on led[3] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
 Related violations: <none>
 
 

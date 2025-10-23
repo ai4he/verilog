@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-| Date             : Tue Oct 21 15:08:01 2025
+| Date             : Thu Oct 23 14:26:55 2025
 | Host             : DESKTOP-E4COIK2 running 64-bit major release  (build 9200)
 | Command          : report_power -file router_bd_wrapper_power_routed.rpt -pb router_bd_wrapper_power_summary_routed.pb -rpx router_bd_wrapper_power_routed.rpx
 | Design           : router_bd_wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.668        |
+| Total On-Chip Power (W)  | 1.675        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.529        |
+| Dynamic (W)              | 1.536        |
 | Device Static (W)        | 0.139        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 65.8         |
-| Junction Temperature (C) | 44.2         |
+| Max Ambient (C)          | 65.7         |
+| Junction Temperature (C) | 44.3         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,18 +52,18 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.002 |        3 |       --- |             --- |
-| Slice Logic             |    <0.001 |     1794 |       --- |             --- |
-|   LUT as Logic          |    <0.001 |      587 |     53200 |            1.10 |
-|   Register              |    <0.001 |      702 |    106400 |            0.66 |
+| Clocks                  |     0.004 |        4 |       --- |             --- |
+| Slice Logic             |     0.002 |     1809 |       --- |             --- |
+|   LUT as Logic          |     0.002 |      592 |     53200 |            1.11 |
 |   CARRY4                |    <0.001 |       40 |     13300 |            0.30 |
+|   Register              |    <0.001 |      710 |    106400 |            0.67 |
 |   LUT as Shift Register |    <0.001 |       59 |     17400 |            0.34 |
 |   Others                |     0.000 |      180 |       --- |             --- |
-| Signals                 |    <0.001 |     1232 |       --- |             --- |
-| I/O                     |    <0.001 |        4 |       125 |            3.20 |
-| PS7                     |     1.525 |        1 |       --- |             --- |
+| Signals                 |     0.002 |     1235 |       --- |             --- |
+| I/O                     |    <0.001 |        5 |       125 |            4.00 |
+| PS7                     |     1.527 |        1 |       --- |             --- |
 | Static Power            |     0.139 |          |           |                 |
-| Total                   |     1.668 |          |           |                 |
+| Total                   |     1.675 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.018 |       0.004 |      0.015 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.024 |       0.009 |      0.015 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.015 |       0.000 |      0.015 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -86,7 +86,7 @@ Table of Contents
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccpint   |       1.000 |     0.752 |       0.722 |      0.030 |       NA    | Unspecified | NA         |
+| Vccpint   |       1.000 |     0.753 |       0.723 |      0.030 |       NA    | Unspecified | NA         |
 | Vccpaux   |       1.800 |     0.060 |       0.050 |      0.010 |       NA    | Unspecified | NA         |
 | Vccpll    |       1.800 |     0.018 |       0.015 |      0.003 |       NA    | Unspecified | NA         |
 | Vcco_ddr  |       1.500 |     0.459 |       0.457 |      0.002 |       NA    | Unspecified | NA         |
@@ -133,11 +133,11 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+------------+---------------------------------------------+-----------------+
-| Clock      | Domain                                      | Constraint (ns) |
-+------------+---------------------------------------------+-----------------+
-| clk_fpga_0 | router_bd_i/ps7/inst/FCLK_CLK_unbuffered[0] |            20.0 |
-+------------+---------------------------------------------+-----------------+
++-------------+--------+-----------------+
+| Clock       | Domain | Constraint (ns) |
++-------------+--------+-----------------+
+| sys_clk_pin | sysclk |             8.0 |
++-------------+--------+-----------------+
 
 
 3. Detailed Reports
@@ -149,14 +149,14 @@ Table of Contents
 +--------------------+-----------+
 | Name               | Power (W) |
 +--------------------+-----------+
-| router_bd_wrapper  |     1.529 |
-|   router_bd_i      |     1.529 |
-|     axi_ic         |     0.002 |
-|       s00_couplers |     0.002 |
-|     bench_axi_0    |     0.001 |
-|       inst         |     0.001 |
-|     ps7            |     1.525 |
-|       inst         |     1.525 |
+| router_bd_wrapper  |     1.536 |
+|   router_bd_i      |     1.535 |
+|     axi_ic         |     0.006 |
+|       s00_couplers |     0.006 |
+|     bench_axi_0    |     0.002 |
+|       inst         |     0.002 |
+|     ps7            |     1.527 |
+|       inst         |     1.527 |
 +--------------------+-----------+
 
 

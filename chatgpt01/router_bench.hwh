@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Oct 21 11:14:03 2025" VIVADOVERSION="2025.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Oct 23 14:13:03 2025" VIVADOVERSION="2025.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="router_bd" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -112,6 +112,15 @@
     <PORT DIR="O" LEFT="3" NAME="led" RIGHT="0" SIGIS="undef" SIGNAME="bench_axi_0_led">
       <CONNECTIONS>
         <CONNECTION INSTANCE="bench_axi_0" PORT="led"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="125000000" DIR="I" NAME="sysclk" SIGIS="clk" SIGNAME="External_Ports_sysclk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_ic" PORT="ACLK"/>
+        <CONNECTION INSTANCE="axi_ic" PORT="S00_ACLK"/>
+        <CONNECTION INSTANCE="axi_ic" PORT="M00_ACLK"/>
+        <CONNECTION INSTANCE="bench_axi_0" PORT="s_axi_aclk"/>
+        <CONNECTION INSTANCE="ps7" PORT="M_AXI_GP0_ACLK"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -487,24 +496,24 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="ACLK" SIGIS="clk" SIGNAME="ps7_FCLK_CLK0">
+        <PORT DIR="I" NAME="ACLK" SIGIS="clk" SIGNAME="External_Ports_sysclk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7" PORT="FCLK_CLK0"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="sysclk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="ARESETN" SIGIS="rst" SIGNAME="ps7_FCLK_RESET0_N">
+        <PORT DIR="I" NAME="ARESETN" SIGIS="rst" SIGNAME="xlconst_one_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7" PORT="FCLK_RESET0_N"/>
+            <CONNECTION INSTANCE="xlconst_one" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M00_ACLK" SIGIS="clk" SIGNAME="ps7_FCLK_CLK0">
+        <PORT DIR="I" NAME="M00_ACLK" SIGIS="clk" SIGNAME="External_Ports_sysclk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7" PORT="FCLK_CLK0"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="sysclk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M00_ARESETN" SIGIS="rst" SIGNAME="ps7_FCLK_RESET0_N">
+        <PORT DIR="I" NAME="M00_ARESETN" SIGIS="rst" SIGNAME="xlconst_one_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7" PORT="FCLK_RESET0_N"/>
+            <CONNECTION INSTANCE="xlconst_one" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_ic_M00_AXI_araddr">
@@ -592,14 +601,14 @@
             <CONNECTION INSTANCE="bench_axi_0" PORT="s_axi_wvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S00_ACLK" SIGIS="clk" SIGNAME="ps7_FCLK_CLK0">
+        <PORT DIR="I" NAME="S00_ACLK" SIGIS="clk" SIGNAME="External_Ports_sysclk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7" PORT="FCLK_CLK0"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="sysclk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S00_ARESETN" SIGIS="rst" SIGNAME="ps7_FCLK_RESET0_N">
+        <PORT DIR="I" NAME="S00_ARESETN" SIGIS="rst" SIGNAME="xlconst_one_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7" PORT="FCLK_RESET0_N"/>
+            <CONNECTION INSTANCE="xlconst_one" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="31" NAME="S00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_ic_S00_AXI_araddr">
@@ -885,9 +894,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="led"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="50000000" DIR="I" NAME="s_axi_aclk" SIGIS="clk" SIGNAME="ps7_FCLK_CLK0">
+        <PORT CLKFREQUENCY="125000000" DIR="I" NAME="s_axi_aclk" SIGIS="clk" SIGNAME="External_Ports_sysclk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7" PORT="FCLK_CLK0"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="sysclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="5" NAME="s_axi_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_ic_M00_AXI_araddr">
@@ -895,9 +904,9 @@
             <CONNECTION INSTANCE="axi_ic" PORT="M00_AXI_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_aresetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="ps7_FCLK_RESET0_N">
+        <PORT DIR="I" NAME="s_axi_aresetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="xlconst_one_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7" PORT="FCLK_RESET0_N"/>
+            <CONNECTION INSTANCE="xlconst_one" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="s_axi_arready" SIGIS="undef" SIGNAME="axi_ic_M00_AXI_arready">
@@ -987,9 +996,9 @@
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="router_bd_ps7_0_FCLK_CLK0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="router_bd_sysclk"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="50000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_BURST" VALUE="0"/>
           <PARAMETER NAME="HAS_CACHE" VALUE="0"/>
@@ -1580,7 +1589,7 @@
         <PARAMETER NAME="PCW_MIO_TREE_PERIPHERALS" VALUE="unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned"/>
         <PARAMETER NAME="PCW_MIO_TREE_SIGNALS" VALUE="unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned"/>
         <PARAMETER NAME="PCW_M_AXI_GP0_ENABLE_STATIC_REMAP" VALUE="0"/>
-        <PARAMETER NAME="PCW_M_AXI_GP0_FREQMHZ" VALUE="50"/>
+        <PARAMETER NAME="PCW_M_AXI_GP0_FREQMHZ" VALUE="125"/>
         <PARAMETER NAME="PCW_M_AXI_GP0_ID_WIDTH" VALUE="12"/>
         <PARAMETER NAME="PCW_M_AXI_GP0_SUPPORT_NARROW_BURST" VALUE="0"/>
         <PARAMETER NAME="PCW_M_AXI_GP0_THREAD_ID_WIDTH" VALUE="12"/>
@@ -2063,31 +2072,16 @@
             <CONNECTION INSTANCE="router_bd_imp" PORT="DDR_we_n"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="50000000" DIR="O" NAME="FCLK_CLK0" SIGIS="clk" SIGNAME="ps7_FCLK_CLK0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_ic" PORT="ACLK"/>
-            <CONNECTION INSTANCE="axi_ic" PORT="S00_ACLK"/>
-            <CONNECTION INSTANCE="axi_ic" PORT="M00_ACLK"/>
-            <CONNECTION INSTANCE="bench_axi_0" PORT="s_axi_aclk"/>
-            <CONNECTION INSTANCE="ps7" PORT="M_AXI_GP0_ACLK"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="FCLK_RESET0_N" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="ps7_FCLK_RESET0_N">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="bench_axi_0" PORT="s_axi_aresetn"/>
-            <CONNECTION INSTANCE="axi_ic" PORT="ARESETN"/>
-            <CONNECTION INSTANCE="axi_ic" PORT="S00_ARESETN"/>
-            <CONNECTION INSTANCE="axi_ic" PORT="M00_ARESETN"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT CLKFREQUENCY="50000000" DIR="O" NAME="FCLK_CLK0" SIGIS="clk"/>
+        <PORT DIR="O" NAME="FCLK_RESET0_N" POLARITY="ACTIVE_LOW" SIGIS="rst"/>
         <PORT DIR="IO" LEFT="53" NAME="MIO" RIGHT="0" SIGIS="undef" SIGNAME="ps7_MIO">
           <CONNECTIONS>
             <CONNECTION INSTANCE="router_bd_imp" PORT="FIXED_IO_mio"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="50000000" DIR="I" NAME="M_AXI_GP0_ACLK" SIGIS="clk" SIGNAME="ps7_FCLK_CLK0">
+        <PORT CLKFREQUENCY="125000000" DIR="I" NAME="M_AXI_GP0_ACLK" SIGIS="clk" SIGNAME="External_Ports_sysclk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7" PORT="FCLK_CLK0"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="sysclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="M_AXI_GP0_ARADDR" RIGHT="0" SIGIS="undef" SIGNAME="axi_ic_S00_AXI_araddr">
@@ -2346,9 +2340,9 @@
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="router_bd_ps7_0_FCLK_CLK0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="router_bd_sysclk"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="50000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_BURST" VALUE="1"/>
           <PARAMETER NAME="HAS_CACHE" VALUE="1"/>
@@ -2421,6 +2415,26 @@
       <PERIPHERALS>
         <PERIPHERAL INSTANCE="bench_axi_0"/>
       </PERIPHERALS>
+    </MODULE>
+    <MODULE COREREVISION="10" FULLNAME="/xlconst_one" HWVERSION="1.1" INSTANCE="xlconst_one" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x1"/>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="Component_Name" VALUE="router_bd_xlconst_one_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconst_one_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="bench_axi_0" PORT="s_axi_aresetn"/>
+            <CONNECTION INSTANCE="axi_ic" PORT="ARESETN"/>
+            <CONNECTION INSTANCE="axi_ic" PORT="S00_ARESETN"/>
+            <CONNECTION INSTANCE="axi_ic" PORT="M00_ARESETN"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
     </MODULE>
   </MODULES>
 
