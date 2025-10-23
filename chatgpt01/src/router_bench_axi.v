@@ -32,7 +32,18 @@ module router_bench_axi #(
   output wire [3:0]   led
 );
   wire clk = s_axi_aclk;
-  wire rst = ~s_axi_aresetn;
+  // Internal power-on reset to allow standalone operation without PS reset
+  reg [7:0] por_cnt = 8'd0;
+  reg       por_active = 1'b1;
+  always @(posedge clk) begin
+    if (!por_active) begin
+      // do nothing
+    end else begin
+      por_cnt    <= por_cnt + 8'd1;
+      if (&por_cnt) por_active <= 1'b0; // deassert after 256 cycles
+    end
+  end
+  wire rst = (~s_axi_aresetn) | por_active;
 
   // ----------------- Registers / address map -----------------
   // 0x00 CONTROL (W): bit0=start (self-clears), bit1=soft_clear (clears done)
