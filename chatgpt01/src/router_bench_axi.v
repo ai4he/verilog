@@ -79,20 +79,44 @@ module router_bench_axi #(
   // Read handshake
   wire rd_hs = s_axi_arvalid && s_axi_arready;
 
-  // simple ready/valids
+  // AXI4-Lite compliant ready/valid handshake
+  // Fixed: Proper protocol - ready remains high until handshake completes
   always @(posedge clk) begin
     if (rst) begin
-      s_axi_awready <= 1'b0; s_axi_wready <= 1'b0; s_axi_bvalid <= 1'b0; s_axi_bresp <= 2'b00;
-      s_axi_arready <= 1'b0; s_axi_rvalid <= 1'b0; s_axi_rresp <= 2'b00; s_axi_rdata <= 32'd0;
+      s_axi_awready <= 1'b1; s_axi_wready <= 1'b1; s_axi_bvalid <= 1'b0; s_axi_bresp <= 2'b00;
+      s_axi_arready <= 1'b1; s_axi_rvalid <= 1'b0; s_axi_rresp <= 2'b00; s_axi_rdata <= 32'd0;
       start_pulse <= 1'b0; soft_clear <= 1'b0; bench_done_latched <= 1'b0;
     end else begin
-      // defaults
-      s_axi_awready <= ~s_axi_awready && s_axi_awvalid;
-      s_axi_wready  <= ~s_axi_wready  && s_axi_wvalid;
-      s_axi_bvalid  <= (wr_hs) ? 1'b1 : (s_axi_bvalid && ~s_axi_bready ? 1'b1 : 1'b0);
-      s_axi_bresp   <= 2'b00;
+      // Write address channel - deassert ready after handshake, reassert when both channels idle
+      if (s_axi_awready && s_axi_awvalid) begin
+        s_axi_awready <= 1'b0;
+      end else if (!s_axi_awready && !s_axi_wready && !s_axi_bvalid) begin
+        s_axi_awready <= 1'b1;
+      end
 
-      s_axi_arready <= ~s_axi_arready && s_axi_arvalid;
+      // Write data channel - deassert ready after handshake, reassert when both channels idle
+      if (s_axi_wready && s_axi_wvalid) begin
+        s_axi_wready <= 1'b0;
+      end else if (!s_axi_awready && !s_axi_wready && !s_axi_bvalid) begin
+        s_axi_wready <= 1'b1;
+      end
+
+      // Write response channel - assert valid after write handshake
+      if (wr_hs) begin
+        s_axi_bvalid <= 1'b1;
+        s_axi_bresp  <= 2'b00;
+      end else if (s_axi_bvalid && s_axi_bready) begin
+        s_axi_bvalid <= 1'b0;
+      end
+
+      // Read address channel - deassert ready after handshake, reassert after read completes
+      if (s_axi_arready && s_axi_arvalid) begin
+        s_axi_arready <= 1'b0;
+      end else if (s_axi_rvalid && s_axi_rready) begin
+        s_axi_arready <= 1'b1;
+      end
+
+      // Read data channel
       if (rd_hs) begin
         s_axi_rvalid <= 1'b1;
         s_axi_rresp  <= 2'b00;
@@ -139,7 +163,9 @@ module router_bench_axi #(
   wire [1:0]  winner_code;
 
   // Combine auto-start and AXI start pulses
-  wire start = autostart_pulse | start_pulse;
+  // DISABLED auto-start to prevent early execution before PS is ready
+  // This prevents system lockup when benchmark runs before Linux/PYNQ initialization
+  wire start = start_pulse;  // autostart_pulse disabled
 
   // Running indicator (simple)
   reg bench_st_running;
