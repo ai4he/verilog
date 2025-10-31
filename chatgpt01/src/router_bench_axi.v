@@ -74,10 +74,12 @@ module router_bench_axi #(
   wire running = (bench_st_running);
   reg  bench_done_latched;
 
-  // Write handshake
-  wire wr_hs = s_axi_awvalid && s_axi_wvalid && s_axi_awready && s_axi_wready;
   // Read handshake
   wire rd_hs = s_axi_arvalid && s_axi_arready;
+
+  // Track outstanding write address between AW and W channels
+  reg [5:0] wr_addr;
+  reg       wr_addr_valid;
 
   // simple ready/valids
   always @(posedge clk) begin
@@ -85,13 +87,11 @@ module router_bench_axi #(
       s_axi_awready <= 1'b0; s_axi_wready <= 1'b0; s_axi_bvalid <= 1'b0; s_axi_bresp <= 2'b00;
       s_axi_arready <= 1'b0; s_axi_rvalid <= 1'b0; s_axi_rresp <= 2'b00; s_axi_rdata <= 32'd0;
       start_pulse <= 1'b0; soft_clear <= 1'b0; bench_done_latched <= 1'b0;
+      wr_addr_valid <= 1'b0; wr_addr <= 6'd0;
     end else begin
       // defaults
-      s_axi_awready <= ~s_axi_awready && s_axi_awvalid;
-      s_axi_wready  <= ~s_axi_wready  && s_axi_wvalid;
-      s_axi_bvalid  <= (wr_hs) ? 1'b1 : (s_axi_bvalid && ~s_axi_bready ? 1'b1 : 1'b0);
-      s_axi_bresp   <= 2'b00;
-
+      s_axi_awready <= 1'b0;
+      s_axi_wready  <= 1'b0;
       s_axi_arready <= ~s_axi_arready && s_axi_arvalid;
       if (rd_hs) begin
         s_axi_rvalid <= 1'b1;
@@ -103,14 +103,26 @@ module router_bench_axi #(
       // decode write
       start_pulse <= 1'b0;
       soft_clear  <= 1'b0;
-      if (wr_hs) begin
-        case (s_axi_awaddr[5:2])  // word offsets
+      if (!wr_addr_valid && s_axi_awvalid) begin
+        s_axi_awready <= 1'b1;
+        wr_addr       <= s_axi_awaddr;
+        wr_addr_valid <= 1'b1;
+      end
+
+      if (wr_addr_valid && s_axi_wvalid && !s_axi_bvalid) begin
+        s_axi_wready <= 1'b1;
+        case (wr_addr[5:2])  // word offsets
           4'h0: begin // CONTROL
             if (s_axi_wdata[0]) start_pulse <= 1'b1;
             if (s_axi_wdata[1]) soft_clear  <= 1'b1;
           end
           default: ;
         endcase
+        s_axi_bvalid <= 1'b1;
+        s_axi_bresp  <= 2'b00;
+        wr_addr_valid <= 1'b0;
+      end else if (s_axi_bvalid && s_axi_bready) begin
+        s_axi_bvalid <= 1'b0;
       end
 
       // latch done flag until soft_clear or new start
