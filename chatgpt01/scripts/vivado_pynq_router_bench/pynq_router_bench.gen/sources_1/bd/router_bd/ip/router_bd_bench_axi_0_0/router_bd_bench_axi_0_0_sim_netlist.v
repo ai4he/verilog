@@ -2,7 +2,7 @@
 // Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-// Date        : Thu Oct 23 14:20:49 2025
+// Date        : Fri Oct 31 13:09:07 2025
 // Host        : DESKTOP-E4COIK2 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/ip/router_bd_bench_axi_0_0/router_bd_bench_axi_0_0_sim_netlist.v
@@ -94,7 +94,7 @@ module router_bd_bench_axi_0_0
         .s_axi_awready(s_axi_awready),
         .s_axi_awvalid(s_axi_awvalid),
         .s_axi_bready(s_axi_bready),
-        .s_axi_bvalid(s_axi_bvalid),
+        .s_axi_bvalid_reg_0(s_axi_bvalid),
         .s_axi_rdata(s_axi_rdata),
         .s_axi_rready(s_axi_rready),
         .s_axi_rvalid(s_axi_rvalid),
@@ -5729,42 +5729,43 @@ endmodule
 module router_bd_bench_axi_0_0_router_bench_axi
    (s_axi_awready,
     s_axi_wready,
-    s_axi_bvalid,
     s_axi_arready,
     s_axi_rdata,
+    s_axi_bvalid_reg_0,
     led,
     s_axi_rvalid,
     s_axi_aclk,
-    s_axi_bready,
-    s_axi_wvalid,
-    s_axi_awvalid,
-    s_axi_aresetn,
-    s_axi_araddr,
     s_axi_awaddr,
+    s_axi_awvalid,
+    s_axi_wvalid,
+    s_axi_aresetn,
     s_axi_wdata,
+    s_axi_araddr,
     s_axi_arvalid,
+    s_axi_bready,
     s_axi_rready);
   output s_axi_awready;
   output s_axi_wready;
-  output s_axi_bvalid;
   output s_axi_arready;
   output [31:0]s_axi_rdata;
+  output s_axi_bvalid_reg_0;
   output [3:0]led;
   output s_axi_rvalid;
   input s_axi_aclk;
-  input s_axi_bready;
-  input s_axi_wvalid;
-  input s_axi_awvalid;
-  input s_axi_aresetn;
-  input [3:0]s_axi_araddr;
   input [3:0]s_axi_awaddr;
+  input s_axi_awvalid;
+  input s_axi_wvalid;
+  input s_axi_aresetn;
   input [1:0]s_axi_wdata;
+  input [3:0]s_axi_araddr;
   input s_axi_arvalid;
+  input s_axi_bready;
   input s_axi_rready;
 
   wire [1:0]data0;
   wire [3:0]led;
   wire [31:0]p_0_in;
+  wire [3:0]p_0_in_0;
   wire [7:0]p_0_in__0;
   wire por_active;
   wire por_active_i_1_n_0;
@@ -5819,8 +5820,8 @@ module router_bd_bench_axi_0_0_router_bench_axi
   wire s_axi_awready0;
   wire s_axi_awvalid;
   wire s_axi_bready;
-  wire s_axi_bvalid;
   wire s_axi_bvalid_i_1_n_0;
+  wire s_axi_bvalid_reg_0;
   wire [31:0]s_axi_rdata;
   wire \s_axi_rdata[30]_i_2_n_0 ;
   wire \s_axi_rdata[31]_i_3_n_0 ;
@@ -5836,6 +5837,7 @@ module router_bd_bench_axi_0_0_router_bench_axi
   wire soft_clear1_out;
   wire soft_clear_reg_n_0;
   wire start_pulse5_out;
+  wire start_pulse_i_2_n_0;
   wire start_pulse_reg_n_0;
   wire started_once_i_1_n_0;
   wire started_once_reg_n_0;
@@ -5843,7 +5845,8 @@ module router_bd_bench_axi_0_0_router_bench_axi
   wire u_bench_n_2;
   wire u_bench_n_3;
   wire u_bench_n_40;
-  wire wr_hs;
+  wire wr_addr_valid;
+  wire wr_addr_valid_i_1_n_0;
   wire [3:3]\NLW_pwrup_cnt_reg[12]_i_1_CO_UNCONNECTED ;
 
   FDRE bench_done_latched_reg
@@ -5876,20 +5879,20 @@ module router_bd_bench_axi_0_0_router_bench_axi
         .D(por_active_i_1_n_0),
         .Q(por_active),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+  (* SOFT_HLUTNM = "soft_lutpair57" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \por_cnt[0]_i_1 
        (.I0(por_cnt_reg[0]),
         .O(p_0_in__0[0]));
-  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+  (* SOFT_HLUTNM = "soft_lutpair57" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \por_cnt[1]_i_1 
        (.I0(por_cnt_reg[0]),
         .I1(por_cnt_reg[1]),
         .O(p_0_in__0[1]));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \por_cnt[2]_i_1 
@@ -5897,7 +5900,7 @@ module router_bd_bench_axi_0_0_router_bench_axi
         .I1(por_cnt_reg[0]),
         .I2(por_cnt_reg[2]),
         .O(p_0_in__0[2]));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \por_cnt[3]_i_1 
@@ -5906,7 +5909,7 @@ module router_bd_bench_axi_0_0_router_bench_axi
         .I2(por_cnt_reg[1]),
         .I3(por_cnt_reg[3]),
         .O(p_0_in__0[3]));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \por_cnt[4]_i_1 
@@ -5926,7 +5929,7 @@ module router_bd_bench_axi_0_0_router_bench_axi
         .I4(por_cnt_reg[4]),
         .I5(por_cnt_reg[5]),
         .O(p_0_in__0[5]));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT4 #(
     .INIT(16'hF708)) 
     \por_cnt[6]_i_1 
@@ -5935,7 +5938,7 @@ module router_bd_bench_axi_0_0_router_bench_axi
         .I2(\por_cnt[7]_i_2_n_0 ),
         .I3(por_cnt_reg[6]),
         .O(p_0_in__0[6]));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT5 #(
     .INIT(32'hDFFF2000)) 
     \por_cnt[7]_i_1 
@@ -5945,7 +5948,7 @@ module router_bd_bench_axi_0_0_router_bench_axi
         .I3(por_cnt_reg[5]),
         .I4(por_cnt_reg[7]),
         .O(p_0_in__0[7]));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT4 #(
     .INIT(16'h7FFF)) 
     \por_cnt[7]_i_2 
@@ -6176,7 +6179,7 @@ module router_bd_bench_axi_0_0_router_bench_axi
         .D(\pwrup_cnt_reg[8]_i_1_n_6 ),
         .Q(pwrup_cnt_reg[9]),
         .R(rst));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT2 #(
     .INIT(4'h2)) 
     s_axi_arready_i_1
@@ -6193,7 +6196,7 @@ module router_bd_bench_axi_0_0_router_bench_axi
     .INIT(4'h2)) 
     s_axi_awready_i_2
        (.I0(s_axi_awvalid),
-        .I1(s_axi_awready),
+        .I1(wr_addr_valid),
         .O(s_axi_awready0));
   FDRE s_axi_awready_reg
        (.C(s_axi_aclk),
@@ -6201,23 +6204,22 @@ module router_bd_bench_axi_0_0_router_bench_axi
         .D(s_axi_awready0),
         .Q(s_axi_awready),
         .R(rst));
-  LUT6 #(
-    .INIT(64'hF444444444444444)) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  LUT4 #(
+    .INIT(16'h5C50)) 
     s_axi_bvalid_i_1
        (.I0(s_axi_bready),
-        .I1(s_axi_bvalid),
-        .I2(s_axi_awready),
+        .I1(wr_addr_valid),
+        .I2(s_axi_bvalid_reg_0),
         .I3(s_axi_wvalid),
-        .I4(s_axi_awvalid),
-        .I5(s_axi_wready),
         .O(s_axi_bvalid_i_1_n_0));
   FDRE s_axi_bvalid_reg
        (.C(s_axi_aclk),
         .CE(1'b1),
         .D(s_axi_bvalid_i_1_n_0),
-        .Q(s_axi_bvalid),
+        .Q(s_axi_bvalid_reg_0),
         .R(rst));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT4 #(
     .INIT(16'h0400)) 
     \s_axi_rdata[30]_i_2 
@@ -6232,7 +6234,7 @@ module router_bd_bench_axi_0_0_router_bench_axi
        (.I0(s_axi_arvalid),
         .I1(s_axi_arready),
         .O(rd_hs));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT4 #(
     .INIT(16'h0002)) 
     \s_axi_rdata[31]_i_3 
@@ -6241,7 +6243,7 @@ module router_bd_bench_axi_0_0_router_bench_axi
         .I2(s_axi_araddr[2]),
         .I3(s_axi_araddr[0]),
         .O(\s_axi_rdata[31]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT4 #(
     .INIT(16'h0200)) 
     \s_axi_rdata[31]_i_4 
@@ -6250,7 +6252,7 @@ module router_bd_bench_axi_0_0_router_bench_axi
         .I2(s_axi_araddr[2]),
         .I3(s_axi_araddr[0]),
         .O(\s_axi_rdata[31]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT4 #(
     .INIT(16'h0004)) 
     \s_axi_rdata[3]_i_3 
@@ -6451,7 +6453,7 @@ module router_bd_bench_axi_0_0_router_bench_axi
         .D(p_0_in[9]),
         .Q(s_axi_rdata[9]),
         .R(rst));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT4 #(
     .INIT(16'h8F88)) 
     s_axi_rvalid_i_1
@@ -6466,12 +6468,13 @@ module router_bd_bench_axi_0_0_router_bench_axi
         .D(s_axi_rvalid_i_1_n_0),
         .Q(s_axi_rvalid),
         .R(rst));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  LUT3 #(
+    .INIT(8'h20)) 
     s_axi_wready_i_1
-       (.I0(s_axi_wvalid),
-        .I1(s_axi_wready),
+       (.I0(wr_addr_valid),
+        .I1(s_axi_bvalid_reg_0),
+        .I2(s_axi_wvalid),
         .O(s_axi_wready0));
   FDRE s_axi_wready_reg
        (.C(s_axi_aclk),
@@ -6480,14 +6483,14 @@ module router_bd_bench_axi_0_0_router_bench_axi
         .Q(s_axi_wready),
         .R(rst));
   LUT6 #(
-    .INIT(64'h0000000200000000)) 
+    .INIT(64'h0000000000010000)) 
     soft_clear_i_1
-       (.I0(wr_hs),
-        .I1(s_axi_awaddr[0]),
-        .I2(s_axi_awaddr[3]),
-        .I3(s_axi_awaddr[1]),
-        .I4(s_axi_awaddr[2]),
-        .I5(s_axi_wdata[1]),
+       (.I0(p_0_in_0[2]),
+        .I1(p_0_in_0[3]),
+        .I2(p_0_in_0[1]),
+        .I3(p_0_in_0[0]),
+        .I4(s_axi_wdata[1]),
+        .I5(start_pulse_i_2_n_0),
         .O(soft_clear1_out));
   FDRE soft_clear_reg
        (.C(s_axi_aclk),
@@ -6496,24 +6499,23 @@ module router_bd_bench_axi_0_0_router_bench_axi
         .Q(soft_clear_reg_n_0),
         .R(rst));
   LUT6 #(
-    .INIT(64'h0000000200000000)) 
+    .INIT(64'h0000000000010000)) 
     start_pulse_i_1
-       (.I0(wr_hs),
-        .I1(s_axi_awaddr[0]),
-        .I2(s_axi_awaddr[3]),
-        .I3(s_axi_awaddr[1]),
-        .I4(s_axi_awaddr[2]),
-        .I5(s_axi_wdata[0]),
+       (.I0(p_0_in_0[2]),
+        .I1(p_0_in_0[3]),
+        .I2(p_0_in_0[1]),
+        .I3(p_0_in_0[0]),
+        .I4(s_axi_wdata[0]),
+        .I5(start_pulse_i_2_n_0),
         .O(start_pulse5_out));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
-  LUT4 #(
-    .INIT(16'h8000)) 
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  LUT3 #(
+    .INIT(8'hDF)) 
     start_pulse_i_2
-       (.I0(s_axi_wready),
-        .I1(s_axi_awvalid),
-        .I2(s_axi_wvalid),
-        .I3(s_axi_awready),
-        .O(wr_hs));
+       (.I0(s_axi_wvalid),
+        .I1(s_axi_bvalid_reg_0),
+        .I2(wr_addr_valid),
+        .O(start_pulse_i_2_n_0));
   FDRE start_pulse_reg
        (.C(s_axi_aclk),
         .CE(1'b1),
@@ -6553,6 +6555,46 @@ module router_bd_bench_axi_0_0_router_bench_axi
         .\s_axi_rdata_reg[4]_0 (\s_axi_rdata[31]_i_4_n_0 ),
         .winner_valid_reg_0(u_bench_n_3),
         .winner_valid_reg_1(u_bench_n_40));
+  FDRE \wr_addr_reg[2] 
+       (.C(s_axi_aclk),
+        .CE(s_axi_awready0),
+        .D(s_axi_awaddr[0]),
+        .Q(p_0_in_0[0]),
+        .R(rst));
+  FDRE \wr_addr_reg[3] 
+       (.C(s_axi_aclk),
+        .CE(s_axi_awready0),
+        .D(s_axi_awaddr[1]),
+        .Q(p_0_in_0[1]),
+        .R(rst));
+  FDRE \wr_addr_reg[4] 
+       (.C(s_axi_aclk),
+        .CE(s_axi_awready0),
+        .D(s_axi_awaddr[2]),
+        .Q(p_0_in_0[2]),
+        .R(rst));
+  FDRE \wr_addr_reg[5] 
+       (.C(s_axi_aclk),
+        .CE(s_axi_awready0),
+        .D(s_axi_awaddr[3]),
+        .Q(p_0_in_0[3]),
+        .R(rst));
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  LUT5 #(
+    .INIT(32'h54045454)) 
+    wr_addr_valid_i_1
+       (.I0(rst),
+        .I1(s_axi_awvalid),
+        .I2(wr_addr_valid),
+        .I3(s_axi_bvalid_reg_0),
+        .I4(s_axi_wvalid),
+        .O(wr_addr_valid_i_1_n_0));
+  FDRE wr_addr_valid_reg
+       (.C(s_axi_aclk),
+        .CE(1'b1),
+        .D(wr_addr_valid_i_1_n_0),
+        .Q(wr_addr_valid),
+        .R(1'b0));
 endmodule
 `ifndef GLBL
 `define GLBL

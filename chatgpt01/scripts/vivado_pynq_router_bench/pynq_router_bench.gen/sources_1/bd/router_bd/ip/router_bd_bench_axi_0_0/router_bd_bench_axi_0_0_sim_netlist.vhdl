@@ -2,7 +2,7 @@
 -- Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
--- Date        : Thu Oct 23 14:20:49 2025
+-- Date        : Fri Oct 31 13:09:07 2025
 -- Host        : DESKTOP-E4COIK2 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench/pynq_router_bench.gen/sources_1/bd/router_bd/ip/router_bd_bench_axi_0_0/router_bd_bench_axi_0_0_sim_netlist.vhdl
@@ -7446,20 +7446,20 @@ entity router_bd_bench_axi_0_0_router_bench_axi is
   port (
     s_axi_awready : out STD_LOGIC;
     s_axi_wready : out STD_LOGIC;
-    s_axi_bvalid : out STD_LOGIC;
     s_axi_arready : out STD_LOGIC;
     s_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    s_axi_bvalid_reg_0 : out STD_LOGIC;
     led : out STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_rvalid : out STD_LOGIC;
     s_axi_aclk : in STD_LOGIC;
-    s_axi_bready : in STD_LOGIC;
-    s_axi_wvalid : in STD_LOGIC;
-    s_axi_awvalid : in STD_LOGIC;
-    s_axi_aresetn : in STD_LOGIC;
-    s_axi_araddr : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    s_axi_awvalid : in STD_LOGIC;
+    s_axi_wvalid : in STD_LOGIC;
+    s_axi_aresetn : in STD_LOGIC;
     s_axi_wdata : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    s_axi_araddr : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_arvalid : in STD_LOGIC;
+    s_axi_bready : in STD_LOGIC;
     s_axi_rready : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -7469,6 +7469,7 @@ end router_bd_bench_axi_0_0_router_bench_axi;
 architecture STRUCTURE of router_bd_bench_axi_0_0_router_bench_axi is
   signal data0 : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal p_0_in : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal p_0_in_0 : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \p_0_in__0\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal por_active : STD_LOGIC;
   signal por_active_i_1_n_0 : STD_LOGIC;
@@ -7514,21 +7515,20 @@ architecture STRUCTURE of router_bd_bench_axi_0_0_router_bench_axi is
   signal rst : STD_LOGIC;
   signal \^s_axi_arready\ : STD_LOGIC;
   signal s_axi_arready0 : STD_LOGIC;
-  signal \^s_axi_awready\ : STD_LOGIC;
   signal s_axi_awready0 : STD_LOGIC;
-  signal \^s_axi_bvalid\ : STD_LOGIC;
   signal s_axi_bvalid_i_1_n_0 : STD_LOGIC;
+  signal \^s_axi_bvalid_reg_0\ : STD_LOGIC;
   signal \s_axi_rdata[30]_i_2_n_0\ : STD_LOGIC;
   signal \s_axi_rdata[31]_i_3_n_0\ : STD_LOGIC;
   signal \s_axi_rdata[31]_i_4_n_0\ : STD_LOGIC;
   signal \s_axi_rdata[3]_i_3_n_0\ : STD_LOGIC;
   signal \^s_axi_rvalid\ : STD_LOGIC;
   signal s_axi_rvalid_i_1_n_0 : STD_LOGIC;
-  signal \^s_axi_wready\ : STD_LOGIC;
   signal s_axi_wready0 : STD_LOGIC;
   signal soft_clear1_out : STD_LOGIC;
   signal soft_clear_reg_n_0 : STD_LOGIC;
   signal start_pulse5_out : STD_LOGIC;
+  signal start_pulse_i_2_n_0 : STD_LOGIC;
   signal start_pulse_reg_n_0 : STD_LOGIC;
   signal started_once_i_1_n_0 : STD_LOGIC;
   signal started_once_reg_n_0 : STD_LOGIC;
@@ -7536,36 +7536,37 @@ architecture STRUCTURE of router_bd_bench_axi_0_0_router_bench_axi is
   signal u_bench_n_2 : STD_LOGIC;
   signal u_bench_n_3 : STD_LOGIC;
   signal u_bench_n_40 : STD_LOGIC;
-  signal wr_hs : STD_LOGIC;
+  signal wr_addr_valid : STD_LOGIC;
+  signal wr_addr_valid_i_1_n_0 : STD_LOGIC;
   signal \NLW_pwrup_cnt_reg[12]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \por_cnt[0]_i_1\ : label is "soft_lutpair56";
-  attribute SOFT_HLUTNM of \por_cnt[1]_i_1\ : label is "soft_lutpair56";
-  attribute SOFT_HLUTNM of \por_cnt[2]_i_1\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \por_cnt[3]_i_1\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \por_cnt[4]_i_1\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \por_cnt[6]_i_1\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \por_cnt[7]_i_1\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \por_cnt[7]_i_2\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \por_cnt[0]_i_1\ : label is "soft_lutpair57";
+  attribute SOFT_HLUTNM of \por_cnt[1]_i_1\ : label is "soft_lutpair57";
+  attribute SOFT_HLUTNM of \por_cnt[2]_i_1\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \por_cnt[3]_i_1\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \por_cnt[4]_i_1\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \por_cnt[6]_i_1\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \por_cnt[7]_i_1\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \por_cnt[7]_i_2\ : label is "soft_lutpair52";
   attribute ADDER_THRESHOLD : integer;
   attribute ADDER_THRESHOLD of \pwrup_cnt_reg[0]_i_2\ : label is 11;
   attribute ADDER_THRESHOLD of \pwrup_cnt_reg[12]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \pwrup_cnt_reg[4]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \pwrup_cnt_reg[8]_i_1\ : label is 11;
-  attribute SOFT_HLUTNM of s_axi_arready_i_1 : label is "soft_lutpair55";
-  attribute SOFT_HLUTNM of \s_axi_rdata[30]_i_2\ : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of \s_axi_rdata[31]_i_3\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \s_axi_rdata[31]_i_4\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \s_axi_rdata[3]_i_3\ : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of s_axi_rvalid_i_1 : label is "soft_lutpair55";
-  attribute SOFT_HLUTNM of s_axi_wready_i_1 : label is "soft_lutpair54";
-  attribute SOFT_HLUTNM of start_pulse_i_2 : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of s_axi_arready_i_1 : label is "soft_lutpair56";
+  attribute SOFT_HLUTNM of s_axi_bvalid_i_1 : label is "soft_lutpair55";
+  attribute SOFT_HLUTNM of \s_axi_rdata[30]_i_2\ : label is "soft_lutpair53";
+  attribute SOFT_HLUTNM of \s_axi_rdata[31]_i_3\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \s_axi_rdata[31]_i_4\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \s_axi_rdata[3]_i_3\ : label is "soft_lutpair53";
+  attribute SOFT_HLUTNM of s_axi_rvalid_i_1 : label is "soft_lutpair56";
+  attribute SOFT_HLUTNM of s_axi_wready_i_1 : label is "soft_lutpair55";
+  attribute SOFT_HLUTNM of start_pulse_i_2 : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of wr_addr_valid_i_1 : label is "soft_lutpair49";
 begin
   s_axi_arready <= \^s_axi_arready\;
-  s_axi_awready <= \^s_axi_awready\;
-  s_axi_bvalid <= \^s_axi_bvalid\;
+  s_axi_bvalid_reg_0 <= \^s_axi_bvalid_reg_0\;
   s_axi_rvalid <= \^s_axi_rvalid\;
-  s_axi_wready <= \^s_axi_wready\;
 bench_done_latched_reg: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
@@ -8045,7 +8046,7 @@ s_axi_awready_i_2: unisim.vcomponents.LUT2
     )
         port map (
       I0 => s_axi_awvalid,
-      I1 => \^s_axi_awready\,
+      I1 => wr_addr_valid,
       O => s_axi_awready0
     );
 s_axi_awready_reg: unisim.vcomponents.FDRE
@@ -8053,20 +8054,18 @@ s_axi_awready_reg: unisim.vcomponents.FDRE
       C => s_axi_aclk,
       CE => '1',
       D => s_axi_awready0,
-      Q => \^s_axi_awready\,
+      Q => s_axi_awready,
       R => rst
     );
-s_axi_bvalid_i_1: unisim.vcomponents.LUT6
+s_axi_bvalid_i_1: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"F444444444444444"
+      INIT => X"5C50"
     )
         port map (
       I0 => s_axi_bready,
-      I1 => \^s_axi_bvalid\,
-      I2 => \^s_axi_awready\,
+      I1 => wr_addr_valid,
+      I2 => \^s_axi_bvalid_reg_0\,
       I3 => s_axi_wvalid,
-      I4 => s_axi_awvalid,
-      I5 => \^s_axi_wready\,
       O => s_axi_bvalid_i_1_n_0
     );
 s_axi_bvalid_reg: unisim.vcomponents.FDRE
@@ -8074,7 +8073,7 @@ s_axi_bvalid_reg: unisim.vcomponents.FDRE
       C => s_axi_aclk,
       CE => '1',
       D => s_axi_bvalid_i_1_n_0,
-      Q => \^s_axi_bvalid\,
+      Q => \^s_axi_bvalid_reg_0\,
       R => rst
     );
 \s_axi_rdata[30]_i_2\: unisim.vcomponents.LUT4
@@ -8405,13 +8404,14 @@ s_axi_rvalid_reg: unisim.vcomponents.FDRE
       Q => \^s_axi_rvalid\,
       R => rst
     );
-s_axi_wready_i_1: unisim.vcomponents.LUT2
+s_axi_wready_i_1: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"2"
+      INIT => X"20"
     )
         port map (
-      I0 => s_axi_wvalid,
-      I1 => \^s_axi_wready\,
+      I0 => wr_addr_valid,
+      I1 => \^s_axi_bvalid_reg_0\,
+      I2 => s_axi_wvalid,
       O => s_axi_wready0
     );
 s_axi_wready_reg: unisim.vcomponents.FDRE
@@ -8419,20 +8419,20 @@ s_axi_wready_reg: unisim.vcomponents.FDRE
       C => s_axi_aclk,
       CE => '1',
       D => s_axi_wready0,
-      Q => \^s_axi_wready\,
+      Q => s_axi_wready,
       R => rst
     );
 soft_clear_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000200000000"
+      INIT => X"0000000000010000"
     )
         port map (
-      I0 => wr_hs,
-      I1 => s_axi_awaddr(0),
-      I2 => s_axi_awaddr(3),
-      I3 => s_axi_awaddr(1),
-      I4 => s_axi_awaddr(2),
-      I5 => s_axi_wdata(1),
+      I0 => p_0_in_0(2),
+      I1 => p_0_in_0(3),
+      I2 => p_0_in_0(1),
+      I3 => p_0_in_0(0),
+      I4 => s_axi_wdata(1),
+      I5 => start_pulse_i_2_n_0,
       O => soft_clear1_out
     );
 soft_clear_reg: unisim.vcomponents.FDRE
@@ -8445,27 +8445,26 @@ soft_clear_reg: unisim.vcomponents.FDRE
     );
 start_pulse_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000200000000"
+      INIT => X"0000000000010000"
     )
         port map (
-      I0 => wr_hs,
-      I1 => s_axi_awaddr(0),
-      I2 => s_axi_awaddr(3),
-      I3 => s_axi_awaddr(1),
-      I4 => s_axi_awaddr(2),
-      I5 => s_axi_wdata(0),
+      I0 => p_0_in_0(2),
+      I1 => p_0_in_0(3),
+      I2 => p_0_in_0(1),
+      I3 => p_0_in_0(0),
+      I4 => s_axi_wdata(0),
+      I5 => start_pulse_i_2_n_0,
       O => start_pulse5_out
     );
-start_pulse_i_2: unisim.vcomponents.LUT4
+start_pulse_i_2: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"8000"
+      INIT => X"DF"
     )
         port map (
-      I0 => \^s_axi_wready\,
-      I1 => s_axi_awvalid,
-      I2 => s_axi_wvalid,
-      I3 => \^s_axi_awready\,
-      O => wr_hs
+      I0 => s_axi_wvalid,
+      I1 => \^s_axi_bvalid_reg_0\,
+      I2 => wr_addr_valid,
+      O => start_pulse_i_2_n_0
     );
 start_pulse_reg: unisim.vcomponents.FDRE
      port map (
@@ -8514,6 +8513,58 @@ u_bench: entity work.router_bd_bench_axi_0_0_bench_engine
       \s_axi_rdata_reg[4]_0\ => \s_axi_rdata[31]_i_4_n_0\,
       winner_valid_reg_0 => u_bench_n_3,
       winner_valid_reg_1 => u_bench_n_40
+    );
+\wr_addr_reg[2]\: unisim.vcomponents.FDRE
+     port map (
+      C => s_axi_aclk,
+      CE => s_axi_awready0,
+      D => s_axi_awaddr(0),
+      Q => p_0_in_0(0),
+      R => rst
+    );
+\wr_addr_reg[3]\: unisim.vcomponents.FDRE
+     port map (
+      C => s_axi_aclk,
+      CE => s_axi_awready0,
+      D => s_axi_awaddr(1),
+      Q => p_0_in_0(1),
+      R => rst
+    );
+\wr_addr_reg[4]\: unisim.vcomponents.FDRE
+     port map (
+      C => s_axi_aclk,
+      CE => s_axi_awready0,
+      D => s_axi_awaddr(2),
+      Q => p_0_in_0(2),
+      R => rst
+    );
+\wr_addr_reg[5]\: unisim.vcomponents.FDRE
+     port map (
+      C => s_axi_aclk,
+      CE => s_axi_awready0,
+      D => s_axi_awaddr(3),
+      Q => p_0_in_0(3),
+      R => rst
+    );
+wr_addr_valid_i_1: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"54045454"
+    )
+        port map (
+      I0 => rst,
+      I1 => s_axi_awvalid,
+      I2 => wr_addr_valid,
+      I3 => \^s_axi_bvalid_reg_0\,
+      I4 => s_axi_wvalid,
+      O => wr_addr_valid_i_1_n_0
+    );
+wr_addr_valid_reg: unisim.vcomponents.FDRE
+     port map (
+      C => s_axi_aclk,
+      CE => '1',
+      D => wr_addr_valid_i_1_n_0,
+      Q => wr_addr_valid,
+      R => '0'
     );
 end STRUCTURE;
 library IEEE;
@@ -8606,7 +8657,7 @@ inst: entity work.router_bd_bench_axi_0_0_router_bench_axi
       s_axi_awready => s_axi_awready,
       s_axi_awvalid => s_axi_awvalid,
       s_axi_bready => s_axi_bready,
-      s_axi_bvalid => s_axi_bvalid,
+      s_axi_bvalid_reg_0 => s_axi_bvalid,
       s_axi_rdata(31 downto 0) => s_axi_rdata(31 downto 0),
       s_axi_rready => s_axi_rready,
       s_axi_rvalid => s_axi_rvalid,

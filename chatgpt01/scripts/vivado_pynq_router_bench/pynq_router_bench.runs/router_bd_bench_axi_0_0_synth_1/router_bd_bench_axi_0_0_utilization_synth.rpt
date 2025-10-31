@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-| Date         : Thu Oct 23 14:20:49 2025
+| Date         : Fri Oct 31 13:09:07 2025
 | Host         : DESKTOP-E4COIK2 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file router_bd_bench_axi_0_0_utilization_synth.rpt -pb router_bd_bench_axi_0_0_utilization_synth.pb
 | Design       : router_bd_bench_axi_0_0
@@ -34,8 +34,8 @@ Table of Contents
 | Slice LUTs*             |  301 |     0 |          0 |     53200 |  0.57 |
 |   LUT as Logic          |  301 |     0 |          0 |     53200 |  0.57 |
 |   LUT as Memory         |    0 |     0 |          0 |     17400 |  0.00 |
-| Slice Registers         |  285 |     0 |          0 |    106400 |  0.27 |
-|   Register as Flip Flop |  285 |     0 |          0 |    106400 |  0.27 |
+| Slice Registers         |  290 |     0 |          0 |    106400 |  0.27 |
+|   Register as Flip Flop |  290 |     0 |          0 |    106400 |  0.27 |
 |   Register as Latch     |    0 |     0 |          0 |    106400 |  0.00 |
 | F7 Muxes                |    0 |     0 |          0 |     26600 |  0.00 |
 | F8 Muxes                |    0 |     0 |          0 |     13300 |  0.00 |
@@ -60,7 +60,7 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 285   |          Yes |       Reset |            - |
+| 290   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -149,13 +149,13 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  285 |        Flop & Latch |
+| FDRE     |  290 |        Flop & Latch |
 | LUT4     |  153 |                 LUT |
-| LUT6     |  123 |                 LUT |
-| LUT3     |   75 |                 LUT |
-| LUT5     |   44 |                 LUT |
+| LUT6     |  122 |                 LUT |
+| LUT3     |   77 |                 LUT |
+| LUT5     |   45 |                 LUT |
 | CARRY4   |   28 |          CarryLogic |
-| LUT2     |   24 |                 LUT |
+| LUT2     |   23 |                 LUT |
 | LUT1     |    3 |                 LUT |
 +----------+------+---------------------+
 
