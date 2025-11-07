@@ -50,6 +50,9 @@ module router_bench_axi #(
   // 0x04 STATUS  (R): bit0=running, bit1=done, bits[3:2]=winner_code
   // 0x08 TCOND0 (R), 0x0C TCOND1 (R), 0x10 TCOND2 (R), 0x14 TCOND3 (R)
   // 0x18 WIN_ONEHOT (R): internal cond0..3 mapping (1-hot)
+  // 0x1C TTOTAL   (R): sum of all condition cycle totals
+  // 0x20 TRUNTIME (R): cycles from start→done (includes control overhead)
+  // 0x24 INFO     (R): [15:0] operations executed per condition
   reg start_pulse;
   reg soft_clear;
 
@@ -138,6 +141,9 @@ module router_bench_axi #(
           4'h4: s_axi_rdata <= t2;
           4'h5: s_axi_rdata <= t3;
           4'h6: s_axi_rdata <= {28'd0, led_onehot_int}; // internal cond0..3
+          4'h7: s_axi_rdata <= t_total;
+          4'h8: s_axi_rdata <= t_runtime;
+          4'h9: s_axi_rdata <= {16'd0, ops_per_condition};
           default: s_axi_rdata <= 32'h0000_0000; // CONTROL and unmapped reads
         endcase
       end
@@ -147,8 +153,11 @@ module router_bench_axi #(
   // ----------------- Bench instance -----------------
   wire        bench_done;
   wire [31:0] t0,t1,t2,t3;
+  wire [31:0] t_total;
+  wire [31:0] t_runtime;
   wire [3:0]  led_onehot_int;   // cond0..3
   wire [1:0]  winner_code;
+  wire [15:0] ops_per_condition;
 
   // Combine auto-start and AXI start pulses
   wire start = autostart_pulse | start_pulse;
@@ -171,6 +180,9 @@ module router_bench_axi #(
     .start(start),
     .led_onehot(led_onehot_int),
     .t_cond0(t0), .t_cond1(t1), .t_cond2(t2), .t_cond3(t3),
+    .t_total(t_total),
+    .t_runtime(t_runtime),
+    .ops_per_condition(ops_per_condition),
     .done(bench_done),
     .winner_code(winner_code)
   );
