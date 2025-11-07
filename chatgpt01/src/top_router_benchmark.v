@@ -36,8 +36,11 @@ module top_router_benchmark(
   wire start = autostart_pulse | btn0_rise;
 
   // === Benchmark ===
-  wire [3:0] led_onehot;    // cond0..3 internally
-  wire [31:0] t0,t1,t2,t3;  // (unused at top)
+  wire [3:0]  led_onehot;    // cond0..3 internally
+  wire [31:0] t0,t1,t2,t3;   // (unused at top)
+  wire [31:0] t_total;       // aggregate cycles
+  wire [31:0] t_runtime;     // runtime cycles
+  wire [15:0] ops_per_condition;
   wire        done;
   wire [1:0]  winner_code;
 
@@ -47,6 +50,9 @@ module top_router_benchmark(
     .start(start),
     .led_onehot(led_onehot),
     .t_cond0(t0), .t_cond1(t1), .t_cond2(t2), .t_cond3(t3),
+    .t_total(t_total),
+    .t_runtime(t_runtime),
+    .ops_per_condition(ops_per_condition),
     .done(done),
     .winner_code(winner_code)
   );

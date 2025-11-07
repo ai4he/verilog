@@ -11,14 +11,22 @@ module bench_engine #(
   input  wire        start,            // 1-cycle pulse to begin a full run
   output wire [3:0]  led_onehot,       // cond0..3 one-hot (internal order)
   output wire [31:0] t_cond0, t_cond1, t_cond2, t_cond3,
+  output reg  [31:0] t_total,
+  output reg  [31:0] t_runtime,
+  output wire [15:0] ops_per_condition,
   output reg         done,             // high after run completes (clears on next start/reset)
   output reg  [1:0]  winner_code       // 0=Base2,1=Base10,2=Base12,3=Router
 );
 
-  // 9 ops (3 per "base family")
-  reg [3:0]  ops [0:8];
-  reg [15:0] opa [0:8];
-  reg [15:0] opb [0:8];
+  localparam integer NUM_OPS = 18;
+  localparam integer OP_IDX_WIDTH = $clog2(NUM_OPS);
+
+  // Operation ROM (six operations per base family to stress the router)
+  reg [3:0]  ops [0:NUM_OPS-1];
+  reg [15:0] opa [0:NUM_OPS-1];
+  reg [15:0] opb [0:NUM_OPS-1];
+
+  assign ops_per_condition = NUM_OPS;
 
   // Initialize on reset (so hardware & sim match)
   always @(posedge clk) begin
@@ -27,6 +35,9 @@ module bench_engine #(
       ops[0] <= `OP_BIN_ADD;   ops[1] <= `OP_BIN_SUB;   ops[2] <= `OP_BIN_MUL;
       ops[3] <= `OP_DEC_ADD;   ops[4] <= `OP_DEC_SUB;   ops[5] <= `OP_DEC_MUL10;
       ops[6] <= `OP_DUO_ADD12; ops[7] <= `OP_DUO_SUB12; ops[8] <= `OP_DUO_MUL3;
+      ops[9]  <= `OP_BIN_ADD;    ops[10] <= `OP_BIN_SUB;   ops[11] <= `OP_BIN_MUL;
+      ops[12] <= `OP_DEC_ADD;    ops[13] <= `OP_DEC_SUB;   ops[14] <= `OP_DEC_MUL10;
+      ops[15] <= `OP_DUO_ADD12;  ops[16] <= `OP_DUO_SUB12; ops[17] <= `OP_DUO_MUL3;
       // operands
       opa[0]<=16'd1000; opb[0]<=16'd1234;
       opa[1]<=16'd3000; opb[1]<=16'd1234;
@@ -37,6 +48,15 @@ module bench_engine #(
       opa[6]<=16'd1023; opb[6]<=16'd2047;
       opa[7]<=16'd5000; opb[7]<=16'd1337;
       opa[8]<=16'd4095; opb[8]<=16'd0;
+      opa[9]<=16'd45000;  opb[9]<=16'd12345;
+      opa[10]<=16'd60000; opb[10]<=16'd15000;
+      opa[11]<=16'd321;   opb[11]<=16'd123;
+      opa[12]<=16'd7654;  opb[12]<=16'd3210;
+      opa[13]<=16'd9876;  opb[13]<=16'd5432;
+      opa[14]<=16'd4095;  opb[14]<=16'd0;
+      opa[15]<=16'd3587;  opb[15]<=16'd2444;
+      opa[16]<=16'd2777;  opb[16]<=16'd888;
+      opa[17]<=16'd3333;  opb[17]<=16'd0;
     end
   end
 
@@ -68,8 +88,11 @@ module bench_engine #(
   localparam S_IDLE=0, S_LOAD=1, S_START=2, S_WAIT=3, S_NEXT_OP=4, S_NEXT_COND=5, S_DONE=6;
   reg [2:0] st;
   reg [1:0] cond_idx;
-  reg [3:0] op_idx;
+  reg [OP_IDX_WIDTH-1:0] op_idx;
   reg [31:0] cond_cycle_acc;
+
+  reg        runtime_active;
+  reg [31:0] runtime_counter;
 
   // Winner compute + latch (no early LED0)
   reg [1:0] best_cond;
@@ -98,13 +121,15 @@ module bench_engine #(
   // Sequential
   always @(posedge clk) begin
     if (rst) begin
-      st <= S_IDLE; cond_idx <= 2'd0; op_idx <= 4'd0;
+      st <= S_IDLE; cond_idx <= 2'd0; op_idx <= {OP_IDX_WIDTH{1'b0}};
       r_start <= 1'b0; r_cond <= 2'd0; r_opcode <= 4'd0; r_a <= 16'd0; r_b <= 16'd0;
       time_cond[0] <= 32'd0; time_cond[1] <= 32'd0; time_cond[2] <= 32'd0; time_cond[3] <= 32'd0;
       cond_cycle_acc <= 32'd0;
       winner_valid <= 1'b0; winner_onehot_latched <= 4'b0000; done <= 1'b0; winner_code <= 2'd0;
+      t_total <= 32'd0; t_runtime <= 32'd0; runtime_active <= 1'b0; runtime_counter <= 32'd0;
     end else begin
       r_start <= 1'b0;
+      if (runtime_active) runtime_counter <= runtime_counter + 32'd1;
 
       case (st)
         S_IDLE: begin
@@ -112,8 +137,9 @@ module bench_engine #(
           winner_valid <= 1'b0;
           if (start) begin
             // clear accumulators and start condition 0
-            cond_idx <= 2'd0; op_idx <= 4'd0; cond_cycle_acc <= 32'd0;
+            cond_idx <= 2'd0; op_idx <= {OP_IDX_WIDTH{1'b0}}; cond_cycle_acc <= 32'd0;
             time_cond[0] <= 32'd0; time_cond[1] <= 32'd0; time_cond[2] <= 32'd0; time_cond[3] <= 32'd0;
+            t_total <= 32'd0; t_runtime <= 32'd0; runtime_active <= 1'b1; runtime_counter <= 32'd0;
             st <= S_LOAD;
           end
         end
@@ -139,11 +165,11 @@ module bench_engine #(
         end
 
         S_NEXT_OP: begin
-          if (op_idx == 4'd8) begin
+          if (op_idx == (NUM_OPS-1)) begin
             time_cond[cond_idx] <= cond_cycle_acc;
             st <= S_NEXT_COND;
           end else begin
-            op_idx <= op_idx + 4'd1;
+            op_idx <= op_idx + 1'b1;
             st <= S_LOAD;
           end
         end
@@ -155,10 +181,13 @@ module bench_engine #(
             winner_code           <= best_cond;
             winner_valid          <= 1'b1;
             done                  <= 1'b1;
+            t_total               <= time_cond[0] + time_cond[1] + time_cond[2] + cond_cycle_acc;
+            t_runtime             <= runtime_counter + 32'd1;
+            runtime_active        <= 1'b0;
             st <= S_DONE;
           end else begin
             cond_idx <= cond_idx + 2'd1;
-            op_idx   <= 4'd0;
+            op_idx   <= {OP_IDX_WIDTH{1'b0}};
             cond_cycle_acc <= 32'd0;
             st <= S_LOAD;
           end
@@ -168,8 +197,9 @@ module bench_engine #(
           // wait for next start
           if (start) begin
             done <= 1'b0; winner_valid <= 1'b0;
-            cond_idx <= 2'd0; op_idx <= 4'd0; cond_cycle_acc <= 32'd0;
+            cond_idx <= 2'd0; op_idx <= {OP_IDX_WIDTH{1'b0}}; cond_cycle_acc <= 32'd0;
             time_cond[0] <= 32'd0; time_cond[1] <= 32'd0; time_cond[2] <= 32'd0; time_cond[3] <= 32'd0;
+            t_total <= 32'd0; t_runtime <= 32'd0; runtime_active <= 1'b1; runtime_counter <= 32'd0;
             st <= S_LOAD;
           end
         end
