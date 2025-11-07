@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-| Date             : Thu Oct 23 14:26:55 2025
+| Date             : Fri Nov  7 13:12:51 2025
 | Host             : DESKTOP-E4COIK2 running 64-bit major release  (build 9200)
 | Command          : report_power -file router_bd_wrapper_power_routed.rpt -pb router_bd_wrapper_power_summary_routed.pb -rpx router_bd_wrapper_power_routed.rpx
 | Design           : router_bd_wrapper
@@ -53,13 +53,13 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |     0.004 |        4 |       --- |             --- |
-| Slice Logic             |     0.002 |     1809 |       --- |             --- |
-|   LUT as Logic          |     0.002 |      592 |     53200 |            1.11 |
-|   CARRY4                |    <0.001 |       40 |     13300 |            0.30 |
-|   Register              |    <0.001 |      710 |    106400 |            0.67 |
+| Slice Logic             |     0.002 |     2162 |       --- |             --- |
+|   LUT as Logic          |     0.002 |      777 |     53200 |            1.46 |
+|   CARRY4                |    <0.001 |       56 |     13300 |            0.42 |
+|   Register              |    <0.001 |      813 |    106400 |            0.76 |
 |   LUT as Shift Register |    <0.001 |       59 |     17400 |            0.34 |
 |   Others                |     0.000 |      180 |       --- |             --- |
-| Signals                 |     0.002 |     1235 |       --- |             --- |
+| Signals                 |     0.002 |     1520 |       --- |             --- |
 | I/O                     |    <0.001 |        5 |       125 |            4.00 |
 | PS7                     |     1.527 |        1 |       --- |             --- |
 | Static Power            |     0.139 |          |           |                 |
@@ -150,11 +150,11 @@ Table of Contents
 | Name               | Power (W) |
 +--------------------+-----------+
 | router_bd_wrapper  |     1.536 |
-|   router_bd_i      |     1.535 |
+|   router_bd_i      |     1.536 |
 |     axi_ic         |     0.006 |
 |       s00_couplers |     0.006 |
-|     bench_axi_0    |     0.002 |
-|       inst         |     0.002 |
+|     bench_axi_0    |     0.003 |
+|       inst         |     0.003 |
 |     ps7            |     1.527 |
 |       inst         |     1.527 |
 +--------------------+-----------+
