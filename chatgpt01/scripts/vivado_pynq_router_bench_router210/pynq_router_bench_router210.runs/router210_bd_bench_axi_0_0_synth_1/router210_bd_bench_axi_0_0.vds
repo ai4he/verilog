@@ -1,0 +1,415 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Fri Nov  7 19:41:07 2025
+# Process ID         : 700
+# Current directory  : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench_router210/pynq_router_bench_router210.runs/router210_bd_bench_axi_0_0_synth_1
+# Command line       : vivado.exe -log router210_bd_bench_axi_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source router210_bd_bench_axi_0_0.tcl
+# Log file           : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench_router210/pynq_router_bench_router210.runs/router210_bd_bench_axi_0_0_synth_1/router210_bd_bench_axi_0_0.vds
+# Journal file       : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench_router210/pynq_router_bench_router210.runs/router210_bd_bench_axi_0_0_synth_1\vivado.jou
+# Running On         : DESKTOP-E4COIK2
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Celeron(R) N4120 CPU @ 1.10GHz
+# CPU Frequency      : 1094 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 4
+# Host memory        : 8402 MB
+# Swap memory        : 6710 MB
+# Total Virtual      : 15112 MB
+# Available Virtual  : 4368 MB
+#-----------------------------------------------------------
+source router210_bd_bench_axi_0_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:37 ; elapsed = 00:00:42 . Memory (MB): peak = 486.730 ; gain = 213.961
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/Xilinx/2025.1/Vivado/data/ip'.
+WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
+Current IP cache path is c:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench_router210/pynq_router_bench_router210.cache/ip 
+Command: synth_design -top router210_bd_bench_axi_0_0 -part xc7z020clg400-1 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 17400
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:22 ; elapsed = 00:00:39 . Memory (MB): peak = 1217.020 ; gain = 489.742
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'router210_bd_bench_axi_0_0' [c:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench_router210/pynq_router_bench_router210.gen/sources_1/bd/router210_bd/ip/router210_bd_bench_axi_0_0/synth/router210_bd_bench_axi_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'router_bench_axi_router210' [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi_router210.v:4]
+	Parameter B2_LAT_BIN bound to: 1 - type: integer 
+	Parameter B2_LAT_DEC bound to: 8 - type: integer 
+	Parameter B2_LAT_DUO bound to: 6 - type: integer 
+	Parameter B10_LAT_DEC bound to: 1 - type: integer 
+	Parameter B10_LAT_BIN bound to: 6 - type: integer 
+	Parameter B10_LAT_DUO bound to: 6 - type: integer 
+	Parameter B12_LAT_DUO bound to: 1 - type: integer 
+	Parameter B12_LAT_BIN bound to: 6 - type: integer 
+	Parameter B12_LAT_DEC bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'bench_engine_router210' [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/bench_engine_router210.v:4]
+	Parameter B2_LAT_BIN bound to: 1 - type: integer 
+	Parameter B2_LAT_DEC bound to: 8 - type: integer 
+	Parameter B2_LAT_DUO bound to: 6 - type: integer 
+	Parameter B10_LAT_DEC bound to: 1 - type: integer 
+	Parameter B10_LAT_BIN bound to: 6 - type: integer 
+	Parameter B10_LAT_DUO bound to: 6 - type: integer 
+	Parameter B12_LAT_DUO bound to: 1 - type: integer 
+	Parameter B12_LAT_BIN bound to: 6 - type: integer 
+	Parameter B12_LAT_DEC bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'router_extended' [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_extended.v:11]
+	Parameter B2_LAT_BIN bound to: 1 - type: integer 
+	Parameter B2_LAT_DEC bound to: 8 - type: integer 
+	Parameter B2_LAT_DUO bound to: 6 - type: integer 
+	Parameter B10_LAT_DEC bound to: 1 - type: integer 
+	Parameter B10_LAT_BIN bound to: 6 - type: integer 
+	Parameter B10_LAT_DUO bound to: 6 - type: integer 
+	Parameter B12_LAT_DUO bound to: 1 - type: integer 
+	Parameter B12_LAT_BIN bound to: 6 - type: integer 
+	Parameter B12_LAT_DEC bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'base2_alu' [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/base2_alu.v:5]
+	Parameter LAT_BIN bound to: 1 - type: integer 
+	Parameter LAT_DEC bound to: 8 - type: integer 
+	Parameter LAT_DUO bound to: 6 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'base2_alu' (0#1) [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/base2_alu.v:5]
+INFO: [Synth 8-6157] synthesizing module 'base10_alu' [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/base10_alu.v:5]
+	Parameter LAT_DEC bound to: 1 - type: integer 
+	Parameter LAT_BIN bound to: 6 - type: integer 
+	Parameter LAT_DUO bound to: 6 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'base10_alu' (0#1) [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/base10_alu.v:5]
+INFO: [Synth 8-6157] synthesizing module 'base12_alu' [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/base12_alu.v:5]
+	Parameter LAT_DUO bound to: 1 - type: integer 
+	Parameter LAT_BIN bound to: 6 - type: integer 
+	Parameter LAT_DEC bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'base12_alu' (0#1) [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/base12_alu.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'router_extended' (0#1) [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_extended.v:11]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/bench_engine_router210.v:137]
+INFO: [Synth 8-6155] done synthesizing module 'bench_engine_router210' (0#1) [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/bench_engine_router210.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'router_bench_axi_router210' (0#1) [C:/Users/Carlos/Documents/projects/verilog/chatgpt01/src/router_bench_axi_router210.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'router210_bd_bench_axi_0_0' (0#1) [c:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench_router210/pynq_router_bench_router210.gen/sources_1/bd/router210_bd/ip/router210_bd_bench_axi_0_0/synth/router210_bd_bench_axi_0_0.v:53]
+WARNING: [Synth 8-7129] Port s_axi_wdata[31] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[30] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[29] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[28] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[27] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[26] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[25] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[24] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[23] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[22] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[21] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[20] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[19] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[18] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[17] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[16] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[15] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[14] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[13] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[12] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[11] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[10] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[9] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[8] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[7] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[6] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[5] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[4] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[3] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[2] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[3] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[2] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[1] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[0] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_araddr[1] in module router_bench_axi_router210 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_araddr[0] in module router_bench_axi_router210 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:30 ; elapsed = 00:00:58 . Memory (MB): peak = 1338.625 ; gain = 611.348
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:59 . Memory (MB): peak = 1338.625 ; gain = 611.348
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:31 ; elapsed = 00:00:59 . Memory (MB): peak = 1338.625 ; gain = 611.348
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.171 . Memory (MB): peak = 1338.625 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1409.125 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.256 . Memory (MB): peak = 1410.145 ; gain = 1.020
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:01:09 ; elapsed = 00:01:47 . Memory (MB): peak = 1410.145 ; gain = 682.867
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:09 ; elapsed = 00:01:47 . Memory (MB): peak = 1410.145 ; gain = 682.867
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:09 ; elapsed = 00:01:47 . Memory (MB): peak = 1410.145 ; gain = 682.867
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'st_reg' in module 'bench_engine_router210'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  S_IDLE |                              000 |                              000
+                  S_LOAD |                              001 |                              001
+                 S_START |                              010 |                              010
+                  S_WAIT |                              011 |                              011
+               S_NEXT_OP |                              100 |                              100
+             S_NEXT_COND |                              101 |                              101
+                  S_DONE |                              110 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'st_reg' using encoding 'sequential' in module 'bench_engine_router210'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:12 ; elapsed = 00:01:51 . Memory (MB): peak = 1410.145 ; gain = 682.867
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   32 Bit       Adders := 3     
+	   2 Input   32 Bit       Adders := 2     
+	   5 Input   32 Bit       Adders := 1     
+	   2 Input   17 Bit       Adders := 3     
+	   2 Input    8 Bit       Adders := 4     
+	   2 Input    5 Bit       Adders := 1     
+	   2 Input    3 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 14    
+	               16 Bit    Registers := 31    
+	                8 Bit    Registers := 4     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 2     
+	                4 Bit    Registers := 10    
+	                3 Bit    Registers := 3     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 26    
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 24    
+	   8 Input   32 Bit        Muxes := 3     
+	   7 Input   32 Bit        Muxes := 5     
+	   2 Input   19 Bit        Muxes := 3     
+	   2 Input    8 Bit        Muxes := 5     
+	   3 Input    8 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 4     
+	   7 Input    5 Bit        Muxes := 1     
+	   4 Input    5 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 3     
+	   7 Input    3 Bit        Muxes := 2     
+	   5 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 3     
+	   3 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 33    
+	   3 Input    1 Bit        Muxes := 1     
+	   7 Input    1 Bit        Muxes := 18    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP u_b2/res_bin2, operation Mode is: A*B.
+DSP Report: operator u_b2/res_bin2 is absorbed into DSP u_b2/res_bin2.
+INFO: [Synth 8-3917] design router210_bd_bench_axi_0_0 has port led[4] driven by constant 0
+WARNING: [Synth 8-7129] Port s_axi_wdata[31] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[30] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[29] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[28] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[27] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[26] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[25] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[24] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[23] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[22] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[21] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[20] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[19] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[18] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[17] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[16] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[15] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[14] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[13] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[12] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[11] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[10] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[9] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[8] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[7] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[6] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[5] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[4] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[3] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wdata[2] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[3] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[2] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[1] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_wstrb[0] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_araddr[1] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_araddr[0] in module router210_bd_bench_axi_0_0 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:41 ; elapsed = 00:02:25 . Memory (MB): peak = 1410.145 ; gain = 682.867
+---------------------------------------------------------------------------------
+ Sort Area is  u_b2/res_bin2_0 : 0 0 : 1946 1946 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|base2_alu   | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:07 ; elapsed = 00:02:59 . Memory (MB): peak = 1546.602 ; gain = 819.324
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:02:08 ; elapsed = 00:03:00 . Memory (MB): peak = 1547.977 ; gain = 820.699
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:02:09 ; elapsed = 00:03:02 . Memory (MB): peak = 1569.715 ; gain = 842.438
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:02:33 ; elapsed = 00:03:31 . Memory (MB): peak = 1791.730 ; gain = 1064.453
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:33 ; elapsed = 00:03:31 . Memory (MB): peak = 1791.730 ; gain = 1064.453
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:33 ; elapsed = 00:03:32 . Memory (MB): peak = 1791.730 ; gain = 1064.453
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:33 ; elapsed = 00:03:32 . Memory (MB): peak = 1791.730 ; gain = 1064.453
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:33 ; elapsed = 00:03:32 . Memory (MB): peak = 1791.730 ; gain = 1064.453
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:33 ; elapsed = 00:03:32 . Memory (MB): peak = 1791.730 ; gain = 1064.453
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY4 |    56|
+|2     |LUT1   |     3|
+|3     |LUT2   |    19|
+|4     |LUT3   |   241|
+|5     |LUT4   |   157|
+|6     |LUT5   |    68|
+|7     |LUT6   |   271|
+|8     |FDRE   |   423|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:33 ; elapsed = 00:03:32 . Memory (MB): peak = 1791.730 ; gain = 1064.453
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 37 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:52 ; elapsed = 00:03:19 . Memory (MB): peak = 1791.730 ; gain = 992.934
+Synthesis Optimization Complete : Time (s): cpu = 00:02:33 ; elapsed = 00:03:32 . Memory (MB): peak = 1791.730 ; gain = 1064.453
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 1791.871 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 56 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'router210_bd_bench_axi_0_0' is not ideal for floorplanning, since the cellview 'bench_engine_router210' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1793.680 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: fdc20ead
+INFO: [Common 17-83] Releasing license: Synthesis
+36 Infos, 75 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:50 ; elapsed = 00:04:03 . Memory (MB): peak = 1793.680 ; gain = 1291.516
+INFO: [Coretcl 2-1174] Renamed 6 cell refs.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1793.680 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench_router210/pynq_router_bench_router210.runs/router210_bd_bench_axi_0_0_synth_1/router210_bd_bench_axi_0_0.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file router210_bd_bench_axi_0_0_utilization_synth.rpt -pb router210_bd_bench_axi_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Nov  7 19:46:12 2025...

@@ -3,10 +3,10 @@
 # SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Fri Nov  7 19:59:57 2025
-# Process ID         : 16484
+# Start of session at: Fri Nov  7 14:15:02 2025
+# Process ID         : 12864
 # Current directory  : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts
-# Command line       : vivado.exe -mode batch -source program_axi_bitstream_router210.tcl
+# Command line       : vivado.exe -mode batch -source program_axi_bitstream.tcl
 # Log file           : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado.log
 # Journal file       : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts\vivado.jou
 # Running On         : DESKTOP-E4COIK2
@@ -19,22 +19,22 @@
 # Host memory        : 8402 MB
 # Swap memory        : 6710 MB
 # Total Virtual      : 15112 MB
-# Available Virtual  : 5033 MB
+# Available Virtual  : 5311 MB
 #-----------------------------------------------------------
-source program_axi_bitstream_router210.tcl
-# set bitstream_path [file normalize ../router210_bench.bit]
+source program_axi_bitstream.tcl
+# set bitstream_path [file normalize ../router_bench.bit]
 # if {![file exists $bitstream_path]} {
 #     puts "ERROR: Bitstream not found at: $bitstream_path"
-#     puts "Please run build_and_program_router210_axi.bat first to generate the bitstream."
+#     puts "Please run build_and_program_axi.bat first to generate the bitstream."
 #     exit 1
 # }
-# puts "Using Router 2&10 AXI bitstream: $bitstream_path"
-Using Router 2&10 AXI bitstream: C:/Users/Carlos/Documents/projects/verilog/chatgpt01/router210_bench.bit
-# puts "\n=== Programming FPGA with Router 2&10 AXI Overlay ==="
+# puts "Using AXI overlay bitstream: $bitstream_path"
+Using AXI overlay bitstream: C:/Users/Carlos/Documents/projects/verilog/chatgpt01/router_bench.bit
+# puts "\n=== Programming FPGA with AXI Overlay ==="
 
-=== Programming FPGA with Router 2&10 AXI Overlay ===
+=== Programming FPGA with AXI Overlay ===
 # open_hw_manager
-open_hw_manager: Time (s): cpu = 00:00:31 ; elapsed = 00:00:26 . Memory (MB): peak = 485.680 ; gain = 215.281
+open_hw_manager: Time (s): cpu = 00:00:37 ; elapsed = 00:00:28 . Memory (MB): peak = 486.383 ; gain = 213.305
 # connect_hw_server
 INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
 INFO: [Labtools 27-2222] Launching hw_server...
@@ -58,7 +58,7 @@ INFO: [Labtools 27-2221] Launch Output:
 
 
 
-connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:20 . Memory (MB): peak = 490.613 ; gain = 4.934
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:21 . Memory (MB): peak = 491.340 ; gain = 4.957
 # set hw_targets [get_hw_targets]
 # if {[llength $hw_targets] == 0} {
 #     puts "ERROR: No hardware targets found. Please check FPGA connection."
@@ -69,13 +69,13 @@ connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:20 . Memory (MB): 
 Available targets: localhost:3121/xilinx_tcf/Xilinx/1234-tulA
 # open_hw_target [lindex $hw_targets 0]
 INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
-open_hw_target: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 492.824 ; gain = 2.211
+open_hw_target: Time (s): cpu = 00:00:00 ; elapsed = 00:00:10 . Memory (MB): peak = 493.488 ; gain = 2.148
 # set hw_devices [get_hw_devices]
 # puts "All detected devices: $hw_devices"
 All detected devices: arm_dap_0 xc7z020_1
 # set fpga_device ""
 # foreach dev $hw_devices {
-#     if ([string match "*xc7z020*" $dev]) {
+#     if {[string match "*xc7z020*" $dev]} {
 #         set fpga_device $dev
 #         break
 #     }
@@ -97,9 +97,11 @@ INFO: [Labtools 27-3164] End of startup status: HIGH
 # puts "\n=== FPGA Programming Complete! ==="
 
 === FPGA Programming Complete! ===
-# puts "Router 2&10 variant is now running on the FPGA."
-Router 2&10 variant is now running on the FPGA.
+# puts "The AXI-Lite router benchmark is now running on the FPGA."
+The AXI-Lite router benchmark is now running on the FPGA.
+# puts "Use the PYNQ Jupyter notebook to access it via AXI."
+Use the PYNQ Jupyter notebook to access it via AXI.
 # close_hw_target
 INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
 # close_hw_manager
-INFO: [Common 17-206] Exiting Vivado at Fri Nov  7 20:01:04 2025...
+INFO: [Common 17-206] Exiting Vivado at Fri Nov  7 14:16:15 2025...

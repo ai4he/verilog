@@ -1,0 +1,124 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Fri Nov  7 19:53:28 2025
+| Host         : DESKTOP-E4COIK2 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file router210_bd_wrapper_control_sets_placed.rpt
+| Design       : router210_bd_wrapper
+| Device       : xc7z020
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    46 |
+|    Minimum number of control sets                        |    46 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    88 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    46 |
+| >= 0 to < 4        |     2 |
+| >= 4 to < 6        |     9 |
+| >= 6 to < 8        |     2 |
+| >= 8 to < 10       |     8 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     1 |
+| >= 14 to < 16      |     2 |
+| >= 16              |    22 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             102 |           43 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              32 |           18 |
+| Yes          | No                    | No                     |             317 |           78 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             397 |          138 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+------------------+----------------+--------------+
+|    Clock Signal   |                                                                       Enable Signal                                                                      |                                                                 Set/Reset Signal                                                                | Slice Load Count | Bel Load Count | Bels / Slice |
++-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+------------------+----------------+--------------+
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/aw_cmd_fsm_0/FSM_sequential_state_reg[0]_1          | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/aw_cmd_fsm_0/FSM_sequential_state_reg[0]_0 |                1 |              1 |         1.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/sel                                       |                                                                                                                                                 |                1 |              2 |         2.00 |
+|  sysclk_IBUF_BUFG |                                                                                                                                                          | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw.aw_pipe/aresetn_d_reg[0]_0                       |                3 |              4 |         1.33 |
+|  sysclk_IBUF_BUFG |                                                                                                                                                          | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw.aw_pipe/aresetn_d_reg[1]_inv_0                   |                2 |              4 |         2.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/s_axi_awready0                                                                                                           | router210_bd_i/bench_axi_0/inst/por_active                                                                                                      |                1 |              4 |         4.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/u_bench/u_router/u_b10/countdown[7]_i_2__1_n_0                                                                           | router210_bd_i/bench_axi_0/inst/u_bench/u_router/u_b10/countdown[7]_i_1_n_0                                                                     |                1 |              4 |         4.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/u_bench/u_router/u_b10/countdown[7]_i_2__1_n_0                                                                           | router210_bd_i/bench_axi_0/inst/por_active                                                                                                      |                1 |              4 |         4.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/ar_cmd_fsm_0/m_axi_arready_2                        | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/ar_cmd_fsm_0/FSM_sequential_state_reg[1]_0 |                2 |              4 |         2.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/cnt_read[4]_i_1__0_n_0                |                                                                                                                                                 |                2 |              5 |         2.50 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/u_bench/op_idx[4]_i_1_n_0                                                                                                | router210_bd_i/bench_axi_0/inst/por_active                                                                                                      |                2 |              5 |         2.50 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/cnt_read[4]_i_1_n_0               |                                                                                                                                                 |                2 |              5 |         2.50 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/u_bench/r_cond                                                                                                           | router210_bd_i/bench_axi_0/inst/por_active                                                                                                      |                2 |              7 |         3.50 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched                                                                                            | router210_bd_i/bench_axi_0/inst/por_active                                                                                                      |                3 |              7 |         2.33 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/u_bench/u_router/u_b2/countdown[7]_i_1__1_n_0                                                                            | router210_bd_i/bench_axi_0/inst/por_active                                                                                                      |                3 |              8 |         2.67 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/por_active                                                                                                               |                                                                                                                                                 |                2 |              8 |         4.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/aw_cmd_fsm_0/m_valid_i_reg[0]                       |                                                                                                                                                 |                4 |              8 |         2.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/cmd_translator_0/incr_cmd_0/axaddr_incr[11]_i_1_n_0 |                                                                                                                                                 |                2 |              8 |         4.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/mhandshake_r                                         | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/bresp_cnt_reg[1]                 |                3 |              8 |         2.67 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/ar_cmd_fsm_0/E[0]                                   |                                                                                                                                                 |                4 |              8 |         2.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/ar_cmd_fsm_0/sel_first_reg[0]                       |                                                                                                                                                 |                2 |              8 |         4.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/u_bench/u_router/u_b12/countdown[7]_i_1__0_n_0                                                                           | router210_bd_i/bench_axi_0/inst/por_active                                                                                                      |                3 |              8 |         2.67 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_push_r                                             |                                                                                                                                                 |                4 |             13 |         3.25 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/b.b_pipe/p_1_in                                              |                                                                                                                                                 |                2 |             14 |         7.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/b.b_pipe/s_ready_i_reg_0                                     |                                                                                                                                                 |                2 |             14 |         7.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/aw_cmd_fsm_0/m_axi_awready_0                        |                                                                                                                                                 |                3 |             16 |         5.33 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/pwrup_cnt[0]_i_1_n_0                                                                                                     | router210_bd_i/bench_axi_0/inst/por_active                                                                                                      |                4 |             16 |         4.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/ar_cmd_fsm_0/m_axi_arready_2                        |                                                                                                                                                 |                6 |             17 |         2.83 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/aw_cmd_fsm_0/FSM_sequential_state_reg[0]_1          |                                                                                                                                                 |                9 |             20 |         2.22 |
+|  sysclk_IBUF_BUFG |                                                                                                                                                          | router210_bd_i/bench_axi_0/inst/por_active                                                                                                      |               13 |             24 |         1.85 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/aw.aw_pipe/s_ready_i_reg_0                                   |                                                                                                                                                 |                5 |             28 |         5.60 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/aw_cmd_fsm_0/E[0]                                   |                                                                                                                                                 |                7 |             28 |         4.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/ar.ar_pipe/s_ready_i_reg_0                                   |                                                                                                                                                 |                7 |             28 |         4.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/ar_cmd_fsm_0/m_valid_i_reg[0]                       |                                                                                                                                                 |                7 |             28 |         4.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/wr_en0                                |                                                                                                                                                 |                8 |             32 |         4.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/u_bench/runtime_counter[31]_i_1_n_0                                                                                      | router210_bd_i/bench_axi_0/inst/por_active                                                                                                      |               12 |             32 |         2.67 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/u_bench/time_cond[1][31]_i_1_n_0                                                                                         | router210_bd_i/bench_axi_0/inst/por_active                                                                                                      |               15 |             32 |         2.13 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/u_bench/time_cond[4][31]_i_1_n_0                                                                                         | router210_bd_i/bench_axi_0/inst/por_active                                                                                                      |               10 |             32 |         3.20 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/u_bench/time_cond[0][31]_i_1_n_0                                                                                         | router210_bd_i/bench_axi_0/inst/por_active                                                                                                      |               11 |             32 |         2.91 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/u_bench/time_cond[2][31]_i_1_n_0                                                                                         | router210_bd_i/bench_axi_0/inst/por_active                                                                                                      |               12 |             32 |         2.67 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/u_bench/time_cond[3][31]_i_1_n_0                                                                                         | router210_bd_i/bench_axi_0/inst/por_active                                                                                                      |                8 |             32 |         4.00 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/u_bench/cond_cycle_acc[31]_i_1_n_0                                                                                       | router210_bd_i/bench_axi_0/inst/por_active                                                                                                      |                7 |             32 |         4.57 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/rd_hs                                                                                                                    | router210_bd_i/bench_axi_0/inst/por_active                                                                                                      |               15 |             32 |         2.13 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/r.r_pipe/p_1_in                                              |                                                                                                                                                 |                7 |             45 |         6.43 |
+|  sysclk_IBUF_BUFG | router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/r.r_pipe/s_ready_i_reg_0                                     |                                                                                                                                                 |                8 |             45 |         5.62 |
+|  sysclk_IBUF_BUFG | router210_bd_i/bench_axi_0/inst/u_bench/t_total[31]_i_1_n_0                                                                                              | router210_bd_i/bench_axi_0/inst/por_active                                                                                                      |               22 |             65 |         2.95 |
+|  sysclk_IBUF_BUFG |                                                                                                                                                          |                                                                                                                                                 |               43 |            102 |         2.37 |
++-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+------------------+----------------+--------------+
+
+
