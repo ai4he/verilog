@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="router210_bd_bench_axi_0_0_synth_1" LaunchDir="C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench_router210/pynq_router_bench_router210.runs/router210_bd_bench_axi_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="router210_bd_ps7_0_synth_1" LaunchDir="C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench_router210/pynq_router_bench_router210.runs/router210_bd_ps7_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="router210_bd_axi_ic_imp_auto_pc_0_synth_1" LaunchDir="C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench_router210/pynq_router_bench_router210.runs/router210_bd_axi_ic_imp_auto_pc_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench_router210/pynq_router_bench_router210.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="router210_bd_bench_axi_0_0_synth_1"/>
+		<Parent Id="router210_bd_ps7_0_synth_1"/>
+		<Parent Id="router210_bd_axi_ic_imp_auto_pc_0_synth_1"/>
+	</Run>
+	<Run Id="impl_1" LaunchDir="C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench_router210/pynq_router_bench_router210.runs/impl_1" FlowId="Vivado_Implementation" FromStepId="init_design" ToStepId="write_bitstream">
+		<Parent Id="synth_1"/>
+		<Parent Id="router210_bd_bench_axi_0_0_synth_1"/>
+		<Parent Id="router210_bd_ps7_0_synth_1"/>
+		<Parent Id="router210_bd_axi_ic_imp_auto_pc_0_synth_1"/>
+	</Run>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+		<Parameter Name="runs.enableClusterConf" Val="true" Type="bool"/>
+		<Parameter Name="general.shortenLongPath" Val="true" Type="bool"/>
+		<Parameter Name="general.usePosixSpawnForFork" Val="true" Type="bool"/>
+	</Parameters>
+	<ProductInfo Name="vivado"/>
+</Runs>
+

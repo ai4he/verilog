@@ -1,0 +1,91 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Fri Nov  7 19:56:44 2025
+| Host         : DESKTOP-E4COIK2 running 64-bit major release  (build 9200)
+| Command      : report_methodology -file router210_bd_wrapper_methodology_drc_routed.rpt -pb router210_bd_wrapper_methodology_drc_routed.pb -rpx router210_bd_wrapper_methodology_drc_routed.rpx
+| Design       : router210_bd_wrapper
+| Device       : xc7z020clg400-1
+| Speed File   : -1
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max checks: <unlimited>
+             Checks found: 11
++-----------+----------+-------------------------------+--------+
+| Rule      | Severity | Description                   | Checks |
++-----------+----------+-------------------------------+--------+
+| TIMING-16 | Warning  | Large setup violation         | 6      |
+| TIMING-18 | Warning  | Missing input or output delay | 5      |
++-----------+----------+-------------------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-16#1 Warning
+Large setup violation  
+There is a large setup violation of -1.145 ns between router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C (clocked by sys_clk_pin) and router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[2]/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#2 Warning
+Large setup violation  
+There is a large setup violation of -1.150 ns between router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C (clocked by sys_clk_pin) and router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[4]/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#3 Warning
+Large setup violation  
+There is a large setup violation of -1.162 ns between router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C (clocked by sys_clk_pin) and router210_bd_i/bench_axi_0/inst/u_bench/winner_code_reg[1]/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#4 Warning
+Large setup violation  
+There is a large setup violation of -1.197 ns between router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C (clocked by sys_clk_pin) and router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[1]/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#5 Warning
+Large setup violation  
+There is a large setup violation of -1.199 ns between router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C (clocked by sys_clk_pin) and router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[3]/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#6 Warning
+Large setup violation  
+There is a large setup violation of -1.211 ns between router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C (clocked by sys_clk_pin) and router210_bd_i/bench_axi_0/inst/u_bench/winner_code_reg[0]/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An output delay is missing on led[0] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An output delay is missing on led[1] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An output delay is missing on led[2] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An output delay is missing on led[3] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An output delay is missing on led[4] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+

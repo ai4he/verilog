@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Fri Nov  7 19:41:07 2025
+# Process ID         : 11768
+# Current directory  : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench_router210/pynq_router_bench_router210.runs/router210_bd_axi_ic_imp_auto_pc_0_synth_1
+# Command line       : vivado.exe -log router210_bd_axi_ic_imp_auto_pc_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source router210_bd_axi_ic_imp_auto_pc_0.tcl
+# Log file           : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench_router210/pynq_router_bench_router210.runs/router210_bd_axi_ic_imp_auto_pc_0_synth_1/router210_bd_axi_ic_imp_auto_pc_0.vds
+# Journal file       : C:/Users/Carlos/Documents/projects/verilog/chatgpt01/scripts/vivado_pynq_router_bench_router210/pynq_router_bench_router210.runs/router210_bd_axi_ic_imp_auto_pc_0_synth_1\vivado.jou
+# Running On         : DESKTOP-E4COIK2
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Celeron(R) N4120 CPU @ 1.10GHz
+# CPU Frequency      : 1094 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 4
+# Host memory        : 8402 MB
+# Swap memory        : 6710 MB
+# Total Virtual      : 15112 MB
+# Available Virtual  : 4376 MB
+#-----------------------------------------------------------
+source router210_bd_axi_ic_imp_auto_pc_0.tcl -notrace

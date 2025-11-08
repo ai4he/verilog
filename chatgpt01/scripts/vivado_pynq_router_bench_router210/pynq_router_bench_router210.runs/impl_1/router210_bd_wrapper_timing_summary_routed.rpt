@@ -1,0 +1,2008 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Fri Nov  7 19:56:45 2025
+| Host         : DESKTOP-E4COIK2 running 64-bit major release  (build 9200)
+| Command      : report_timing_summary -max_paths 10 -routable_nets -report_unconstrained -file router210_bd_wrapper_timing_summary_routed.rpt -pb router210_bd_wrapper_timing_summary_routed.pb -rpx router210_bd_wrapper_timing_summary_routed.rpx -warn_on_violation
+| Design       : router210_bd_wrapper
+| Device       : 7z020-clg400
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+  Inter-SLR Compensation                     :  Conservative
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+------------------------------------------------------------------------------------------------
+| Report Methodology
+| ------------------
+------------------------------------------------------------------------------------------------
+
+Rule       Severity  Description                    Violations  
+---------  --------  -----------------------------  ----------  
+TIMING-16  Warning   Large setup violation          6           
+TIMING-18  Warning   Missing input or output delay  5           
+
+Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (0)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (0)
+4. checking unconstrained_internal_endpoints (0)
+5. checking no_input_delay (0)
+6. checking no_output_delay (4)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (0)
+
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (0)
+---------------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (0)
+------------------------------
+ There are 0 input ports with no input delay specified.
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay (4)
+-------------------------------
+ There are 4 ports with no output delay specified. (HIGH)
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (0)
+----------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+     -1.211       -7.303                      7                 2183        0.025        0.000                      0                 2183        3.020        0.000                       0                   913  
+
+
+Timing constraints are not met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock        Waveform(ns)         Period(ns)      Frequency(MHz)
+-----        ------------         ----------      --------------
+clk_fpga_0   {0.000 10.000}       20.000          50.000          
+sys_clk_pin  {0.000 4.000}        8.000           125.000         
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+sys_clk_pin        -1.211       -7.303                      7                 2183        0.025        0.000                      0                 2183        3.020        0.000                       0                   913  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| User Ignored Path Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock    
+----------    ----------    --------    
+
+
+------------------------------------------------------------------------------------------------
+| Unconstrained Path Table
+| ------------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock    
+----------    ----------    --------    
+(none)        sys_clk_pin                 
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  sys_clk_pin
+  To Clock:  sys_clk_pin
+
+Setup :            7  Failing Endpoints,  Worst Slack       -1.211ns,  Total Violation       -7.303ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.025ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        3.020ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (VIOLATED) :        -1.211ns  (required time - arrival time)
+  Source:                 router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/bench_axi_0/inst/u_bench/winner_code_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clk_pin rise@8.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        9.233ns  (logic 3.471ns (37.593%)  route 5.762ns (62.406%))
+  Logic Levels:           15  (CARRY4=9 LUT3=1 LUT4=2 LUT5=1 LUT6=2)
+  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.241ns = ( 13.241 - 8.000 ) 
+    Source Clock Delay      (SCD):    5.718ns
+    Clock Pessimism Removal (CPR):    0.456ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.451     1.451 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.522     3.973    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     4.074 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.644     5.718    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X40Y84         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X40Y84         FDRE (Prop_fdre_C_Q)         0.419     6.137 r  router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/Q
+                         net (fo=10, routed)          0.826     6.963    router210_bd_i/bench_axi_0/inst/u_bench/t3[8]
+    SLICE_X43Y84         LUT4 (Prop_lut4_I2_O)        0.299     7.262 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_i_8/O
+                         net (fo=1, routed)           0.000     7.262    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_i_8_n_0
+    SLICE_X43Y84         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     7.794 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     7.794    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_n_0
+    SLICE_X43Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.908 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     7.908    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__1_n_0
+    SLICE_X43Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.022 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__2/CO[3]
+                         net (fo=100, routed)         1.281     9.303    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__2_n_0
+    SLICE_X48Y84         LUT3 (Prop_lut3_I1_O)        0.124     9.427 r  router210_bd_i/bench_axi_0/inst/u_bench/p_1_out_carry_i_9/O
+                         net (fo=5, routed)           0.650    10.077    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv__95[7]
+    SLICE_X39Y84         LUT6 (Prop_lut6_I0_O)        0.124    10.201 r  router210_bd_i/bench_axi_0/inst/u_bench/i__carry_i_1/O
+                         net (fo=1, routed)           0.337    10.538    router210_bd_i/bench_axi_0/inst/u_bench/i__carry_i_1_n_0
+    SLICE_X41Y84         CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.385    10.923 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry/CO[3]
+                         net (fo=1, routed)           0.000    10.923    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry_n_0
+    SLICE_X41Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.037 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.037    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__0_n_0
+    SLICE_X41Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.151 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__1/CO[3]
+                         net (fo=1, routed)           0.000    11.151    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__1_n_0
+    SLICE_X41Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.265 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__2/CO[3]
+                         net (fo=38, routed)          1.253    12.518    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__2_n_0
+    SLICE_X40Y89         LUT6 (Prop_lut6_I4_O)        0.124    12.642 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_16/O
+                         net (fo=2, routed)           0.627    13.269    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_16_n_0
+    SLICE_X43Y89         LUT4 (Prop_lut4_I1_O)        0.124    13.393 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_8/O
+                         net (fo=1, routed)           0.000    13.393    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_8_n_0
+    SLICE_X43Y89         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    13.925 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000    13.925    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_n_0
+    SLICE_X43Y90         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    14.039 f  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__2/CO[3]
+                         net (fo=7, routed)           0.788    14.827    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__2_n_0
+    SLICE_X42Y90         LUT5 (Prop_lut5_I2_O)        0.124    14.951 r  router210_bd_i/bench_axi_0/inst/u_bench/winner_code[0]_i_1/O
+                         net (fo=1, routed)           0.000    14.951    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx[0]
+    SLICE_X42Y90         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_code_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      8.000     8.000 r  
+    H16                                               0.000     8.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     8.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.380     9.380 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.293    11.673    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.764 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.477    13.241    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X42Y90         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_code_reg[0]/C
+                         clock pessimism              0.456    13.698    
+                         clock uncertainty           -0.035    13.662    
+    SLICE_X42Y90         FDRE (Setup_fdre_C_D)        0.077    13.739    router210_bd_i/bench_axi_0/inst/u_bench/winner_code_reg[0]
+  -------------------------------------------------------------------
+                         required time                         13.739    
+                         arrival time                         -14.951    
+  -------------------------------------------------------------------
+                         slack                                 -1.211    
+
+Slack (VIOLATED) :        -1.199ns  (required time - arrival time)
+  Source:                 router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clk_pin rise@8.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        9.175ns  (logic 3.471ns (37.833%)  route 5.704ns (62.167%))
+  Logic Levels:           15  (CARRY4=9 LUT3=1 LUT4=3 LUT6=2)
+  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.241ns = ( 13.241 - 8.000 ) 
+    Source Clock Delay      (SCD):    5.718ns
+    Clock Pessimism Removal (CPR):    0.456ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.451     1.451 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.522     3.973    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     4.074 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.644     5.718    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X40Y84         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X40Y84         FDRE (Prop_fdre_C_Q)         0.419     6.137 r  router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/Q
+                         net (fo=10, routed)          0.826     6.963    router210_bd_i/bench_axi_0/inst/u_bench/t3[8]
+    SLICE_X43Y84         LUT4 (Prop_lut4_I2_O)        0.299     7.262 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_i_8/O
+                         net (fo=1, routed)           0.000     7.262    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_i_8_n_0
+    SLICE_X43Y84         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     7.794 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     7.794    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_n_0
+    SLICE_X43Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.908 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     7.908    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__1_n_0
+    SLICE_X43Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.022 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__2/CO[3]
+                         net (fo=100, routed)         1.281     9.303    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__2_n_0
+    SLICE_X48Y84         LUT3 (Prop_lut3_I1_O)        0.124     9.427 r  router210_bd_i/bench_axi_0/inst/u_bench/p_1_out_carry_i_9/O
+                         net (fo=5, routed)           0.650    10.077    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv__95[7]
+    SLICE_X39Y84         LUT6 (Prop_lut6_I0_O)        0.124    10.201 r  router210_bd_i/bench_axi_0/inst/u_bench/i__carry_i_1/O
+                         net (fo=1, routed)           0.337    10.538    router210_bd_i/bench_axi_0/inst/u_bench/i__carry_i_1_n_0
+    SLICE_X41Y84         CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.385    10.923 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry/CO[3]
+                         net (fo=1, routed)           0.000    10.923    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry_n_0
+    SLICE_X41Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.037 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.037    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__0_n_0
+    SLICE_X41Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.151 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__1/CO[3]
+                         net (fo=1, routed)           0.000    11.151    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__1_n_0
+    SLICE_X41Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.265 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__2/CO[3]
+                         net (fo=38, routed)          1.253    12.518    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__2_n_0
+    SLICE_X40Y89         LUT6 (Prop_lut6_I4_O)        0.124    12.642 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_16/O
+                         net (fo=2, routed)           0.627    13.269    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_16_n_0
+    SLICE_X43Y89         LUT4 (Prop_lut4_I1_O)        0.124    13.393 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_8/O
+                         net (fo=1, routed)           0.000    13.393    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_8_n_0
+    SLICE_X43Y89         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    13.925 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000    13.925    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_n_0
+    SLICE_X43Y90         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    14.039 f  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__2/CO[3]
+                         net (fo=7, routed)           0.730    14.768    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__2_n_0
+    SLICE_X41Y90         LUT4 (Prop_lut4_I2_O)        0.124    14.892 r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched[3]_i_2/O
+                         net (fo=1, routed)           0.000    14.892    router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched[3]_i_2_n_0
+    SLICE_X41Y90         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      8.000     8.000 r  
+    H16                                               0.000     8.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     8.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.380     9.380 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.293    11.673    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.764 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.477    13.241    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X41Y90         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[3]/C
+                         clock pessimism              0.456    13.698    
+                         clock uncertainty           -0.035    13.662    
+    SLICE_X41Y90         FDRE (Setup_fdre_C_D)        0.031    13.693    router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[3]
+  -------------------------------------------------------------------
+                         required time                         13.693    
+                         arrival time                         -14.892    
+  -------------------------------------------------------------------
+                         slack                                 -1.199    
+
+Slack (VIOLATED) :        -1.197ns  (required time - arrival time)
+  Source:                 router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[1]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clk_pin rise@8.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        9.171ns  (logic 3.471ns (37.849%)  route 5.700ns (62.151%))
+  Logic Levels:           15  (CARRY4=9 LUT3=1 LUT4=3 LUT6=2)
+  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.241ns = ( 13.241 - 8.000 ) 
+    Source Clock Delay      (SCD):    5.718ns
+    Clock Pessimism Removal (CPR):    0.456ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.451     1.451 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.522     3.973    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     4.074 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.644     5.718    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X40Y84         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X40Y84         FDRE (Prop_fdre_C_Q)         0.419     6.137 r  router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/Q
+                         net (fo=10, routed)          0.826     6.963    router210_bd_i/bench_axi_0/inst/u_bench/t3[8]
+    SLICE_X43Y84         LUT4 (Prop_lut4_I2_O)        0.299     7.262 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_i_8/O
+                         net (fo=1, routed)           0.000     7.262    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_i_8_n_0
+    SLICE_X43Y84         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     7.794 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     7.794    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_n_0
+    SLICE_X43Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.908 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     7.908    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__1_n_0
+    SLICE_X43Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.022 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__2/CO[3]
+                         net (fo=100, routed)         1.281     9.303    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__2_n_0
+    SLICE_X48Y84         LUT3 (Prop_lut3_I1_O)        0.124     9.427 r  router210_bd_i/bench_axi_0/inst/u_bench/p_1_out_carry_i_9/O
+                         net (fo=5, routed)           0.650    10.077    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv__95[7]
+    SLICE_X39Y84         LUT6 (Prop_lut6_I0_O)        0.124    10.201 r  router210_bd_i/bench_axi_0/inst/u_bench/i__carry_i_1/O
+                         net (fo=1, routed)           0.337    10.538    router210_bd_i/bench_axi_0/inst/u_bench/i__carry_i_1_n_0
+    SLICE_X41Y84         CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.385    10.923 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry/CO[3]
+                         net (fo=1, routed)           0.000    10.923    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry_n_0
+    SLICE_X41Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.037 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.037    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__0_n_0
+    SLICE_X41Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.151 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__1/CO[3]
+                         net (fo=1, routed)           0.000    11.151    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__1_n_0
+    SLICE_X41Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.265 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__2/CO[3]
+                         net (fo=38, routed)          1.253    12.518    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__2_n_0
+    SLICE_X40Y89         LUT6 (Prop_lut6_I4_O)        0.124    12.642 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_16/O
+                         net (fo=2, routed)           0.627    13.269    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_16_n_0
+    SLICE_X43Y89         LUT4 (Prop_lut4_I1_O)        0.124    13.393 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_8/O
+                         net (fo=1, routed)           0.000    13.393    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_8_n_0
+    SLICE_X43Y89         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    13.925 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000    13.925    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_n_0
+    SLICE_X43Y90         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    14.039 f  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__2/CO[3]
+                         net (fo=7, routed)           0.726    14.764    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__2_n_0
+    SLICE_X41Y90         LUT4 (Prop_lut4_I1_O)        0.124    14.888 r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched[1]_i_1/O
+                         net (fo=1, routed)           0.000    14.888    router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched[1]_i_1_n_0
+    SLICE_X41Y90         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      8.000     8.000 r  
+    H16                                               0.000     8.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     8.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.380     9.380 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.293    11.673    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.764 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.477    13.241    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X41Y90         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[1]/C
+                         clock pessimism              0.456    13.698    
+                         clock uncertainty           -0.035    13.662    
+    SLICE_X41Y90         FDRE (Setup_fdre_C_D)        0.029    13.691    router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[1]
+  -------------------------------------------------------------------
+                         required time                         13.691    
+                         arrival time                         -14.888    
+  -------------------------------------------------------------------
+                         slack                                 -1.197    
+
+Slack (VIOLATED) :        -1.162ns  (required time - arrival time)
+  Source:                 router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/bench_axi_0/inst/u_bench/winner_code_reg[1]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clk_pin rise@8.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        9.225ns  (logic 3.463ns (37.539%)  route 5.762ns (62.461%))
+  Logic Levels:           15  (CARRY4=9 LUT3=1 LUT4=2 LUT5=1 LUT6=2)
+  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.241ns = ( 13.241 - 8.000 ) 
+    Source Clock Delay      (SCD):    5.718ns
+    Clock Pessimism Removal (CPR):    0.456ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.451     1.451 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.522     3.973    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     4.074 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.644     5.718    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X40Y84         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X40Y84         FDRE (Prop_fdre_C_Q)         0.419     6.137 r  router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/Q
+                         net (fo=10, routed)          0.826     6.963    router210_bd_i/bench_axi_0/inst/u_bench/t3[8]
+    SLICE_X43Y84         LUT4 (Prop_lut4_I2_O)        0.299     7.262 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_i_8/O
+                         net (fo=1, routed)           0.000     7.262    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_i_8_n_0
+    SLICE_X43Y84         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     7.794 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     7.794    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_n_0
+    SLICE_X43Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.908 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     7.908    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__1_n_0
+    SLICE_X43Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.022 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__2/CO[3]
+                         net (fo=100, routed)         1.281     9.303    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__2_n_0
+    SLICE_X48Y84         LUT3 (Prop_lut3_I1_O)        0.124     9.427 r  router210_bd_i/bench_axi_0/inst/u_bench/p_1_out_carry_i_9/O
+                         net (fo=5, routed)           0.650    10.077    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv__95[7]
+    SLICE_X39Y84         LUT6 (Prop_lut6_I0_O)        0.124    10.201 r  router210_bd_i/bench_axi_0/inst/u_bench/i__carry_i_1/O
+                         net (fo=1, routed)           0.337    10.538    router210_bd_i/bench_axi_0/inst/u_bench/i__carry_i_1_n_0
+    SLICE_X41Y84         CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.385    10.923 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry/CO[3]
+                         net (fo=1, routed)           0.000    10.923    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry_n_0
+    SLICE_X41Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.037 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.037    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__0_n_0
+    SLICE_X41Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.151 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__1/CO[3]
+                         net (fo=1, routed)           0.000    11.151    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__1_n_0
+    SLICE_X41Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.265 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__2/CO[3]
+                         net (fo=38, routed)          1.253    12.518    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__2_n_0
+    SLICE_X40Y89         LUT6 (Prop_lut6_I4_O)        0.124    12.642 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_16/O
+                         net (fo=2, routed)           0.627    13.269    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_16_n_0
+    SLICE_X43Y89         LUT4 (Prop_lut4_I1_O)        0.124    13.393 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_8/O
+                         net (fo=1, routed)           0.000    13.393    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_8_n_0
+    SLICE_X43Y89         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    13.925 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000    13.925    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_n_0
+    SLICE_X43Y90         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    14.039 f  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__2/CO[3]
+                         net (fo=7, routed)           0.788    14.827    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__2_n_0
+    SLICE_X42Y90         LUT5 (Prop_lut5_I4_O)        0.116    14.943 r  router210_bd_i/bench_axi_0/inst/u_bench/winner_code[1]_i_1/O
+                         net (fo=1, routed)           0.000    14.943    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx[1]
+    SLICE_X42Y90         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_code_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      8.000     8.000 r  
+    H16                                               0.000     8.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     8.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.380     9.380 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.293    11.673    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.764 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.477    13.241    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X42Y90         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_code_reg[1]/C
+                         clock pessimism              0.456    13.698    
+                         clock uncertainty           -0.035    13.662    
+    SLICE_X42Y90         FDRE (Setup_fdre_C_D)        0.118    13.780    router210_bd_i/bench_axi_0/inst/u_bench/winner_code_reg[1]
+  -------------------------------------------------------------------
+                         required time                         13.780    
+                         arrival time                         -14.943    
+  -------------------------------------------------------------------
+                         slack                                 -1.162    
+
+Slack (VIOLATED) :        -1.150ns  (required time - arrival time)
+  Source:                 router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[4]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clk_pin rise@8.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        9.170ns  (logic 3.466ns (37.799%)  route 5.704ns (62.201%))
+  Logic Levels:           15  (CARRY4=9 LUT3=1 LUT4=3 LUT6=2)
+  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.241ns = ( 13.241 - 8.000 ) 
+    Source Clock Delay      (SCD):    5.718ns
+    Clock Pessimism Removal (CPR):    0.456ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.451     1.451 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.522     3.973    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     4.074 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.644     5.718    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X40Y84         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X40Y84         FDRE (Prop_fdre_C_Q)         0.419     6.137 r  router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/Q
+                         net (fo=10, routed)          0.826     6.963    router210_bd_i/bench_axi_0/inst/u_bench/t3[8]
+    SLICE_X43Y84         LUT4 (Prop_lut4_I2_O)        0.299     7.262 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_i_8/O
+                         net (fo=1, routed)           0.000     7.262    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_i_8_n_0
+    SLICE_X43Y84         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     7.794 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     7.794    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_n_0
+    SLICE_X43Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.908 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     7.908    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__1_n_0
+    SLICE_X43Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.022 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__2/CO[3]
+                         net (fo=100, routed)         1.281     9.303    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__2_n_0
+    SLICE_X48Y84         LUT3 (Prop_lut3_I1_O)        0.124     9.427 r  router210_bd_i/bench_axi_0/inst/u_bench/p_1_out_carry_i_9/O
+                         net (fo=5, routed)           0.650    10.077    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv__95[7]
+    SLICE_X39Y84         LUT6 (Prop_lut6_I0_O)        0.124    10.201 r  router210_bd_i/bench_axi_0/inst/u_bench/i__carry_i_1/O
+                         net (fo=1, routed)           0.337    10.538    router210_bd_i/bench_axi_0/inst/u_bench/i__carry_i_1_n_0
+    SLICE_X41Y84         CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.385    10.923 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry/CO[3]
+                         net (fo=1, routed)           0.000    10.923    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry_n_0
+    SLICE_X41Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.037 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.037    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__0_n_0
+    SLICE_X41Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.151 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__1/CO[3]
+                         net (fo=1, routed)           0.000    11.151    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__1_n_0
+    SLICE_X41Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.265 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__2/CO[3]
+                         net (fo=38, routed)          1.253    12.518    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__2_n_0
+    SLICE_X40Y89         LUT6 (Prop_lut6_I4_O)        0.124    12.642 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_16/O
+                         net (fo=2, routed)           0.627    13.269    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_16_n_0
+    SLICE_X43Y89         LUT4 (Prop_lut4_I1_O)        0.124    13.393 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_8/O
+                         net (fo=1, routed)           0.000    13.393    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_8_n_0
+    SLICE_X43Y89         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    13.925 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000    13.925    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_n_0
+    SLICE_X43Y90         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    14.039 f  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__2/CO[3]
+                         net (fo=7, routed)           0.730    14.768    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__2_n_0
+    SLICE_X41Y90         LUT4 (Prop_lut4_I1_O)        0.119    14.887 r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched[4]_i_1/O
+                         net (fo=1, routed)           0.000    14.887    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx[2]
+    SLICE_X41Y90         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[4]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      8.000     8.000 r  
+    H16                                               0.000     8.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     8.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.380     9.380 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.293    11.673    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.764 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.477    13.241    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X41Y90         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[4]/C
+                         clock pessimism              0.456    13.698    
+                         clock uncertainty           -0.035    13.662    
+    SLICE_X41Y90         FDRE (Setup_fdre_C_D)        0.075    13.737    router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[4]
+  -------------------------------------------------------------------
+                         required time                         13.737    
+                         arrival time                         -14.887    
+  -------------------------------------------------------------------
+                         slack                                 -1.150    
+
+Slack (VIOLATED) :        -1.145ns  (required time - arrival time)
+  Source:                 router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[2]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clk_pin rise@8.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        9.165ns  (logic 3.465ns (37.809%)  route 5.700ns (62.191%))
+  Logic Levels:           15  (CARRY4=9 LUT3=2 LUT4=2 LUT6=2)
+  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.241ns = ( 13.241 - 8.000 ) 
+    Source Clock Delay      (SCD):    5.718ns
+    Clock Pessimism Removal (CPR):    0.456ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.451     1.451 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.522     3.973    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     4.074 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.644     5.718    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X40Y84         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X40Y84         FDRE (Prop_fdre_C_Q)         0.419     6.137 r  router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/Q
+                         net (fo=10, routed)          0.826     6.963    router210_bd_i/bench_axi_0/inst/u_bench/t3[8]
+    SLICE_X43Y84         LUT4 (Prop_lut4_I2_O)        0.299     7.262 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_i_8/O
+                         net (fo=1, routed)           0.000     7.262    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_i_8_n_0
+    SLICE_X43Y84         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     7.794 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     7.794    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_n_0
+    SLICE_X43Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.908 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     7.908    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__1_n_0
+    SLICE_X43Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.022 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__2/CO[3]
+                         net (fo=100, routed)         1.281     9.303    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__2_n_0
+    SLICE_X48Y84         LUT3 (Prop_lut3_I1_O)        0.124     9.427 r  router210_bd_i/bench_axi_0/inst/u_bench/p_1_out_carry_i_9/O
+                         net (fo=5, routed)           0.650    10.077    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv__95[7]
+    SLICE_X39Y84         LUT6 (Prop_lut6_I0_O)        0.124    10.201 r  router210_bd_i/bench_axi_0/inst/u_bench/i__carry_i_1/O
+                         net (fo=1, routed)           0.337    10.538    router210_bd_i/bench_axi_0/inst/u_bench/i__carry_i_1_n_0
+    SLICE_X41Y84         CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.385    10.923 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry/CO[3]
+                         net (fo=1, routed)           0.000    10.923    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry_n_0
+    SLICE_X41Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.037 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.037    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__0_n_0
+    SLICE_X41Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.151 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__1/CO[3]
+                         net (fo=1, routed)           0.000    11.151    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__1_n_0
+    SLICE_X41Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.265 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__2/CO[3]
+                         net (fo=38, routed)          1.253    12.518    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__2_n_0
+    SLICE_X40Y89         LUT6 (Prop_lut6_I4_O)        0.124    12.642 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_16/O
+                         net (fo=2, routed)           0.627    13.269    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_16_n_0
+    SLICE_X43Y89         LUT4 (Prop_lut4_I1_O)        0.124    13.393 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_8/O
+                         net (fo=1, routed)           0.000    13.393    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_8_n_0
+    SLICE_X43Y89         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    13.925 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000    13.925    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_n_0
+    SLICE_X43Y90         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    14.039 f  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__2/CO[3]
+                         net (fo=7, routed)           0.726    14.764    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__2_n_0
+    SLICE_X41Y90         LUT3 (Prop_lut3_I1_O)        0.118    14.882 r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched[2]_i_1/O
+                         net (fo=1, routed)           0.000    14.882    router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched[2]_i_1_n_0
+    SLICE_X41Y90         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      8.000     8.000 r  
+    H16                                               0.000     8.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     8.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.380     9.380 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.293    11.673    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.764 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.477    13.241    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X41Y90         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[2]/C
+                         clock pessimism              0.456    13.698    
+                         clock uncertainty           -0.035    13.662    
+    SLICE_X41Y90         FDRE (Setup_fdre_C_D)        0.075    13.737    router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[2]
+  -------------------------------------------------------------------
+                         required time                         13.737    
+                         arrival time                         -14.882    
+  -------------------------------------------------------------------
+                         slack                                 -1.145    
+
+Slack (VIOLATED) :        -0.238ns  (required time - arrival time)
+  Source:                 router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clk_pin rise@8.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        8.321ns  (logic 3.347ns (40.223%)  route 4.974ns (59.777%))
+  Logic Levels:           14  (CARRY4=9 LUT3=1 LUT4=2 LUT6=2)
+  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.241ns = ( 13.241 - 8.000 ) 
+    Source Clock Delay      (SCD):    5.718ns
+    Clock Pessimism Removal (CPR):    0.456ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.451     1.451 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.522     3.973    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     4.074 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.644     5.718    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X40Y84         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X40Y84         FDRE (Prop_fdre_C_Q)         0.419     6.137 r  router210_bd_i/bench_axi_0/inst/u_bench/time_cond_reg[3][8]/Q
+                         net (fo=10, routed)          0.826     6.963    router210_bd_i/bench_axi_0/inst/u_bench/t3[8]
+    SLICE_X43Y84         LUT4 (Prop_lut4_I2_O)        0.299     7.262 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_i_8/O
+                         net (fo=1, routed)           0.000     7.262    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_i_8_n_0
+    SLICE_X43Y84         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     7.794 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     7.794    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__0_n_0
+    SLICE_X43Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.908 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     7.908    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__1_n_0
+    SLICE_X43Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.022 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__2/CO[3]
+                         net (fo=100, routed)         1.281     9.303    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_carry__2_n_0
+    SLICE_X48Y84         LUT3 (Prop_lut3_I1_O)        0.124     9.427 r  router210_bd_i/bench_axi_0/inst/u_bench/p_1_out_carry_i_9/O
+                         net (fo=5, routed)           0.650    10.077    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv__95[7]
+    SLICE_X39Y84         LUT6 (Prop_lut6_I0_O)        0.124    10.201 r  router210_bd_i/bench_axi_0/inst/u_bench/i__carry_i_1/O
+                         net (fo=1, routed)           0.337    10.538    router210_bd_i/bench_axi_0/inst/u_bench/i__carry_i_1_n_0
+    SLICE_X41Y84         CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.385    10.923 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry/CO[3]
+                         net (fo=1, routed)           0.000    10.923    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry_n_0
+    SLICE_X41Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.037 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.037    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__0_n_0
+    SLICE_X41Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.151 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__1/CO[3]
+                         net (fo=1, routed)           0.000    11.151    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__1_n_0
+    SLICE_X41Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.265 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__2/CO[3]
+                         net (fo=38, routed)          1.253    12.518    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.minv1_inferred__0/i__carry__2_n_0
+    SLICE_X40Y89         LUT6 (Prop_lut6_I4_O)        0.124    12.642 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_16/O
+                         net (fo=2, routed)           0.627    13.269    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_16_n_0
+    SLICE_X43Y89         LUT4 (Prop_lut4_I1_O)        0.124    13.393 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_8/O
+                         net (fo=1, routed)           0.000    13.393    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_i_8_n_0
+    SLICE_X43Y89         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    13.925 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000    13.925    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__1_n_0
+    SLICE_X43Y90         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    14.039 r  router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__2/CO[3]
+                         net (fo=7, routed)           0.000    14.039    router210_bd_i/bench_axi_0/inst/u_bench/MINSEL.idx1_carry__2_n_0
+    SLICE_X43Y90         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      8.000     8.000 r  
+    H16                                               0.000     8.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     8.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.380     9.380 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.293    11.673    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.764 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.477    13.241    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X43Y90         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[0]/C
+                         clock pessimism              0.456    13.698    
+                         clock uncertainty           -0.035    13.662    
+    SLICE_X43Y90         FDRE (Setup_fdre_C_D)        0.138    13.800    router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[0]
+  -------------------------------------------------------------------
+                         required time                         13.800    
+                         arrival time                         -14.039    
+  -------------------------------------------------------------------
+                         slack                                 -0.238    
+
+Slack (MET) :             0.483ns  (required time - arrival time)
+  Source:                 router210_bd_i/bench_axi_0/inst/u_bench/cond_cycle_acc_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/bench_axi_0/inst/u_bench/t_total_reg[25]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clk_pin rise@8.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.504ns  (logic 3.636ns (48.456%)  route 3.868ns (51.544%))
+  Logic Levels:           12  (CARRY4=8 LUT3=3 LUT4=1)
+  Clock Path Skew:        -0.053ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.242ns = ( 13.242 - 8.000 ) 
+    Source Clock Delay      (SCD):    5.719ns
+    Clock Pessimism Removal (CPR):    0.423ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.451     1.451 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.522     3.973    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     4.074 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.645     5.719    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X48Y85         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/cond_cycle_acc_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X48Y85         FDRE (Prop_fdre_C_Q)         0.456     6.175 r  router210_bd_i/bench_axi_0/inst/u_bench/cond_cycle_acc_reg[0]/Q
+                         net (fo=5, routed)           0.838     7.013    router210_bd_i/bench_axi_0/inst/u_bench/cond_cycle_acc_reg_n_0_[0]
+    SLICE_X44Y84         LUT3 (Prop_lut3_I2_O)        0.150     7.163 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry_i_3/O
+                         net (fo=2, routed)           0.863     8.025    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry_i_3_n_0
+    SLICE_X44Y84         LUT4 (Prop_lut4_I3_O)        0.326     8.351 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry_i_6/O
+                         net (fo=1, routed)           0.000     8.351    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry_i_6_n_0
+    SLICE_X44Y84         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.901 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry/CO[3]
+                         net (fo=1, routed)           0.000     8.901    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry_n_0
+    SLICE_X44Y85         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     9.235 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry__0/O[1]
+                         net (fo=3, routed)           0.468     9.704    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry__0_n_6
+    SLICE_X47Y85         LUT3 (Prop_lut3_I1_O)        0.303    10.007 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__0_i_2/O
+                         net (fo=1, routed)           0.811    10.817    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__0_i_2_n_0
+    SLICE_X45Y85         CARRY4 (Prop_carry4_DI[2]_CO[3])
+                                                      0.398    11.215 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.215    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__0_n_0
+    SLICE_X45Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.329 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__1/CO[3]
+                         net (fo=1, routed)           0.000    11.329    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__1_n_0
+    SLICE_X45Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.443 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__2/CO[3]
+                         net (fo=1, routed)           0.000    11.443    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__2_n_0
+    SLICE_X45Y88         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.557 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__3/CO[3]
+                         net (fo=1, routed)           0.000    11.557    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__3_n_0
+    SLICE_X45Y89         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.671 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__4/CO[3]
+                         net (fo=1, routed)           0.000    11.671    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__4_n_0
+    SLICE_X45Y90         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334    12.005 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__5/O[1]
+                         net (fo=1, routed)           0.888    12.893    router210_bd_i/bench_axi_0/inst/u_bench/in18[25]
+    SLICE_X44Y93         LUT3 (Prop_lut3_I2_O)        0.329    13.222 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total[25]_i_1/O
+                         net (fo=1, routed)           0.000    13.222    router210_bd_i/bench_axi_0/inst/u_bench/t_total0_in[25]
+    SLICE_X44Y93         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/t_total_reg[25]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      8.000     8.000 r  
+    H16                                               0.000     8.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     8.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.380     9.380 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.293    11.673    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.764 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.478    13.242    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X44Y93         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/t_total_reg[25]/C
+                         clock pessimism              0.423    13.666    
+                         clock uncertainty           -0.035    13.630    
+    SLICE_X44Y93         FDRE (Setup_fdre_C_D)        0.075    13.705    router210_bd_i/bench_axi_0/inst/u_bench/t_total_reg[25]
+  -------------------------------------------------------------------
+                         required time                         13.705    
+                         arrival time                         -13.222    
+  -------------------------------------------------------------------
+                         slack                                  0.483    
+
+Slack (MET) :             0.535ns  (required time - arrival time)
+  Source:                 router210_bd_i/bench_axi_0/inst/u_bench/cond_cycle_acc_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/bench_axi_0/inst/u_bench/t_total_reg[31]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clk_pin rise@8.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.453ns  (logic 3.732ns (50.074%)  route 3.721ns (49.926%))
+  Logic Levels:           13  (CARRY4=9 LUT3=3 LUT4=1)
+  Clock Path Skew:        -0.052ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.243ns = ( 13.243 - 8.000 ) 
+    Source Clock Delay      (SCD):    5.719ns
+    Clock Pessimism Removal (CPR):    0.423ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.451     1.451 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.522     3.973    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     4.074 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.645     5.719    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X48Y85         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/cond_cycle_acc_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X48Y85         FDRE (Prop_fdre_C_Q)         0.456     6.175 r  router210_bd_i/bench_axi_0/inst/u_bench/cond_cycle_acc_reg[0]/Q
+                         net (fo=5, routed)           0.838     7.013    router210_bd_i/bench_axi_0/inst/u_bench/cond_cycle_acc_reg_n_0_[0]
+    SLICE_X44Y84         LUT3 (Prop_lut3_I2_O)        0.150     7.163 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry_i_3/O
+                         net (fo=2, routed)           0.863     8.025    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry_i_3_n_0
+    SLICE_X44Y84         LUT4 (Prop_lut4_I3_O)        0.326     8.351 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry_i_6/O
+                         net (fo=1, routed)           0.000     8.351    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry_i_6_n_0
+    SLICE_X44Y84         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.901 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry/CO[3]
+                         net (fo=1, routed)           0.000     8.901    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry_n_0
+    SLICE_X44Y85         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     9.235 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry__0/O[1]
+                         net (fo=3, routed)           0.468     9.704    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry__0_n_6
+    SLICE_X47Y85         LUT3 (Prop_lut3_I1_O)        0.303    10.007 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__0_i_2/O
+                         net (fo=1, routed)           0.811    10.817    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__0_i_2_n_0
+    SLICE_X45Y85         CARRY4 (Prop_carry4_DI[2]_CO[3])
+                                                      0.398    11.215 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.215    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__0_n_0
+    SLICE_X45Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.329 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__1/CO[3]
+                         net (fo=1, routed)           0.000    11.329    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__1_n_0
+    SLICE_X45Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.443 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__2/CO[3]
+                         net (fo=1, routed)           0.000    11.443    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__2_n_0
+    SLICE_X45Y88         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.557 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__3/CO[3]
+                         net (fo=1, routed)           0.000    11.557    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__3_n_0
+    SLICE_X45Y89         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.671 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__4/CO[3]
+                         net (fo=1, routed)           0.000    11.671    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__4_n_0
+    SLICE_X45Y90         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.785 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__5/CO[3]
+                         net (fo=1, routed)           0.000    11.785    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__5_n_0
+    SLICE_X45Y91         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313    12.098 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__6/O[3]
+                         net (fo=1, routed)           0.741    12.840    router210_bd_i/bench_axi_0/inst/u_bench/in18[31]
+    SLICE_X43Y93         LUT3 (Prop_lut3_I2_O)        0.332    13.172 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total[31]_i_2/O
+                         net (fo=1, routed)           0.000    13.172    router210_bd_i/bench_axi_0/inst/u_bench/t_total0_in[31]
+    SLICE_X43Y93         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/t_total_reg[31]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      8.000     8.000 r  
+    H16                                               0.000     8.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     8.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.380     9.380 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.293    11.673    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.764 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.479    13.243    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X43Y93         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/t_total_reg[31]/C
+                         clock pessimism              0.423    13.667    
+                         clock uncertainty           -0.035    13.631    
+    SLICE_X43Y93         FDRE (Setup_fdre_C_D)        0.075    13.706    router210_bd_i/bench_axi_0/inst/u_bench/t_total_reg[31]
+  -------------------------------------------------------------------
+                         required time                         13.706    
+                         arrival time                         -13.172    
+  -------------------------------------------------------------------
+                         slack                                  0.535    
+
+Slack (MET) :             0.659ns  (required time - arrival time)
+  Source:                 router210_bd_i/bench_axi_0/inst/u_bench/cond_cycle_acc_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/bench_axi_0/inst/u_bench/t_total_reg[27]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (sys_clk_pin rise@8.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.327ns  (logic 3.618ns (49.377%)  route 3.709ns (50.623%))
+  Logic Levels:           12  (CARRY4=8 LUT3=3 LUT4=1)
+  Clock Path Skew:        -0.053ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.242ns = ( 13.242 - 8.000 ) 
+    Source Clock Delay      (SCD):    5.719ns
+    Clock Pessimism Removal (CPR):    0.423ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.451     1.451 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.522     3.973    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     4.074 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.645     5.719    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X48Y85         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/cond_cycle_acc_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X48Y85         FDRE (Prop_fdre_C_Q)         0.456     6.175 r  router210_bd_i/bench_axi_0/inst/u_bench/cond_cycle_acc_reg[0]/Q
+                         net (fo=5, routed)           0.838     7.013    router210_bd_i/bench_axi_0/inst/u_bench/cond_cycle_acc_reg_n_0_[0]
+    SLICE_X44Y84         LUT3 (Prop_lut3_I2_O)        0.150     7.163 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry_i_3/O
+                         net (fo=2, routed)           0.863     8.025    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry_i_3_n_0
+    SLICE_X44Y84         LUT4 (Prop_lut4_I3_O)        0.326     8.351 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry_i_6/O
+                         net (fo=1, routed)           0.000     8.351    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry_i_6_n_0
+    SLICE_X44Y84         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.901 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry/CO[3]
+                         net (fo=1, routed)           0.000     8.901    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry_n_0
+    SLICE_X44Y85         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     9.235 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry__0/O[1]
+                         net (fo=3, routed)           0.468     9.704    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__0_carry__0_n_6
+    SLICE_X47Y85         LUT3 (Prop_lut3_I1_O)        0.303    10.007 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__0_i_2/O
+                         net (fo=1, routed)           0.811    10.817    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__0_i_2_n_0
+    SLICE_X45Y85         CARRY4 (Prop_carry4_DI[2]_CO[3])
+                                                      0.398    11.215 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.215    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__0_n_0
+    SLICE_X45Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.329 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__1/CO[3]
+                         net (fo=1, routed)           0.000    11.329    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__1_n_0
+    SLICE_X45Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.443 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__2/CO[3]
+                         net (fo=1, routed)           0.000    11.443    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__2_n_0
+    SLICE_X45Y88         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.557 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__3/CO[3]
+                         net (fo=1, routed)           0.000    11.557    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__3_n_0
+    SLICE_X45Y89         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.671 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__4/CO[3]
+                         net (fo=1, routed)           0.000    11.671    router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__4_n_0
+    SLICE_X45Y90         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313    11.984 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total0__94_carry__5/O[3]
+                         net (fo=1, routed)           0.730    12.714    router210_bd_i/bench_axi_0/inst/u_bench/in18[27]
+    SLICE_X41Y91         LUT3 (Prop_lut3_I2_O)        0.332    13.046 r  router210_bd_i/bench_axi_0/inst/u_bench/t_total[27]_i_1/O
+                         net (fo=1, routed)           0.000    13.046    router210_bd_i/bench_axi_0/inst/u_bench/t_total0_in[27]
+    SLICE_X41Y91         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/t_total_reg[27]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      8.000     8.000 r  
+    H16                                               0.000     8.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     8.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.380     9.380 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.293    11.673    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.764 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.478    13.242    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X41Y91         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/t_total_reg[27]/C
+                         clock pessimism              0.423    13.666    
+                         clock uncertainty           -0.035    13.630    
+    SLICE_X41Y91         FDRE (Setup_fdre_C_D)        0.075    13.705    router210_bd_i/bench_axi_0/inst/u_bench/t_total_reg[27]
+  -------------------------------------------------------------------
+                         required time                         13.705    
+                         arrival time                         -13.046    
+  -------------------------------------------------------------------
+                         slack                                  0.659    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.025ns  (arrival time - required time)
+  Source:                 router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/s_awid_r_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][12]_srl4/D
+                            (rising edge-triggered cell SRL16E clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.268ns  (logic 0.148ns (55.123%)  route 0.120ns (44.877%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.181ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.187ns
+    Source Clock Delay      (SCD):    1.746ns
+    Clock Pessimism Removal (CPR):    0.261ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.219     0.219 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.842     1.060    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     1.086 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.659     1.746    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/aclk
+    SLICE_X30Y100        FDRE                                         r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/s_awid_r_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X30Y100        FDRE (Prop_fdre_C_Q)         0.148     1.894 r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/s_awid_r_reg[4]/Q
+                         net (fo=1, routed)           0.120     2.014    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/in[8]
+    SLICE_X30Y99         SRL16E                                       r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][12]_srl4/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.406     0.406 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.907     1.313    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.342 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.845     2.187    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/aclk
+    SLICE_X30Y99         SRL16E                                       r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][12]_srl4/CLK
+                         clock pessimism             -0.261     1.926    
+    SLICE_X30Y99         SRL16E (Hold_srl16e_CLK_D)
+                                                      0.063     1.989    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][12]_srl4
+  -------------------------------------------------------------------
+                         required time                         -1.989    
+                         arrival time                           2.014    
+  -------------------------------------------------------------------
+                         slack                                  0.025    
+
+Slack (MET) :             0.094ns  (arrival time - required time)
+  Source:                 router210_bd_i/bench_axi_0/inst/s_axi_rdata_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][8]_srl32/D
+                            (rising edge-triggered cell SRLC32E clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.312ns  (logic 0.141ns (45.259%)  route 0.171ns (54.741%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.035ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.163ns
+    Source Clock Delay      (SCD):    1.638ns
+    Clock Pessimism Removal (CPR):    0.490ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.219     0.219 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.842     1.060    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     1.086 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.552     1.638    router210_bd_i/bench_axi_0/inst/s_axi_aclk
+    SLICE_X37Y86         FDRE                                         r  router210_bd_i/bench_axi_0/inst/s_axi_rdata_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X37Y86         FDRE (Prop_fdre_C_Q)         0.141     1.779 r  router210_bd_i/bench_axi_0/inst/s_axi_rdata_reg[8]/Q
+                         net (fo=1, routed)           0.171     1.950    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/in[8]
+    SLICE_X34Y87         SRLC32E                                      r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][8]_srl32/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.406     0.406 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.907     1.313    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.342 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.821     2.163    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/aclk
+    SLICE_X34Y87         SRLC32E                                      r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][8]_srl32/CLK
+                         clock pessimism             -0.490     1.673    
+    SLICE_X34Y87         SRLC32E (Hold_srlc32e_CLK_D)
+                                                      0.183     1.856    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][8]_srl32
+  -------------------------------------------------------------------
+                         required time                         -1.856    
+                         arrival time                           1.950    
+  -------------------------------------------------------------------
+                         slack                                  0.094    
+
+Slack (MET) :             0.096ns  (arrival time - required time)
+  Source:                 router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/s_awid_r_reg[7]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][15]_srl4/D
+                            (rising edge-triggered cell SRL16E clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.295ns  (logic 0.141ns (47.779%)  route 0.154ns (52.221%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.016ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.187ns
+    Source Clock Delay      (SCD):    1.663ns
+    Clock Pessimism Removal (CPR):    0.508ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.219     0.219 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.842     1.060    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     1.086 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.577     1.663    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/aclk
+    SLICE_X29Y98         FDRE                                         r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/s_awid_r_reg[7]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X29Y98         FDRE (Prop_fdre_C_Q)         0.141     1.804 r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/s_awid_r_reg[7]/Q
+                         net (fo=1, routed)           0.154     1.958    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/in[11]
+    SLICE_X30Y99         SRL16E                                       r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][15]_srl4/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.406     0.406 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.907     1.313    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.342 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.845     2.187    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/aclk
+    SLICE_X30Y99         SRL16E                                       r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][15]_srl4/CLK
+                         clock pessimism             -0.508     1.679    
+    SLICE_X30Y99         SRL16E (Hold_srl16e_CLK_D)
+                                                      0.183     1.862    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][15]_srl4
+  -------------------------------------------------------------------
+                         required time                         -1.862    
+                         arrival time                           1.958    
+  -------------------------------------------------------------------
+                         slack                                  0.096    
+
+Slack (MET) :             0.115ns  (arrival time - required time)
+  Source:                 router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][3]_srl32/D
+                            (rising edge-triggered cell SRLC32E clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.311ns  (logic 0.141ns (45.364%)  route 0.170ns (54.636%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.179ns
+    Source Clock Delay      (SCD):    1.655ns
+    Clock Pessimism Removal (CPR):    0.511ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.219     0.219 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.842     1.060    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     1.086 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.569     1.655    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/aclk
+    SLICE_X27Y84         FDRE                                         r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X27Y84         FDRE (Prop_fdre_C_Q)         0.141     1.796 r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[2]/Q
+                         net (fo=1, routed)           0.170     1.966    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/in[3]
+    SLICE_X26Y84         SRLC32E                                      r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][3]_srl32/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.406     0.406 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.907     1.313    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.342 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.837     2.179    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/aclk
+    SLICE_X26Y84         SRLC32E                                      r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][3]_srl32/CLK
+                         clock pessimism             -0.511     1.668    
+    SLICE_X26Y84         SRLC32E (Hold_srlc32e_CLK_D)
+                                                      0.183     1.851    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][3]_srl32
+  -------------------------------------------------------------------
+                         required time                         -1.851    
+                         arrival time                           1.966    
+  -------------------------------------------------------------------
+                         slack                                  0.115    
+
+Slack (MET) :             0.119ns  (arrival time - required time)
+  Source:                 router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][1]_srl32/D
+                            (rising edge-triggered cell SRLC32E clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.251ns  (logic 0.141ns (56.174%)  route 0.110ns (43.826%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.015ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.177ns
+    Source Clock Delay      (SCD):    1.652ns
+    Clock Pessimism Removal (CPR):    0.510ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.219     0.219 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.842     1.060    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     1.086 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.566     1.652    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/aclk
+    SLICE_X27Y81         FDRE                                         r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X27Y81         FDRE (Prop_fdre_C_Q)         0.141     1.793 r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[0]/Q
+                         net (fo=1, routed)           0.110     1.903    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/in[1]
+    SLICE_X26Y82         SRLC32E                                      r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][1]_srl32/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.406     0.406 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.907     1.313    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.342 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.835     2.177    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/aclk
+    SLICE_X26Y82         SRLC32E                                      r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][1]_srl32/CLK
+                         clock pessimism             -0.510     1.667    
+    SLICE_X26Y82         SRLC32E (Hold_srlc32e_CLK_D)
+                                                      0.117     1.784    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][1]_srl32
+  -------------------------------------------------------------------
+                         required time                         -1.784    
+                         arrival time                           1.903    
+  -------------------------------------------------------------------
+                         slack                                  0.119    
+
+Slack (MET) :             0.123ns  (arrival time - required time)
+  Source:                 router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/b.b_pipe/m_payload_i_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/ps7/inst/PS7_i/MAXIGP0BID[10]
+                            (rising edge-triggered cell PS7 clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.347ns  (logic 0.164ns (47.309%)  route 0.183ns (52.691%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.224ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.227ns
+    Source Clock Delay      (SCD):    1.743ns
+    Clock Pessimism Removal (CPR):    0.261ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.219     0.219 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.842     1.060    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     1.086 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.656     1.743    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/b.b_pipe/aclk
+    SLICE_X26Y101        FDRE                                         r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/b.b_pipe/m_payload_i_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X26Y101        FDRE (Prop_fdre_C_Q)         0.164     1.907 r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/b.b_pipe/m_payload_i_reg[12]/Q
+                         net (fo=1, routed)           0.183     2.089    router210_bd_i/ps7/inst/M_AXI_GP0_BID[10]
+    PS7_X0Y0             PS7                                          r  router210_bd_i/ps7/inst/PS7_i/MAXIGP0BID[10]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.406     0.406 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.907     1.313    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.342 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.885     2.227    router210_bd_i/ps7/inst/M_AXI_GP0_ACLK
+    PS7_X0Y0             PS7                                          r  router210_bd_i/ps7/inst/PS7_i/MAXIGP0ACLK
+                         clock pessimism             -0.261     1.966    
+    PS7_X0Y0             PS7 (Hold_ps7_MAXIGP0ACLK_MAXIGP0BID[10])
+                                                      0.000     1.966    router210_bd_i/ps7/inst/PS7_i
+  -------------------------------------------------------------------
+                         required time                         -1.966    
+                         arrival time                           2.089    
+  -------------------------------------------------------------------
+                         slack                                  0.123    
+
+Slack (MET) :             0.125ns  (arrival time - required time)
+  Source:                 router210_bd_i/bench_axi_0/inst/s_axi_rdata_reg[26]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][26]_srl32/D
+                            (rising edge-triggered cell SRLC32E clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.343ns  (logic 0.164ns (47.828%)  route 0.179ns (52.172%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.035ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.166ns
+    Source Clock Delay      (SCD):    1.641ns
+    Clock Pessimism Removal (CPR):    0.490ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.219     0.219 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.842     1.060    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     1.086 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.555     1.641    router210_bd_i/bench_axi_0/inst/s_axi_aclk
+    SLICE_X38Y91         FDRE                                         r  router210_bd_i/bench_axi_0/inst/s_axi_rdata_reg[26]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X38Y91         FDRE (Prop_fdre_C_Q)         0.164     1.805 r  router210_bd_i/bench_axi_0/inst/s_axi_rdata_reg[26]/Q
+                         net (fo=1, routed)           0.179     1.984    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/in[26]
+    SLICE_X34Y91         SRLC32E                                      r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][26]_srl32/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.406     0.406 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.907     1.313    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.342 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.824     2.166    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/aclk
+    SLICE_X34Y91         SRLC32E                                      r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][26]_srl32/CLK
+                         clock pessimism             -0.490     1.676    
+    SLICE_X34Y91         SRLC32E (Hold_srlc32e_CLK_D)
+                                                      0.183     1.859    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][26]_srl32
+  -------------------------------------------------------------------
+                         required time                         -1.859    
+                         arrival time                           1.984    
+  -------------------------------------------------------------------
+                         slack                                  0.125    
+
+Slack (MET) :             0.125ns  (arrival time - required time)
+  Source:                 router210_bd_i/bench_axi_0/inst/s_axi_rdata_reg[20]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][20]_srl32/D
+                            (rising edge-triggered cell SRLC32E clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.275ns  (logic 0.141ns (51.279%)  route 0.134ns (48.721%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.035ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.166ns
+    Source Clock Delay      (SCD):    1.641ns
+    Clock Pessimism Removal (CPR):    0.490ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.219     0.219 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.842     1.060    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     1.086 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.555     1.641    router210_bd_i/bench_axi_0/inst/s_axi_aclk
+    SLICE_X37Y91         FDRE                                         r  router210_bd_i/bench_axi_0/inst/s_axi_rdata_reg[20]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X37Y91         FDRE (Prop_fdre_C_Q)         0.141     1.782 r  router210_bd_i/bench_axi_0/inst/s_axi_rdata_reg[20]/Q
+                         net (fo=1, routed)           0.134     1.916    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/in[20]
+    SLICE_X34Y91         SRLC32E                                      r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][20]_srl32/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.406     0.406 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.907     1.313    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.342 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.824     2.166    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/aclk
+    SLICE_X34Y91         SRLC32E                                      r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][20]_srl32/CLK
+                         clock pessimism             -0.490     1.676    
+    SLICE_X34Y91         SRLC32E (Hold_srlc32e_CLK_D)
+                                                      0.115     1.791    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][20]_srl32
+  -------------------------------------------------------------------
+                         required time                         -1.791    
+                         arrival time                           1.916    
+  -------------------------------------------------------------------
+                         slack                                  0.125    
+
+Slack (MET) :             0.127ns  (arrival time - required time)
+  Source:                 router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][2]_srl32/D
+                            (rising edge-triggered cell SRLC32E clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.257ns  (logic 0.141ns (54.812%)  route 0.116ns (45.188%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.015ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.180ns
+    Source Clock Delay      (SCD):    1.655ns
+    Clock Pessimism Removal (CPR):    0.510ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.219     0.219 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.842     1.060    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     1.086 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.569     1.655    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/aclk
+    SLICE_X27Y84         FDRE                                         r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X27Y84         FDRE (Prop_fdre_C_Q)         0.141     1.796 r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/r_arid_r_reg[1]/Q
+                         net (fo=1, routed)           0.116     1.912    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/in[2]
+    SLICE_X26Y86         SRLC32E                                      r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][2]_srl32/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.406     0.406 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.907     1.313    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.342 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.838     2.180    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/aclk
+    SLICE_X26Y86         SRLC32E                                      r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][2]_srl32/CLK
+                         clock pessimism             -0.510     1.670    
+    SLICE_X26Y86         SRLC32E (Hold_srlc32e_CLK_D)
+                                                      0.115     1.785    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][2]_srl32
+  -------------------------------------------------------------------
+                         required time                         -1.785    
+                         arrival time                           1.912    
+  -------------------------------------------------------------------
+                         slack                                  0.127    
+
+Slack (MET) :             0.128ns  (arrival time - required time)
+  Source:                 router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/s_awlen_r_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][1]_srl4/D
+                            (rising edge-triggered cell SRL16E clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.253ns  (logic 0.141ns (55.730%)  route 0.112ns (44.270%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.016ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.272ns
+    Source Clock Delay      (SCD):    1.745ns
+    Clock Pessimism Removal (CPR):    0.512ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.219     0.219 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.842     1.060    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     1.086 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.658     1.745    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/aclk
+    SLICE_X31Y103        FDRE                                         r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/s_awlen_r_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X31Y103        FDRE (Prop_fdre_C_Q)         0.141     1.886 r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.aw_channel_0/s_awlen_r_reg[1]/Q
+                         net (fo=1, routed)           0.112     1.998    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/in[1]
+    SLICE_X30Y104        SRL16E                                       r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][1]_srl4/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.406     0.406 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.907     1.313    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.342 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.930     2.272    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/aclk
+    SLICE_X30Y104        SRL16E                                       r  router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][1]_srl4/CLK
+                         clock pessimism             -0.512     1.761    
+    SLICE_X30Y104        SRL16E (Hold_srl16e_CLK_D)
+                                                      0.109     1.870    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][1]_srl4
+  -------------------------------------------------------------------
+                         required time                         -1.870    
+                         arrival time                           1.998    
+  -------------------------------------------------------------------
+                         slack                                  0.128    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         sys_clk_pin
+Waveform(ns):       { 0.000 4.000 }
+Period(ns):         8.000
+Sources:            { sysclk }
+
+Check Type        Corner  Lib Pin      Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location        Pin
+Min Period        n/a     BUFG/I       n/a            2.155         8.000       5.845      BUFGCTRL_X0Y16  sysclk_IBUF_BUFG_inst/I
+Min Period        n/a     FDRE/C       n/a            1.000         8.000       7.000      SLICE_X26Y77    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/s_arid_r_reg[0]/C
+Min Period        n/a     FDRE/C       n/a            1.000         8.000       7.000      SLICE_X17Y49    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/s_arid_r_reg[10]/C
+Min Period        n/a     FDRE/C       n/a            1.000         8.000       7.000      SLICE_X17Y49    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/s_arid_r_reg[11]/C
+Min Period        n/a     FDRE/C       n/a            1.000         8.000       7.000      SLICE_X26Y77    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/s_arid_r_reg[1]/C
+Min Period        n/a     FDRE/C       n/a            1.000         8.000       7.000      SLICE_X27Y82    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/s_arid_r_reg[2]/C
+Min Period        n/a     FDRE/C       n/a            1.000         8.000       7.000      SLICE_X26Y69    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/s_arid_r_reg[3]/C
+Min Period        n/a     FDRE/C       n/a            1.000         8.000       7.000      SLICE_X26Y55    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/s_arid_r_reg[4]/C
+Min Period        n/a     FDRE/C       n/a            1.000         8.000       7.000      SLICE_X22Y49    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/s_arid_r_reg[5]/C
+Min Period        n/a     FDRE/C       n/a            1.000         8.000       7.000      SLICE_X26Y65    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.ar_channel_0/s_arid_r_reg[6]/C
+Low Pulse Width   Slow    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X30Y87    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][0]_srl32/CLK
+Low Pulse Width   Fast    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X30Y87    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][0]_srl32/CLK
+Low Pulse Width   Slow    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X34Y87    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][10]_srl32/CLK
+Low Pulse Width   Fast    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X34Y87    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][10]_srl32/CLK
+Low Pulse Width   Slow    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X30Y87    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][11]_srl32/CLK
+Low Pulse Width   Fast    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X30Y87    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][11]_srl32/CLK
+Low Pulse Width   Slow    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X34Y87    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][12]_srl32/CLK
+Low Pulse Width   Fast    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X34Y87    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][12]_srl32/CLK
+Low Pulse Width   Slow    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X30Y88    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][13]_srl32/CLK
+Low Pulse Width   Fast    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X30Y88    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][13]_srl32/CLK
+High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X30Y87    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][0]_srl32/CLK
+High Pulse Width  Fast    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X30Y87    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][0]_srl32/CLK
+High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X34Y87    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][10]_srl32/CLK
+High Pulse Width  Fast    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X34Y87    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][10]_srl32/CLK
+High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X30Y87    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][11]_srl32/CLK
+High Pulse Width  Fast    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X30Y87    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][11]_srl32/CLK
+High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X34Y87    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][12]_srl32/CLK
+High Pulse Width  Fast    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X34Y87    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][12]_srl32/CLK
+High Pulse Width  Slow    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X30Y88    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][13]_srl32/CLK
+High Pulse Width  Fast    SRLC32E/CLK  n/a            0.980         4.000       3.020      SLICE_X30Y88    router210_bd_i/axi_ic/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][13]_srl32/CLK
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  sys_clk_pin
+  To Clock:  
+
+Max Delay             4 Endpoints
+Min Delay             4 Endpoints
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            led[1]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        9.696ns  (logic 4.500ns (46.417%)  route 5.195ns (53.583%))
+  Logic Levels:           2  (LUT3=1 OBUF=1)
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.451     1.451 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.522     3.973    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     4.074 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.649     5.723    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X41Y90         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X41Y90         FDRE (Prop_fdre_C_Q)         0.419     6.142 r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[4]/Q
+                         net (fo=4, routed)           1.381     7.522    router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg_n_0_[4]
+    SLICE_X38Y87         LUT3 (Prop_lut3_I1_O)        0.320     7.842 r  router210_bd_i/bench_axi_0/inst/u_bench/led[1]_INST_0/O
+                         net (fo=1, routed)           3.814    11.657    led_OBUF[1]
+    P14                  OBUF (Prop_obuf_I_O)         3.761    15.418 r  led_OBUF[1]_inst/O
+                         net (fo=0)                   0.000    15.418    led[1]
+    P14                                                               r  led[1] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 router210_bd_i/bench_axi_0/inst/u_bench/winner_valid_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            led[2]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        9.440ns  (logic 4.380ns (46.402%)  route 5.060ns (53.598%))
+  Logic Levels:           2  (LUT2=1 OBUF=1)
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.451     1.451 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.522     3.973    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     4.074 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.650     5.724    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X37Y89         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_valid_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X37Y89         FDRE (Prop_fdre_C_Q)         0.456     6.180 r  router210_bd_i/bench_axi_0/inst/u_bench/winner_valid_reg/Q
+                         net (fo=8, routed)           0.849     7.029    router210_bd_i/bench_axi_0/inst/u_bench/bench_done
+    SLICE_X41Y92         LUT2 (Prop_lut2_I0_O)        0.150     7.179 r  router210_bd_i/bench_axi_0/inst/u_bench/led[2]_INST_0/O
+                         net (fo=1, routed)           4.211    11.389    led_OBUF[2]
+    N16                  OBUF (Prop_obuf_I_O)         3.774    15.164 r  led_OBUF[2]_inst/O
+                         net (fo=0)                   0.000    15.164    led[2]
+    N16                                                               r  led[2] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            led[0]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        9.411ns  (logic 4.245ns (45.103%)  route 5.166ns (54.897%))
+  Logic Levels:           2  (LUT3=1 OBUF=1)
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.451     1.451 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.522     3.973    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     4.074 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.649     5.723    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X41Y90         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X41Y90         FDRE (Prop_fdre_C_Q)         0.419     6.142 r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[4]/Q
+                         net (fo=4, routed)           1.381     7.522    router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg_n_0_[4]
+    SLICE_X38Y87         LUT3 (Prop_lut3_I1_O)        0.296     7.818 r  router210_bd_i/bench_axi_0/inst/u_bench/led[0]_INST_0/O
+                         net (fo=1, routed)           3.786    11.604    led_OBUF[0]
+    R14                  OBUF (Prop_obuf_I_O)         3.530    15.134 r  led_OBUF[0]_inst/O
+                         net (fo=0)                   0.000    15.134    led[0]
+    R14                                                               r  led[0] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 router210_bd_i/bench_axi_0/inst/u_bench/winner_valid_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            led[3]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.910ns  (logic 4.161ns (46.698%)  route 4.749ns (53.302%))
+  Logic Levels:           2  (LUT2=1 OBUF=1)
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         1.451     1.451 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           2.522     3.973    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     4.074 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         1.650     5.724    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X37Y89         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_valid_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X37Y89         FDRE (Prop_fdre_C_Q)         0.456     6.180 r  router210_bd_i/bench_axi_0/inst/u_bench/winner_valid_reg/Q
+                         net (fo=8, routed)           0.849     7.029    router210_bd_i/bench_axi_0/inst/u_bench/bench_done
+    SLICE_X41Y92         LUT2 (Prop_lut2_I0_O)        0.124     7.153 r  router210_bd_i/bench_axi_0/inst/u_bench/led[3]_INST_0/O
+                         net (fo=1, routed)           3.900    11.053    led_OBUF[3]
+    M14                  OBUF (Prop_obuf_I_O)         3.581    14.634 r  led_OBUF[3]_inst/O
+                         net (fo=0)                   0.000    14.634    led[3]
+    M14                                                               r  led[3] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            led[3]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        3.141ns  (logic 1.467ns (46.710%)  route 1.674ns (53.290%))
+  Logic Levels:           2  (LUT2=1 OBUF=1)
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.219     0.219 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.842     1.060    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     1.086 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.555     1.641    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X41Y90         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X41Y90         FDRE (Prop_fdre_C_Q)         0.141     1.782 r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[3]/Q
+                         net (fo=2, routed)           0.294     2.076    router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg_n_0_[3]
+    SLICE_X41Y92         LUT2 (Prop_lut2_I1_O)        0.045     2.121 r  router210_bd_i/bench_axi_0/inst/u_bench/led[3]_INST_0/O
+                         net (fo=1, routed)           1.380     3.501    led_OBUF[3]
+    M14                  OBUF (Prop_obuf_I_O)         1.281     4.783 r  led_OBUF[3]_inst/O
+                         net (fo=0)                   0.000     4.783    led[3]
+    M14                                                               r  led[3] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 router210_bd_i/bench_axi_0/inst/u_bench/winner_valid_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            led[0]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        3.143ns  (logic 1.417ns (45.072%)  route 1.727ns (54.928%))
+  Logic Levels:           2  (LUT3=1 OBUF=1)
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.219     0.219 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.842     1.060    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     1.086 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.554     1.640    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X37Y89         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_valid_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X37Y89         FDRE (Prop_fdre_C_Q)         0.141     1.781 r  router210_bd_i/bench_axi_0/inst/u_bench/winner_valid_reg/Q
+                         net (fo=8, routed)           0.335     2.116    router210_bd_i/bench_axi_0/inst/u_bench/bench_done
+    SLICE_X38Y87         LUT3 (Prop_lut3_I2_O)        0.045     2.161 r  router210_bd_i/bench_axi_0/inst/u_bench/led[0]_INST_0/O
+                         net (fo=1, routed)           1.392     3.553    led_OBUF[0]
+    R14                  OBUF (Prop_obuf_I_O)         1.231     4.783 r  led_OBUF[0]_inst/O
+                         net (fo=0)                   0.000     4.783    led[0]
+    R14                                                               r  led[0] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 router210_bd_i/bench_axi_0/inst/u_bench/winner_valid_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            led[1]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        3.253ns  (logic 1.511ns (46.445%)  route 1.742ns (53.555%))
+  Logic Levels:           2  (LUT3=1 OBUF=1)
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.219     0.219 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.842     1.060    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     1.086 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.554     1.640    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X37Y89         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_valid_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X37Y89         FDRE (Prop_fdre_C_Q)         0.141     1.781 r  router210_bd_i/bench_axi_0/inst/u_bench/winner_valid_reg/Q
+                         net (fo=8, routed)           0.335     2.116    router210_bd_i/bench_axi_0/inst/u_bench/bench_done
+    SLICE_X38Y87         LUT3 (Prop_lut3_I2_O)        0.046     2.162 r  router210_bd_i/bench_axi_0/inst/u_bench/led[1]_INST_0/O
+                         net (fo=1, routed)           1.407     3.569    led_OBUF[1]
+    P14                  OBUF (Prop_obuf_I_O)         1.324     4.893 r  led_OBUF[1]_inst/O
+                         net (fo=0)                   0.000     4.893    led[1]
+    P14                                                               r  led[1] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            led[2]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        3.360ns  (logic 1.565ns (46.568%)  route 1.796ns (53.432%))
+  Logic Levels:           2  (LUT2=1 OBUF=1)
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    H16                                               0.000     0.000 r  sysclk (IN)
+                         net (fo=0)                   0.000     0.000    sysclk
+    H16                  IBUF (Prop_ibuf_I_O)         0.219     0.219 r  sysclk_IBUF_inst/O
+                         net (fo=1, routed)           0.842     1.060    sysclk_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     1.086 r  sysclk_IBUF_BUFG_inst/O
+                         net (fo=913, routed)         0.555     1.641    router210_bd_i/bench_axi_0/inst/u_bench/s_axi_aclk
+    SLICE_X41Y90         FDRE                                         r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X41Y90         FDRE (Prop_fdre_C_Q)         0.128     1.769 r  router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg[2]/Q
+                         net (fo=2, routed)           0.225     1.994    router210_bd_i/bench_axi_0/inst/u_bench/winner_onehot_latched_reg_n_0_[2]
+    SLICE_X41Y92         LUT2 (Prop_lut2_I1_O)        0.102     2.096 r  router210_bd_i/bench_axi_0/inst/u_bench/led[2]_INST_0/O
+                         net (fo=1, routed)           1.571     3.667    led_OBUF[2]
+    N16                  OBUF (Prop_obuf_I_O)         1.335     5.002 r  led_OBUF[2]_inst/O
+                         net (fo=0)                   0.000     5.002    led[2]
+    N16                                                               r  led[2] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
