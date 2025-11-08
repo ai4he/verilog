@@ -16,6 +16,9 @@ The `chatgpt01` folder now contains two benchmark configurations:
 * Zynq + AXI overlay: run `build_and_program_router210_axi.bat` (generates
   `router210_bench.bit` / `.hwh` in both `scripts/` and repo root) and program
   the board with `program_router210_axi_only.bat`.
+* Use the new `router210_benchmark.ipynb` notebook alongside the generated
+  `router210_bench.bit/.hwh` files to capture AXI measurements for this
+  five-condition experiment.
 * The LED map is:
   * LED0 → Base-2 condition win
   * LED1 → Base-10 condition win
